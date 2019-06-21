@@ -4,3 +4,6 @@ $user = "root";
 $password = "";
 $database = "project";
 
+=== PHP Info ===
+Php versi 5
+
