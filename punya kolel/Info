@@ -1,0 +1,7 @@
+=== Database Info ===
+.
+$host = "localhost";
+$user = "root";
+$password = "";
+$database = "project";
+
