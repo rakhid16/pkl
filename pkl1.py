@@ -29,12 +29,12 @@ class Ui_MainWindow(object):
             self.tableWidget.setItem(row_number, column_number, QtWidgets.QTableWidgetItem(str(data)))
         conn.close()
 
-
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1339, 1026)
         MainWindow.setLayoutDirection(QtCore.Qt.LeftToRight)
         MainWindow.setAutoFillBackground(False)
+
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.label = QtWidgets.QLabel(self.centralwidget)
@@ -46,6 +46,20 @@ class Ui_MainWindow(object):
         self.tableWidget.setRowCount(10000)
         self.tableWidget.setColumnCount(9)
         self.tableWidget.setObjectName("tableWidget")
+
+        conn = sqlite3.connect('C:/database_poli_gigi/db_poli.sqlite')
+        c = conn.cursor()
+
+        query = "SELECT * FROM data_all"
+        result = c.execute(query)
+
+        self.tableWidget.setRowCount(0)
+        for row_number, row_data in enumerate(result):
+            self.tableWidget.insertRow(row_number)
+        for column_number, data in enumerate(row_data):
+            self.tableWidget.setItem(row_number, column_number, QtWidgets.QTableWidgetItem(str(data)))
+        conn.close()
+
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget.setHorizontalHeaderItem(0, item)
         item = QtWidgets.QTableWidgetItem()
@@ -144,7 +158,7 @@ class Ui_MainWindow(object):
         __sortingEnabled = self.tableWidget.isSortingEnabled()
         self.tableWidget.setSortingEnabled(False)
         self.tableWidget.setSortingEnabled(__sortingEnabled)
-        self.btn_load.setText(_translate("MainWindow", "Segarkan"))
+        self.btn_load.setText(_translate("MainWindow", "Buat Data Baru"))
         self.pushButton_2.setText(_translate("MainWindow", "Cari"))
         self.pushButton_3.setText(_translate("MainWindow", "Eksport Data"))
 
