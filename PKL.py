@@ -8,31 +8,46 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from tkinter import messagebox
 import sqlite3
 
 class Ui_MainWindow(object):
+    
     def messagebox(self, title, message):
         mess=QtWidgets.QMessageBox()
         mess.setWindowTitle(title)
         mess.setText(message)
         mess.setStandardButtons(QtWidgets.QMessageBox.Ok)
         mess.exec_()
-        
+
+    # def search(self):
+            # conn = sqlite3.connect('D:/4.PKL/Data PKL/Repository Github PKL/database_poli_gigi/db_poli_tes.sqlite')
+            # c = conn.cursor()
+            
+            # query = "SELECT * FROM data_baru WHERE id = 17081010055"
+            # tanggal,id,nama,tanggal_lahir,usia,golongan,diagnosa,perawatan,pengobatan"
+            # result = c.execute(query)
+
+            # self.tableWidget.setRowCount(0)
+            # for row_number, row_data in enumerate(result):
+            #     self.tableWidget.insertRow(row_number)
+            # for column_number, data in enumerate(row_data):
+            #     self.tableWidget.setItem(row_number, column_number, QtWidgets.QTableWidgetItem(str(data)))
+
+            # conn.commit()
+            # conn.close()    
+
     # def saveData(self):
     #     self.tableWidget.setRowCount(0)
     #     for row_number, row_data in enumerate():
     #         self.tableWidget.insertRow(row_number)
     #     for column_number, data in enumerate(row_data):
     #         self.tableWidget.setItem(row_number, column_number, QtWidgets.QTableWidgetItem(str(data)))
-        
 
     def loadData(self):
-        conn = sqlite3.connect('D:/4.PKL/Data PKL/database_poli.sqlite')
+        conn = sqlite3.connect('D:/4.PKL/Data PKL/Repository Github PKL/database_poli_gigi/db_poli_tes.sqlite')
         c = conn.cursor()
-        c.execute("CREATE TABLE IF NOT EXISTS data_baru(tanggal date,id number,nama text,tanggal_lahir,usia number,golongan text,diagnosa text,perawatan text,pengobatan text)")
-        
-        
-        conn.commit()
+        c.execute("INSERT INTO data_baru VALUES ('','','Radical Rakhamn Wahid','15-14-2998','','Mahasiswa','','','')")
 
         query = "SELECT * FROM data_baru"
         result = c.execute(query)
@@ -47,6 +62,9 @@ class Ui_MainWindow(object):
         conn.close()
 
     def setupUi(self, MainWindow):
+        conn = sqlite3.connect('D:/4.PKL/Data PKL/Repository Github PKL/database_poli_gigi/db_poli_tes.sqlite')
+        c = conn.cursor()
+                
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1339, 760)
         MainWindow.setLayoutDirection(QtCore.Qt.LeftToRight)
@@ -66,19 +84,6 @@ class Ui_MainWindow(object):
         self.tableWidget.setRowCount(10000)
         self.tableWidget.setColumnCount(9)
         self.tableWidget.setObjectName("tableWidget")
-
-        conn = sqlite3.connect('D:/4.PKL/Data PKL/database_poli.sqlite')
-        c = conn.cursor()
-
-        query = "SELECT * FROM data_baru"
-        result = c.execute(query)
-
-        self.tableWidget.setRowCount(0)
-        for row_number, row_data in enumerate(result):
-            self.tableWidget.insertRow(row_number)
-        for column_number, data in enumerate(row_data):
-            self.tableWidget.setItem(row_number, column_number, QtWidgets.QTableWidgetItem(str(data)))
-        conn.close()
 
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget.setHorizontalHeaderItem(0, item)
@@ -113,6 +118,7 @@ class Ui_MainWindow(object):
         self.btn_search = QtWidgets.QPushButton(self.centralwidget)
         self.btn_search.setGeometry(QtCore.QRect(920, 61, 91, 31))
         self.btn_search.setObjectName("btn_search")
+        # self.btn_search.clicked.connect(self.search)
 
         self.btn_ekspor = QtWidgets.QPushButton(self.centralwidget)
         self.btn_ekspor.setGeometry(QtCore.QRect(1160, 626, 91, 31))
@@ -133,6 +139,17 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
+        query = "SELECT tanggal,id,nama,tanggal_lahir,usia,golongan,diagnosa,perawatan,pengobatan from data_baru"
+        result = c.execute(query)
+
+        self.tableWidget.setRowCount(0)
+        for row_number, row_data in enumerate(result):
+            self.tableWidget.insertRow(row_number)
+        for column_number, data in enumerate(row_data):
+            self.tableWidget.setItem(row_number, column_number, QtWidgets.QTableWidgetItem(str(data)))
+        
+        conn.close()
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -190,8 +207,7 @@ class Ui_MainWindow(object):
         self.btn_search.setText(_translate("MainWindow", "Cari NPM / NRP"))
         self.btn_ekspor.setText(_translate("MainWindow", "Ekspor Data"))
         self.btn_save.setText(_translate("MainWindow", "Simpan Perubahan"))
-        self.lineEdit.setText(_translate("MainWindow", "17081010055"))
-
+        self.lineEdit.setText(_translate("MainWindow", ""))
 
 if __name__ == "__main__":
     import sys
