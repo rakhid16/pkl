@@ -6,10 +6,14 @@
 #
 # WARNING! All changes made in this file will be lost!
 
-
+import sys
+import sqlite3
 from PyQt5 import QtCore, QtGui, QtWidgets
 from tkinter import messagebox
-import sqlite3
+from xlsxwriter.workbook import Workbook
+
+workbook = Workbook('Data Hasil Ekspor.xlsx')
+worksheet = workbook.add_worksheet()
 
 class Ui_MainWindow(object):
     
@@ -20,7 +24,7 @@ class Ui_MainWindow(object):
         mess.setStandardButtons(QtWidgets.QMessageBox.Ok)
         mess.exec_()
     #aaaaaaaaaaaaaaaaaa
-    
+
     # def search(self):
             # conn = sqlite3.connect('D:/4.PKL/Data PKL/Repository Github PKL/database_poli_gigi/db_poli_tes.sqlite')
             # c = conn.cursor()
@@ -44,11 +48,24 @@ class Ui_MainWindow(object):
     #         self.tableWidget.insertRow(row_number)
     #     for column_number, data in enumerate(row_data):
     #         self.tableWidget.setItem(row_number, column_number, QtWidgets.QTableWidgetItem(str(data)))
+    def eksporData(self):
+        conn=sqlite3.connect('D:/4.PKL/Data PKL/Repository Github PKL/database_poli_gigi/db_poli_tes.sqlite')
+        c=conn.cursor()
+        cols = [i[0] for i in c.description]
+        for c, col in enumerate(cols):
+            worksheet.write(0, c, col)
+        query=c.execute("SELECT * FROM data_baru")
+        for i, row in enumerate(query):
+            for j, value in enumerate(row):
+                worksheet.write(i, j, value)
+        workbook.close()
+        self.messagebox("Pesan","Data Telah Diekspor!")
+        
 
     def loadData(self):
         conn = sqlite3.connect('D:/4.PKL/Data PKL/Repository Github PKL/database_poli_gigi/db_poli_tes.sqlite')
         c = conn.cursor()
-        c.execute("INSERT INTO data_baru VALUES ('','','Radical Rakhamn Wahid','15-14-2998','','Mahasiswa','','','')")
+        # c.execute("INSERT INTO data_baru VALUES ('','','Radical Rakhamn Wahid','15-14-2998','','Mahasiswa','','','')")
 
         query = "SELECT * FROM data_baru"
         result = c.execute(query)
@@ -56,8 +73,8 @@ class Ui_MainWindow(object):
         self.tableWidget.setRowCount(0)
         for row_number, row_data in enumerate(result):
             self.tableWidget.insertRow(row_number)
-        for column_number, data in enumerate(row_data):
-            self.tableWidget.setItem(row_number, column_number, QtWidgets.QTableWidgetItem(str(data)))
+            for column_number, data in enumerate(row_data):
+                self.tableWidget.setItem(row_number, column_number, QtWidgets.QTableWidgetItem(str(data)))
 
         self.messagebox("Pesan","Data Baru siap digunakan!")
         conn.close()
@@ -124,6 +141,7 @@ class Ui_MainWindow(object):
         self.btn_ekspor = QtWidgets.QPushButton(self.centralwidget)
         self.btn_ekspor.setGeometry(QtCore.QRect(1160, 626, 91, 31))
         self.btn_ekspor.setObjectName("btn_ekspor")
+        self.btn_ekspor.clicked.connect(self.eksporData)
 
         self.btn_save = QtWidgets.QPushButton(self.centralwidget)
         self.btn_save.setGeometry(QtCore.QRect(1130, 60, 121, 31))
@@ -147,8 +165,8 @@ class Ui_MainWindow(object):
         self.tableWidget.setRowCount(0)
         for row_number, row_data in enumerate(result):
             self.tableWidget.insertRow(row_number)
-        for column_number, data in enumerate(row_data):
-            self.tableWidget.setItem(row_number, column_number, QtWidgets.QTableWidgetItem(str(data)))
+            for column_number, data in enumerate(row_data):
+                self.tableWidget.setItem(row_number, column_number, QtWidgets.QTableWidgetItem(str(data)))
         
         conn.close()
 
@@ -211,7 +229,6 @@ class Ui_MainWindow(object):
         self.lineEdit.setText(_translate("MainWindow", ""))
 
 if __name__ == "__main__":
-    import sys
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow()
