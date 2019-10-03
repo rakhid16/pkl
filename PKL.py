@@ -23,7 +23,6 @@ class Ui_MainWindow(object):
         mess.setText(message)
         mess.setStandardButtons(QtWidgets.QMessageBox.Ok)
         mess.exec_()
-    #aaaaaaaaaaaaaaaaaa
 
     # def search(self):
             # conn = sqlite3.connect('D:/4.PKL/Data PKL/Repository Github PKL/database_poli_gigi/db_poli_tes.sqlite')
@@ -48,6 +47,7 @@ class Ui_MainWindow(object):
     #         self.tableWidget.insertRow(row_number)
     #     for column_number, data in enumerate(row_data):
     #         self.tableWidget.setItem(row_number, column_number, QtWidgets.QTableWidgetItem(str(data)))
+    
     def eksporData(self):
         conn=sqlite3.connect('D:/4.PKL/Data PKL/Repository Github PKL/database_poli_gigi/db_poli_tes.sqlite')
         c=conn.cursor()
