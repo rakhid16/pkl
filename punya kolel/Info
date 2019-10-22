@@ -1,9 +1,0 @@
-=== Database Info ===
-$host = "localhost";
-$user = "root";
-$password = "";
-$database = "project";
-
-=== PHP Info ===
-Php versi 5
-

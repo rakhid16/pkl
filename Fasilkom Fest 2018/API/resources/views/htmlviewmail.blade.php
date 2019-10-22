@@ -1,1 +1,0 @@
-Silahkan masukkan {{ $kode }} untuk password baru anda.
