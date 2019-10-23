@@ -6,11 +6,19 @@
 #
 # WARNING! All changes made in this file will be lost!
 
-
+from tampilan_query_pergolongan import Ui_MainWindow_2
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+import sqlite3
 
 class Ui_MainWindow(object):
+    def button_pindah(self):
+        self.window=QtWidgets.QMainWindow()
+        self.ui=Ui_MainWindow_2()
+        self.ui.setupUi_2(self.window)
+        self.window.show()
+        MainWindow.hide()
+
+        
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(994, 814)
@@ -247,8 +255,30 @@ class Ui_MainWindow(object):
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
 
+        self.pushButton.clicked.connect(self.button_pindah)
+        self.pushButton_2.clicked.connect(self.button_pindah)
+        self.pushButton_3.clicked.connect(self.button_pindah)
+        self.pushButton_4.clicked.connect(self.button_pindah)
+        
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
+        
+        conn = sqlite3.connect('D:/4. PKL/Data PKL/Repo From Wahid Asli PKL/database/pangkalan_data.db')
+        c = conn.cursor()
+
+        query = "select * from pengunjung"
+            
+        result = c.execute(query)
+
+        self.tableWidget.setRowCount(0)
+        for row_number, row_data in enumerate(result):
+            self.tableWidget.insertRow(row_number)
+            for column_number, data in enumerate(row_data):
+                self.tableWidget.setItem(row_number, column_number, QtWidgets.QTableWidgetItem(str(data)))
+
+        conn.close()
+
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -294,14 +324,15 @@ class Ui_MainWindow(object):
         self.label_2.setText(_translate("MainWindow", "Edit Data"))
         self.label_3.setText(_translate("MainWindow", "Tambah Data"))
         self.label_4.setText(_translate("MainWindow", "Ekspor Data"))
-import img_rsc_rc
+import resource
 
 
 if __name__ == "__main__":
-    import sys
+    import sys    
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
+    MainWindow.showMaximized()
     MainWindow.show()
     sys.exit(app.exec_())

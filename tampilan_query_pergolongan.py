@@ -6,14 +6,88 @@
 #
 # WARNING! All changes made in this file will be lost!
 
-
+import sqlite3
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_MainWindow(object):
-    def setupUi(self, MainWindow):
+class Ui_MainWindow_2(object):
+    def loadData(self):
+        conn = sqlite3.connect('D:/4. PKL/Data PKL/Repo From Wahid Asli PKL/database/pangkalan_data.db')
+        c = conn.cursor()
+
+        query = "SELECT * FROM data_karyawan_mhs WHERE Golongan='Kebersihan'"
+        
+        result = c.execute(query)
+
+        self.tableWidget.setRowCount(0)
+        for row_number, row_data in enumerate(result):
+            self.tableWidget.insertRow(row_number)
+            for column_number, data in enumerate(row_data):
+                self.tableWidget.setItem(row_number, column_number, QtWidgets.QTableWidgetItem(str(data)))
+
+        conn.close()
+
+    def loadData1(self):
+        conn = sqlite3.connect('D:/4. PKL/Data PKL/Repo From Wahid Asli PKL/database/pangkalan_data.db')
+        c = conn.cursor()
+
+        query = "select * from data_karyawan_mhs WHERE Golongan='Mahasiswa'"
+        
+        result = c.execute(query)
+
+        self.tableWidget.setRowCount(0)
+        for row_number, row_data in enumerate(result):
+            self.tableWidget.insertRow(row_number)
+            for column_number, data in enumerate(row_data):
+                self.tableWidget.setItem(row_number, column_number, QtWidgets.QTableWidgetItem(str(data)))
+
+        conn.close()
+
+    def loadData2(self):
+        conn = sqlite3.connect('D:/4. PKL/Data PKL/Repo From Wahid Asli PKL/database/pangkalan_data.db')
+        c = conn.cursor()
+
+        query = "select * from data_karyawan_mhs WHERE Golongan='Dosen' OR Golongan='Admin' OR Golongan='Laboran'"
+                
+        result = c.execute(query)
+
+        self.tableWidget.setRowCount(0)
+        for row_number, row_data in enumerate(result):
+            self.tableWidget.insertRow(row_number)
+            for column_number, data in enumerate(row_data):
+                self.tableWidget.setItem(row_number, column_number, QtWidgets.QTableWidgetItem(str(data)))
+
+        conn.close()
+
+    def loadData3(self):
+        conn = sqlite3.connect('D:/4. PKL/Data PKL/Repo From Wahid Asli PKL/database/pangkalan_data.db')
+        c = conn.cursor()
+
+        query = "select * from data_karyawan_mhs WHERE Golongan='PAM'"
+        
+        result = c.execute(query)
+
+        self.tableWidget.setRowCount(0)
+        for row_number, row_data in enumerate(result):
+            self.tableWidget.insertRow(row_number)
+            for column_number, data in enumerate(row_data):
+                self.tableWidget.setItem(row_number, column_number, QtWidgets.QTableWidgetItem(str(data)))
+
+        conn.close()
+
+    def loadDataUtama(self):
+        from tampilan_program_utama import Ui_MainWindow
+        self.window=QtWidgets.QMainWindow()
+        self.ui=Ui_MainWindow()
+        self.ui.setupUi(self.window)
+        self.window.show()
+        self.window.showMaximized()
+        
+        
+
+    def setupUi_2(self, MainWindow):
+        MainWindow.showMaximized()
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1010, 867)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.gridLayout = QtWidgets.QGridLayout(self.centralwidget)
@@ -73,6 +147,12 @@ class Ui_MainWindow(object):
         self.pushButton_3.setIcon(icon2)
         self.pushButton_3.setIconSize(QtCore.QSize(85, 85))
         self.pushButton_3.setObjectName("pushButton_3")
+        
+        self.pushButton_3.clicked.connect(self.loadData)
+        
+        self.pushButton.clicked.connect(self.loadData2)
+        self.pushButton_2.clicked.connect(self.loadData3)
+
         self.verticalLayout_5.addWidget(self.pushButton_3)
         self.label_7 = QtWidgets.QLabel(self.frame_2)
         self.label_7.setAlignment(QtCore.Qt.AlignCenter)
@@ -88,6 +168,9 @@ class Ui_MainWindow(object):
         self.pushButton_4.setIcon(icon3)
         self.pushButton_4.setIconSize(QtCore.QSize(85, 85))
         self.pushButton_4.setObjectName("pushButton_4")
+        
+        self.pushButton_4.clicked.connect(self.loadData1)
+
         self.verticalLayout_8.addWidget(self.pushButton_4)
         self.label_8 = QtWidgets.QLabel(self.frame_2)
         self.label_8.setAlignment(QtCore.Qt.AlignCenter)
@@ -109,6 +192,7 @@ class Ui_MainWindow(object):
         self.home.setIcon(icon4)
         self.home.setIconSize(QtCore.QSize(60, 60))
         self.home.setObjectName("home")
+        self.home.clicked.connect(self.loadDataUtama)
         self.gridLayout_2.addWidget(self.home, 0, 1, 1, 1)
         spacerItem = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.gridLayout_2.addItem(spacerItem, 0, 0, 1, 1)
@@ -233,9 +317,25 @@ class Ui_MainWindow(object):
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
-
+        
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
+        conn = sqlite3.connect('D:/4. PKL/Data PKL/Repo From Wahid Asli PKL/database/pangkalan_data.db')
+        c = conn.cursor()
+
+        query = "select * from data_karyawan_mhs WHERE Golongan='Dosen' OR Golongan='Admin' OR Golongan='Laboran'"
+                
+        result = c.execute(query)
+
+        self.tableWidget.setRowCount(0)
+        for row_number, row_data in enumerate(result):
+            self.tableWidget.insertRow(row_number)
+            for column_number, data in enumerate(row_data):
+                self.tableWidget.setItem(row_number, column_number, QtWidgets.QTableWidgetItem(str(data)))
+
+        conn.close()
+
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -272,14 +372,18 @@ class Ui_MainWindow(object):
         item.setText(_translate("MainWindow", "Golongan"))
         self.label_2.setText(_translate("MainWindow", "Edit Data"))
         self.label_3.setText(_translate("MainWindow", "Tambah Data"))
-import img_rsc_rc
+
+import resource
+
+
 
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
+    ui = Ui_MainWindow_2()
+    ui.setupUi_2(MainWindow)
+    MainWindow.showMaximized()
     MainWindow.show()
     sys.exit(app.exec_())
