@@ -1,5 +1,8 @@
 <RCC>
   <qresource prefix="images">
+    <file>img/centang.png</file>
+    <file>img/silang.png</file>
+    <file>img/riwayat.png</file>
     <file>img/mahasiswa.png</file>
     <file>img/edit.png</file>
     <file>img/data_baru.png</file>

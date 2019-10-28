@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>994</width>
-    <height>814</height>
+    <height>828</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -168,54 +168,17 @@
          </layout>
         </widget>
        </item>
-       <item row="0" column="0" colspan="3">
-        <widget class="QFrame" name="frame_6">
+       <item row="0" column="3">
+        <widget class="QFrame" name="frame_3">
          <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
+          <enum>QFrame::NoFrame</enum>
          </property>
          <property name="frameShadow">
-          <enum>QFrame::Raised</enum>
+          <enum>QFrame::Plain</enum>
          </property>
-         <layout class="QGridLayout" name="gridLayout_4">
-          <item row="1" column="0">
-           <spacer name="verticalSpacer">
-            <property name="orientation">
-             <enum>Qt::Vertical</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>17</width>
-              <height>17</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
+         <layout class="QGridLayout" name="gridLayout_2">
           <item row="0" column="0">
-           <layout class="QHBoxLayout" name="horizontalLayout">
-            <item>
-             <widget class="QLabel" name="label_9">
-              <property name="text">
-               <string/>
-              </property>
-              <property name="pixmap">
-               <pixmap resource="img_rsc.qrc">:/images/img/upn logo.png</pixmap>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLabel" name="label_10">
-              <property name="text">
-               <string/>
-              </property>
-              <property name="pixmap">
-               <pixmap resource="img_rsc.qrc">:/images/img/poli gigi logo.png</pixmap>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item row="0" column="1">
-           <spacer name="horizontalSpacer_2">
+           <spacer name="horizontalSpacer_3">
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
             </property>
@@ -227,14 +190,47 @@
             </property>
            </spacer>
           </item>
+          <item row="2" column="1">
+           <spacer name="verticalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>17</width>
+              <height>9</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="0" column="1">
+           <widget class="QPushButton" name="pushButton_7">
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="img_rsc.qrc">
+              <normaloff>:/images/img/riwayat.png</normaloff>:/images/img/riwayat.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>60</width>
+              <height>55</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLabel" name="label_11">
+            <property name="text">
+             <string>Lihat Riwayat</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
          </layout>
-        </widget>
-       </item>
-       <item row="2" column="0">
-        <widget class="QLabel" name="label">
-         <property name="text">
-          <string/>
-         </property>
         </widget>
        </item>
        <item row="1" column="0" rowspan="2">
@@ -373,30 +369,54 @@
          </layout>
         </widget>
        </item>
-       <item row="0" column="3">
-        <widget class="QFrame" name="frame_3">
+       <item row="0" column="0" colspan="3">
+        <widget class="QFrame" name="frame_6">
          <property name="frameShape">
-          <enum>QFrame::NoFrame</enum>
+          <enum>QFrame::StyledPanel</enum>
          </property>
          <property name="frameShadow">
-          <enum>QFrame::Plain</enum>
+          <enum>QFrame::Raised</enum>
          </property>
-         <layout class="QGridLayout" name="gridLayout_2">
-          <item row="1" column="1">
-           <spacer name="verticalSpacer_2">
+         <layout class="QGridLayout" name="gridLayout_4">
+          <item row="1" column="0">
+           <spacer name="verticalSpacer">
             <property name="orientation">
              <enum>Qt::Vertical</enum>
             </property>
             <property name="sizeHint" stdset="0">
              <size>
               <width>17</width>
-              <height>9</height>
+              <height>17</height>
              </size>
             </property>
            </spacer>
           </item>
           <item row="0" column="0">
-           <spacer name="horizontalSpacer_3">
+           <layout class="QHBoxLayout" name="horizontalLayout">
+            <item>
+             <widget class="QLabel" name="label_9">
+              <property name="text">
+               <string/>
+              </property>
+              <property name="pixmap">
+               <pixmap resource="img_rsc.qrc">:/images/img/upn logo.png</pixmap>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_10">
+              <property name="text">
+               <string/>
+              </property>
+              <property name="pixmap">
+               <pixmap resource="img_rsc.qrc">:/images/img/poli gigi logo.png</pixmap>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item row="0" column="1">
+           <spacer name="horizontalSpacer_2">
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
             </property>
@@ -412,6 +432,19 @@
         </widget>
        </item>
       </layout>
+      <widget class="QLabel" name="label">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>360</y>
+         <width>178</width>
+         <height>240</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
      </widget>
     </item>
     <item row="1" column="0">
