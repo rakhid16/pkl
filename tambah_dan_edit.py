@@ -8,10 +8,19 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+import sqlite3
 
+class Ui_MainWindow_3(object):
+    def insertData(self):
+        conn = sqlite3.connect('database/pangkalan_data.db')
+        with conn:
+            cur = conn.cursor()
 
-class Ui_MainWindow(object):
-    def setupUi(self, MainWindow):
+            cur.execute("INSERT INTO pengunjung (Tanggal, NPM/NRP, Nama, Tanggal_Lahir, Usia, Golongan, Diagnosa, Perawatan_Gigi, Pengobatan)
+VALUES ();")
+            
+
+    def setupUi_3(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.setFixedSize(802, 603)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -168,6 +177,7 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
+
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
@@ -187,7 +197,7 @@ if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
+    ui = Ui_MainWindow_3()
+    ui.setupUi_3(MainWindow)
     MainWindow.show()
     sys.exit(app.exec_())
