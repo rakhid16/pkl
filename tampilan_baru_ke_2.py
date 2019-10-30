@@ -8,10 +8,82 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+import sqlite3
 
+class Ui_MainWindow_golongan(object):
+    def loadData(self):
+        conn = sqlite3.connect('database/pangkalan_data.db')
+        c = conn.cursor()
 
-class Ui_MainWindow(object):
-    def setupUi(self, MainWindow):
+        query = "SELECT * FROM data_karyawan_mhs WHERE Golongan='Kebersihan'"
+        
+        result = c.execute(query)
+
+        self.tableWidget.setRowCount(0)
+        for row_number, row_data in enumerate(result):
+            self.tableWidget.insertRow(row_number)
+            for column_number, data in enumerate(row_data):
+                self.tableWidget.setItem(row_number, column_number, QtWidgets.QTableWidgetItem(str(data)))
+
+        conn.close()
+
+    def loadData1(self):
+        conn = sqlite3.connect('database/pangkalan_data.db')
+        c = conn.cursor()
+
+        query = "select * from data_karyawan_mhs WHERE Golongan='Mahasiswa'"
+        
+        result = c.execute(query)
+
+        self.tableWidget.setRowCount(0)
+        for row_number, row_data in enumerate(result):
+            self.tableWidget.insertRow(row_number)
+            for column_number, data in enumerate(row_data):
+                self.tableWidget.setItem(row_number, column_number, QtWidgets.QTableWidgetItem(str(data)))
+
+        conn.close()
+
+    def loadData2(self):
+        conn = sqlite3.connect('database/pangkalan_data.db')
+        c = conn.cursor()
+
+        query = "select * from data_karyawan_mhs WHERE Golongan='Dosen' OR Golongan='Admin' OR Golongan='Laboran'"
+                
+        result = c.execute(query)
+
+        self.tableWidget.setRowCount(0)
+        for row_number, row_data in enumerate(result):
+            self.tableWidget.insertRow(row_number)
+            for column_number, data in enumerate(row_data):
+                self.tableWidget.setItem(row_number, column_number, QtWidgets.QTableWidgetItem(str(data)))
+
+        conn.close()
+
+    def loadData3(self):
+        conn = sqlite3.connect('database/pangkalan_data.db')
+        c = conn.cursor()
+
+        query = "select * from data_karyawan_mhs WHERE Golongan='PAM'"
+        
+        result = c.execute(query)
+
+        self.tableWidget.setRowCount(0)
+        for row_number, row_data in enumerate(result):
+            self.tableWidget.insertRow(row_number)
+            for column_number, data in enumerate(row_data):
+                self.tableWidget.setItem(row_number, column_number, QtWidgets.QTableWidgetItem(str(data)))
+
+        conn.close()
+
+    def loadDataUtama(self, setupUi_2):
+        from tampilan_baru import Ui_MainWindow_utama
+        self.window=QtWidgets.QMainWindow()
+        self.ui=Ui_MainWindow_utama()
+        self.ui.setupUi_utama(self.window)
+        self.window.setFixedSize(1361, 692)
+        self.window.show()
+
+    def setupUi_golongan(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1010, 867)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -239,6 +311,28 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
+        self.pushButton_3.clicked.connect(self.loadData)        
+        self.pushButton_4.clicked.connect(self.loadData1)
+        self.pushButton.clicked.connect(self.loadData2)
+        self.pushButton_2.clicked.connect(self.loadData3)
+        self.home.clicked.connect(self.loadDataUtama)
+
+        conn = sqlite3.connect('database/pangkalan_data.db')
+        c = conn.cursor()
+        query = "select * from data_karyawan_mhs WHERE Golongan='Dosen' OR Golongan='Admin' OR Golongan='Laboran'"
+                
+        result = c.execute(query)
+
+        self.tableWidget.setRowCount(0)
+        for row_number, row_data in enumerate(result):
+            self.tableWidget.insertRow(row_number)
+            for column_number, data in enumerate(row_data):
+                self.tableWidget.setItem(row_number, column_number, QtWidgets.QTableWidgetItem(str(data)))
+
+        conn.close()
+
+        
+
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
@@ -281,8 +375,8 @@ if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
+    ui = Ui_MainWindow_golongan()
+    ui.setupUi_golongan(MainWindow)
     MainWindow.showMaximized()
     MainWindow.show()
     sys.exit(app.exec_())
