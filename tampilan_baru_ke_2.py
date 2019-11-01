@@ -9,8 +9,24 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 import sqlite3
+from tambah import Ui_MainWindow_tambah
+from riwayat import Ui_MainWindow_riwayat
 
 class Ui_MainWindow_golongan(object):
+    def pindahRiwayat(self):
+        self.window=QtWidgets.QMainWindow()
+        self.ui=Ui_MainWindow_riwayat()
+        self.ui.setupUi_riwayat(self.window)
+        self.window.setFixedSize(802, 603)
+        self.window.show()
+    
+    def tambahData(self):
+        self.window=QtWidgets.QMainWindow()
+        self.ui=Ui_MainWindow_tambah()
+        self.ui.setupUi_tambah(self.window)
+        self.window.setFixedSize(800, 600)
+        self.window.show()
+
     def loadData(self):
         conn = sqlite3.connect('database/pangkalan_data.db')
         c = conn.cursor()
@@ -285,6 +301,9 @@ class Ui_MainWindow_golongan(object):
         self.pushButton_7.setIcon(icon5)
         self.pushButton_7.setIconSize(QtCore.QSize(60, 60))
         self.pushButton_7.setObjectName("pushButton_7")
+
+        self.pushButton_7.clicked.connect(self.pindahRiwayat)
+
         self.gridLayout_3.addWidget(self.pushButton_7, 1, 1, 1, 1)
         self.label_4 = QtWidgets.QLabel(self.frame_4)
         self.label_4.setAlignment(QtCore.Qt.AlignCenter)
@@ -316,6 +335,7 @@ class Ui_MainWindow_golongan(object):
         self.pushButton.clicked.connect(self.loadData2)
         self.pushButton_2.clicked.connect(self.loadData3)
         self.home.clicked.connect(self.loadDataUtama)
+        self.pushButton_5.clicked.connect(self.tambahData)
 
         conn = sqlite3.connect('database/pangkalan_data.db')
         c = conn.cursor()
@@ -377,6 +397,6 @@ if __name__ == "__main__":
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow_golongan()
     ui.setupUi_golongan(MainWindow)
-    MainWindow.showMaximized()
+    MainWindow.setFixedSize(1361, 692)
     MainWindow.show()
     sys.exit(app.exec_())

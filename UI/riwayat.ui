@@ -41,7 +41,7 @@
                <string/>
               </property>
               <property name="pixmap">
-               <pixmap resource="Ngampus!/Semester 5/Praktek Kerja Lapangan/UI/img_rsc.qrc">:/images/img/upn logo.png</pixmap>
+               <pixmap resource="img_rsc.qrc">:/images/img/upn logo.png</pixmap>
               </property>
               <property name="scaledContents">
                <bool>true</bool>
@@ -54,7 +54,7 @@
                <string/>
               </property>
               <property name="pixmap">
-               <pixmap resource="Ngampus!/Semester 5/Praktek Kerja Lapangan/UI/img_rsc.qrc">:/images/img/poli gigi logo.png</pixmap>
+               <pixmap resource="img_rsc.qrc">:/images/img/poli gigi logo.png</pixmap>
               </property>
              </widget>
             </item>
@@ -167,26 +167,9 @@
           <item row="0" column="0">
            <layout class="QVBoxLayout" name="verticalLayout_2">
             <item>
-             <widget class="QPushButton" name="pushButton_2">
-              <property name="text">
-               <string/>
-              </property>
-              <property name="icon">
-               <iconset resource="Ngampus!/Semester 5/Praktek Kerja Lapangan/UI/img_rsc.qrc">
-                <normaloff>:/images/img/balik.png</normaloff>:/images/img/balik.png</iconset>
-              </property>
-              <property name="iconSize">
-               <size>
-                <width>60</width>
-                <height>60</height>
-               </size>
-              </property>
-             </widget>
-            </item>
-            <item>
              <widget class="QLabel" name="label_4">
               <property name="text">
-               <string>Kembali</string>
+               <string/>
               </property>
               <property name="alignment">
                <set>Qt::AlignCenter</set>
@@ -216,7 +199,7 @@
                <string/>
               </property>
               <property name="icon">
-               <iconset resource="Ngampus!/Semester 5/Praktek Kerja Lapangan/UI/img_rsc.qrc">
+               <iconset resource="img_rsc.qrc">
                 <normaloff>:/images/img/export.png</normaloff>:/images/img/export.png</iconset>
               </property>
               <property name="iconSize">
@@ -260,7 +243,8 @@
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources>
-  <include location="Ngampus!/Semester 5/Praktek Kerja Lapangan/UI/img_rsc.qrc"/>
+  <include location="img_rsc.qrc"/>
+  <include location="img_rsc.qrc"/>
  </resources>
  <connections/>
 </ui>
