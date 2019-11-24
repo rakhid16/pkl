@@ -9,8 +9,17 @@
 from tkinter import messagebox
 from PyQt5 import QtCore, QtGui, QtWidgets
 from tampilan_baru import Ui_MainWindow_utama
+from tampilan_admin import Ui_MainWindow_Admin
 
 class Ui_MainWindow_login(object):
+    def btn_admin(self):
+        self.window=QtWidgets.QMainWindow()
+        self.ui=Ui_MainWindow_Admin()
+        self.ui.setupUi_Admin(self.window)
+        self.window.setFixedSize(1361, 692)
+        self.window.show()
+        self.closeWindow()
+
     def btn_pindah(self):
         self.window=QtWidgets.QMainWindow()
         self.ui=Ui_MainWindow_utama()
@@ -108,6 +117,8 @@ class Ui_MainWindow_login(object):
 
                 if (username == 'ida') & (password == 'ida123'):
                     self.btn_pindah()
+                elif (username == 'admin') & (password == 'admin123'):
+                    self.btn_admin()
                 else:
                     self.messagebox("Pesan","Username / Password Salah, Mohon di Cek Kembali !")
 
