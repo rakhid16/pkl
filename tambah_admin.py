@@ -165,6 +165,7 @@ class Ui_MainWindow_tambah_admin(object):
 
         query_verifikasi=("SELECT ID FROM data_karyawan_mhs")
         cur.execute(query_verifikasi)
+        verif = cur.fetchall()
 
         if len(self.lineEdit.text()) <= 1:
             self.messagebox('Pesan','Nama Tidak Boleh Kosong!')
@@ -175,26 +176,24 @@ class Ui_MainWindow_tambah_admin(object):
         else:
             id_key = self.lineEdit_2.text()
             
-            if (id_key == query_verifikasi):
+            if (id_key == verif): # HELP Butuh handling
                     self.messagebox('Pesan','NPM/NRP Terdeteksi Duplikat')
                     
             else:
-                print("Data ditambah")
-                    # print cur.execute(query_verifikasi)
-                    # query=("INSERT INTO data_karyawan_mhs (Nama,\
-                    #           'ID', \
-                    #            Golongan, \
-                    #            Tanggal_Lahir) VALUES (\
-                    #           '{0}',\
-                    #           '{1}',\
-                    #           '{2}',\
-                    #           '{3}')".format(self.lineEdit.text(),
-                    #                          self.lineEdit_2.text(),
-                    #                          self.lineEdit_7.text(),
-                    #                          self.dateEdit.text()))
-                    # cur.execute(query)        
-                    # conn.commit()
-                    # self.messagebox("Pesan","Data Telah Sukses Ditambah!")
+                query=("INSERT INTO data_karyawan_mhs (Nama,\
+                          'ID', \
+                           Golongan, \
+                           Tanggal_Lahir) VALUES (\
+                          '{0}',\
+                          '{1}',\
+                          '{2}',\
+                          '{3}')".format(self.lineEdit.text(),
+                                         self.lineEdit_2.text(),
+                                         self.lineEdit_7.text(),
+                                         self.dateEdit.text()))
+                cur.execute(query)        
+                conn.commit()
+                self.messagebox("Pesan","Data Telah Sukses Ditambah!")
                 cur.close()
         
 import resource
