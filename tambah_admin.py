@@ -15,7 +15,7 @@ class Ui_MainWindow_tambah_admin(object):
         self.lineEdit.setText("")
         self.lineEdit_2.setText("")
         self.lineEdit_7.setText("")
-        self.messagebox("Pesan","Data Telah DiReset Ulang!")
+        self.messagebox("Pesan","Data Telah Direset Ulang!")
 
     def messagebox(self, title, message):
         mess=QtWidgets.QMessageBox()
@@ -162,6 +162,7 @@ class Ui_MainWindow_tambah_admin(object):
     def insertData(self):
         conn = sqlite3.connect('database/pangkalan_data.db')
         cur = conn.cursor()
+
         query_verifikasi=("SELECT ID FROM data_karyawan_mhs")
         cur.execute(query_verifikasi)
 
@@ -173,12 +174,13 @@ class Ui_MainWindow_tambah_admin(object):
             self.messagebox('Pesan','Golongan Tidak Boleh Kosong!')
         else:
             id_key = self.lineEdit_2.text()
-            for i in query_verifikasi:
-                if i[0] == id_key:
+            
+            if (id_key == query_verifikasi):
                     self.messagebox('Pesan','NPM/NRP Terdeteksi Duplikat')
-                    break
-                else:
-                    print conn.execute(query_verifikasi)
+                    
+            else:
+                print("Data ditambah")
+                    # print cur.execute(query_verifikasi)
                     # query=("INSERT INTO data_karyawan_mhs (Nama,\
                     #           'ID', \
                     #            Golongan, \
@@ -192,8 +194,8 @@ class Ui_MainWindow_tambah_admin(object):
                     #                          self.dateEdit.text()))
                     # cur.execute(query)        
                     # conn.commit()
-                    self.messagebox("Pesan","Data Telah Sukses Ditambah!")
-                    cur.close()
+                    # self.messagebox("Pesan","Data Telah Sukses Ditambah!")
+                cur.close()
         
 import resource
 
