@@ -149,7 +149,7 @@ class Ui_MainWindow_tambah_admin(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Tambah Data"))
         self.label_3.setText(_translate("MainWindow", "Simpan"))
         self.label_8.setText(_translate("MainWindow", "Batal"))
         self.lineEdit_7.setPlaceholderText(_translate("MainWindow", "Mahasiswa/Dosen/dll"))
@@ -178,7 +178,6 @@ class Ui_MainWindow_tambah_admin(object):
             
             if (id_key == verif): # HELP Butuh handling
                     self.messagebox('Pesan','NPM/NRP Terdeteksi Duplikat')
-                    
             else:
                 query=("INSERT INTO data_karyawan_mhs (Nama,\
                           'ID', \
