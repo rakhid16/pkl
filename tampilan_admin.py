@@ -8,10 +8,18 @@
 
 import sqlite3
 from tambah_admin import Ui_MainWindow_tambah_admin
+from delete_admin import Ui_MainWindow_deleteAdmin
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
 class Ui_MainWindow_Admin(object):
+    def deleteData(self):
+        self.window=QtWidgets.QMainWindow()
+        self.ui=Ui_MainWindow_deleteAdmin()
+        self.ui.setupUi_deleteAdmin(self.window)
+        self.window.setFixedSize(800, 600)
+        self.window.show()
+
     def tambahData(self):
         self.window=QtWidgets.QMainWindow()
         self.ui=Ui_MainWindow_tambah_admin()
@@ -314,6 +322,7 @@ class Ui_MainWindow_Admin(object):
         self.pushButton.clicked.connect(self.loadData2)
         self.pushButton_2.clicked.connect(self.loadData3)
         self.pushButton_5.clicked.connect(self.tambahData)
+        self.pushButton_8.clicked.connect(self.deleteData)
 
         conn = sqlite3.connect('database/pangkalan_data.db')
         c = conn.cursor()
@@ -332,7 +341,7 @@ class Ui_MainWindow_Admin(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Halaman Admin"))
         item = self.tableWidget.verticalHeaderItem(0)
         item.setText(_translate("MainWindow", "1"))
         item = self.tableWidget.verticalHeaderItem(1)
