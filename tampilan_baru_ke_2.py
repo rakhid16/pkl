@@ -212,6 +212,7 @@ class Ui_MainWindow_golongan(object):
         spacerItem2 = QtWidgets.QSpacerItem(20, 373, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.gridLayout_7.addItem(spacerItem2, 0, 0, 2, 1)
         self.tableWidget = QtWidgets.QTableWidget(self.frame_5)
+        self.tableWidget.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
         self.tableWidget.setFrameShadow(QtWidgets.QFrame.Raised)
         self.tableWidget.setObjectName("tableWidget")
         self.tableWidget.setColumnCount(5)
@@ -351,11 +352,9 @@ class Ui_MainWindow_golongan(object):
 
         conn.close()
 
-        
-
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Halaman Detail Utama"))
         self.label_5.setText(_translate("MainWindow", "Karyawan"))
         self.label_6.setText(_translate("MainWindow", "Keamanan"))
         self.label_7.setText(_translate("MainWindow", "Kebersihan"))

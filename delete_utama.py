@@ -1,16 +1,33 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'delete.ui'
+# Form implementation generated from reading ui file 'delete_utama.ui'
 #
 # Created by: PyQt5 UI code generator 5.13.0
 #
 # WARNING! All changes made in this file will be lost!
 
-from tkinter import messagebox
-from PyQt5 import QtCore, QtGui, QtWidgets
 import sqlite3
+from PyQt5 import QtCore, QtGui, QtWidgets
+from tkinter import messagebox
 
-class Ui_MainWindow_delete(object):
+class Ui_MainWindow_deleteUtama(object):
+    def refreshData(self):
+        conn = sqlite3.connect('database/pangkalan_data.db')
+        c = conn.cursor()
+
+        query = "select `NPM/NRP`, Nama, Tanggal, Tanggal_Lahir, Golongan, Diagnosa, Perawatan_Gigi, Pengobatan FROM pengunjung"
+            
+        result = c.execute(query)
+
+        self.tableWidget.setRowCount(0)
+        for row_number, row_data in enumerate(result):
+            self.tableWidget.insertRow(row_number)
+            for column_number, data in enumerate(row_data):
+                self.tableWidget.setItem(row_number, column_number, QtWidgets.QTableWidgetItem(str(data)))
+
+        self.messagebox("Pesan","Telah Direfresh!")
+        c.close()
+
     def messagebox(self, title, message):
         mess=QtWidgets.QMessageBox()
         mess.setWindowTitle(title)
@@ -18,7 +35,7 @@ class Ui_MainWindow_delete(object):
         mess.setStandardButtons(QtWidgets.QMessageBox.Ok)
         mess.exec_()
 
-    def setupUi_delete(self, MainWindow):
+    def setupUi_deleteUtama(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(800, 600)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -63,7 +80,6 @@ class Ui_MainWindow_delete(object):
         self.tableWidget.setObjectName("tableWidget")
         self.tableWidget.setColumnCount(8)
         self.tableWidget.setRowCount(2)
-        
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget.setVerticalHeaderItem(0, item)
         item = QtWidgets.QTableWidgetItem()
@@ -96,16 +112,16 @@ class Ui_MainWindow_delete(object):
         self.frame_5.setObjectName("frame_5")
         self.gridLayout_2 = QtWidgets.QGridLayout(self.frame_5)
         self.gridLayout_2.setObjectName("gridLayout_2")
-        self.widget = QtWidgets.QWidget(self.frame_3)
-        self.widget.setGeometry(QtCore.QRect(570, 38, 101, 41))
-        self.widget.setObjectName("widget")
-        self.gridLayout_8 = QtWidgets.QGridLayout(self.widget)
+        self.layoutWidget = QtWidgets.QWidget(self.frame_3)
+        self.layoutWidget.setGeometry(QtCore.QRect(570, 38, 101, 41))
+        self.layoutWidget.setObjectName("layoutWidget")
+        self.gridLayout_8 = QtWidgets.QGridLayout(self.layoutWidget)
         self.gridLayout_8.setContentsMargins(0, 0, 0, 0)
         self.gridLayout_8.setObjectName("gridLayout_8")
-        self.label_2 = QtWidgets.QLabel(self.widget)
+        self.label_2 = QtWidgets.QLabel(self.layoutWidget)
         self.label_2.setObjectName("label_2")
         self.gridLayout_8.addWidget(self.label_2, 0, 0, 1, 1)
-        self.lineEdit = QtWidgets.QLineEdit(self.widget)
+        self.lineEdit = QtWidgets.QLineEdit(self.layoutWidget)
         self.lineEdit.setObjectName("lineEdit")
         self.gridLayout_8.addWidget(self.lineEdit, 1, 0, 1, 1)
         self.frame_7 = QtWidgets.QFrame(self.frame_3)
@@ -113,10 +129,6 @@ class Ui_MainWindow_delete(object):
         self.frame_7.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_7.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_7.setObjectName("frame_7")
-        self.gridLayout_6 = QtWidgets.QGridLayout(self.frame_7)
-        self.gridLayout_6.setObjectName("gridLayout_6")
-        spacerItem1 = QtWidgets.QSpacerItem(20, 68, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.gridLayout_6.addItem(spacerItem1, 0, 0, 1, 1)
         self.frame_6 = QtWidgets.QFrame(self.frame_3)
         self.frame_6.setGeometry(QtCore.QRect(540, 50, 20, 20))
         self.frame_6.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -133,9 +145,21 @@ class Ui_MainWindow_delete(object):
         self.pushButton.setIconSize(QtCore.QSize(60, 60))
         self.pushButton.setObjectName("pushButton")
         self.label_5 = QtWidgets.QLabel(self.frame_3)
-        self.label_5.setGeometry(QtCore.QRect(703, 80, 32, 16))
+        self.label_5.setGeometry(QtCore.QRect(687, 78, 61, 20))
         self.label_5.setAlignment(QtCore.Qt.AlignCenter)
         self.label_5.setObjectName("label_5")
+        self.pushButton_3 = QtWidgets.QPushButton(self.frame_3)
+        self.pushButton_3.setGeometry(QtCore.QRect(30, 11, 72, 68))
+        self.pushButton_3.setText("")
+        icon1 = QtGui.QIcon()
+        icon1.addPixmap(QtGui.QPixmap(":/images/img/refresh.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_3.setIcon(icon1)
+        self.pushButton_3.setIconSize(QtCore.QSize(60, 60))
+        self.pushButton_3.setObjectName("pushButton_3")
+        self.label_6 = QtWidgets.QLabel(self.frame_3)
+        self.label_6.setGeometry(QtCore.QRect(31, 78, 71, 20))
+        self.label_6.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_6.setObjectName("label_6")
         self.gridLayout.addWidget(self.frame, 0, 1, 1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
@@ -149,10 +173,13 @@ class Ui_MainWindow_delete(object):
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
+        self.pushButton.clicked.connect(self.delData)
+        self.pushButton_3.clicked.connect(self.refreshData)
+
         conn = sqlite3.connect('database/pangkalan_data.db')
         c = conn.cursor()
 
-        query = "select Tanggal, Nama, `NPM/NRP`, Tanggal_Lahir, Golongan, Diagnosa, Perawatan_Gigi, Pengobatan FROM pengunjung"
+        query = "select `NPM/NRP`, Nama, Tanggal, Tanggal_Lahir, Golongan, Diagnosa, Perawatan_Gigi, Pengobatan FROM pengunjung"
             
         result = c.execute(query)
 
@@ -164,7 +191,6 @@ class Ui_MainWindow_delete(object):
 
         c.close()
 
-        self.pushButton.clicked.connect(self.delData)
 
     def delData(self):
         conn = sqlite3.connect('database/pangkalan_data.db')
@@ -176,20 +202,19 @@ class Ui_MainWindow_delete(object):
         self.messagebox("Pesan","Data Telah Sukses Dihapus!")
         cur.close()
 
-
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Hapus Data Pasien"))
         item = self.tableWidget.verticalHeaderItem(0)
         item.setText(_translate("MainWindow", "1"))
         item = self.tableWidget.verticalHeaderItem(1)
         item.setText(_translate("MainWindow", "2"))
         item = self.tableWidget.horizontalHeaderItem(0)
-        item.setText(_translate("MainWindow", "Tanggal"))
+        item.setText(_translate("MainWindow", "NPM/NRP"))
         item = self.tableWidget.horizontalHeaderItem(1)
         item.setText(_translate("MainWindow", "Nama"))
         item = self.tableWidget.horizontalHeaderItem(2)
-        item.setText(_translate("MainWindow", "NPM/NRP"))
+        item.setText(_translate("MainWindow", "Tanggal"))
         item = self.tableWidget.horizontalHeaderItem(3)
         item.setText(_translate("MainWindow", "Tanggal Lahir"))
         item = self.tableWidget.horizontalHeaderItem(4)
@@ -201,8 +226,9 @@ class Ui_MainWindow_delete(object):
         item = self.tableWidget.horizontalHeaderItem(7)
         item.setText(_translate("MainWindow", "Pengobatan"))
         self.label_2.setText(_translate("MainWindow", "NPM/NRP"))
-        self.lineEdit.setPlaceholderText(_translate("MainWindow", "Ex : 170810100xx"))
-        self.label_5.setText(_translate("MainWindow", "Delete"))
+        self.lineEdit.setPlaceholderText(_translate("MainWindow", "Ex : 170810100XX"))
+        self.label_5.setText(_translate("MainWindow", "Hapus Data"))
+        self.label_6.setText(_translate("MainWindow", "Refresh Data"))
 import resource
 
 
@@ -210,7 +236,8 @@ if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow_delete()
-    ui.setupUi_delete(MainWindow)
+    ui = Ui_MainWindow_deleteUtama()
+    ui.setupUi_deleteUtama(MainWindow)
+    MainWindow.setFixedSize(802, 603)
     MainWindow.show()
     sys.exit(app.exec_())

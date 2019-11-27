@@ -9,10 +9,18 @@
 import sqlite3
 from tambah_admin import Ui_MainWindow_tambah_admin
 from delete_admin import Ui_MainWindow_deleteAdmin
+from edit_admin import Ui_MainWindow_Edit
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
 class Ui_MainWindow_Admin(object):
+    def editData(self):
+        self.window=QtWidgets.QMainWindow()
+        self.ui=Ui_MainWindow_Edit()
+        self.ui.setupUi_Edit(self.window)
+        self.window.setFixedSize(600, 378)
+        self.window.show()
+
     def deleteData(self):
         self.window=QtWidgets.QMainWindow()
         self.ui=Ui_MainWindow_deleteAdmin()
@@ -109,6 +117,7 @@ class Ui_MainWindow_Admin(object):
         self.tableWidget = QtWidgets.QTableWidget(self.frame_5)
         self.tableWidget.setGeometry(QtCore.QRect(30, 20, 1091, 401))
         self.tableWidget.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.tableWidget.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
         self.tableWidget.setObjectName("tableWidget")
         self.tableWidget.setColumnCount(4)
         self.tableWidget.setRowCount(8)
@@ -145,6 +154,7 @@ class Ui_MainWindow_Admin(object):
         self.tableWidget.verticalHeader().setCascadingSectionResizes(False)
         self.tableWidget.verticalHeader().setDefaultSectionSize(23)
         self.tableWidget.verticalHeader().setHighlightSections(True)
+        self.tableWidget.setSelectionMode(False)
         self.frame_3 = QtWidgets.QFrame(self.frame)
         self.frame_3.setGeometry(QtCore.QRect(570, 10, 470, 100))
         self.frame_3.setFrameShape(QtWidgets.QFrame.NoFrame)
@@ -323,6 +333,7 @@ class Ui_MainWindow_Admin(object):
         self.pushButton_2.clicked.connect(self.loadData3)
         self.pushButton_5.clicked.connect(self.tambahData)
         self.pushButton_8.clicked.connect(self.deleteData)
+        self.pushButton_6.clicked.connect(self.editData)
 
         conn = sqlite3.connect('database/pangkalan_data.db')
         c = conn.cursor()

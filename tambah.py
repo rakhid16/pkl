@@ -195,7 +195,7 @@ class Ui_MainWindow_tambah(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Tambah Data Pasien"))
         self.label_3.setText(_translate("MainWindow", "Simpan"))
         self.label_8.setText(_translate("MainWindow", "Reset"))
         self.lineEdit_7.setPlaceholderText(_translate("MainWindow", "Mahasiswa/Dosen/dll"))
@@ -217,39 +217,35 @@ class Ui_MainWindow_tambah(object):
     def insertData(self):
         conn = sqlite3.connect('database/pangkalan_data.db')
         cur = conn.cursor()
+        
         query=("INSERT INTO pengunjung (Tanggal,\
-                              'NPM/NRP', \
-                               Nama, \
-                               Tanggal_Lahir, \
-                               Golongan, \
-                               Diagnosa, \
-                               Perawatan_Gigi, \
-                               Pengobatan) VALUES (\
-                              '{0}',\
-                              '{1}',\
-                              '{2}',\
-                              '{3}',\
-                              '{4}',\
-                              '{5}',\
-                              '{6}',\
-                              '{7}')".format(self.dateEdit_2.text(),
-                                             self.lineEdit_2.text(),
-                                             self.lineEdit.text(),
-                                             self.dateEdit.text(),
-                                             self.lineEdit_7.text(),
-                                             self.textEdit.toPlainText(),
-                                             self.textEdit_2.toPlainText(),
-                                             self.textEdit_3.toPlainText()))
+                            `NPM/NRP`, \
+                            Nama, \
+                            Tanggal_Lahir, \
+                            Golongan, \
+                            Diagnosa, \
+                            Perawatan_Gigi, \
+                            Pengobatan) VALUES (\
+                            '{0}',\
+                            '{1}',\
+                            '{2}',\
+                            '{3}',\
+                            '{4}',\
+                            '{5}',\
+                            '{6}',\
+                            '{7}')".format(self.dateEdit_2.text(),
+                                            self.lineEdit_2.text(),
+                                            self.lineEdit.text(),
+                                            self.dateEdit.text(),
+                                            self.lineEdit_7.text(),
+                                            self.textEdit.toPlainText(),
+                                            self.textEdit_2.toPlainText(),
+                                            self.textEdit_3.toPlainText()))
         cur.execute(query)
         conn.commit()
-        
-        # ============= Testing di terminal ===============
-
-        print(self.lineEdit_2.text())
-        print(cur.execute)
-        
         self.messagebox("Pesan","Data Telah Sukses Ditambah!")
         cur.close()
+
 
 import resource
 

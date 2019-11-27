@@ -13,16 +13,24 @@ from xlsxwriter.workbook import Workbook
 from tkinter import messagebox
 from tambah import Ui_MainWindow_tambah
 from riwayat import Ui_MainWindow_riwayat
-from delete import Ui_MainWindow_delete
+from delete_utama import Ui_MainWindow_deleteUtama
+from edit import Ui_MainWindow_edit
 
 workbook = Workbook('Data_Hasil_Ekspor.xlsx')
 worksheet = workbook.add_worksheet()
 
 class Ui_MainWindow_utama(object):
+    def pindaheditData(self):
+        self.window=QtWidgets.QMainWindow()
+        self.ui=Ui_MainWindow_edit()
+        self.ui.setupUi_edit(self.window)
+        self.window.setFixedSize(802, 603)
+        self.window.show()
+
     def pindahdelData(self):
         self.window=QtWidgets.QMainWindow()
-        self.ui=Ui_MainWindow_delete()
-        self.ui.setupUi_delete(self.window)
+        self.ui=Ui_MainWindow_deleteUtama()
+        self.ui.setupUi_deleteUtama(self.window)
         self.window.setFixedSize(802, 603)
         self.window.show()
 
@@ -82,6 +90,7 @@ class Ui_MainWindow_utama(object):
         self.frame_5.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_5.setObjectName("frame_5")
         self.tableWidget = QtWidgets.QTableWidget(self.frame_5)
+        self.tableWidget.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
         self.tableWidget.setGeometry(QtCore.QRect(30, 20, 1091, 401))
         self.tableWidget.setFrameShadow(QtWidgets.QFrame.Raised)
         self.tableWidget.setObjectName("tableWidget")
@@ -334,11 +343,12 @@ class Ui_MainWindow_utama(object):
         self.pushButton_4.clicked.connect(self.button_pindah)
         self.export_2.clicked.connect(self.eksporData)
         self.pushButton_8.clicked.connect(self.pindahdelData)
+        self.pushButton_6.clicked.connect(self.pindaheditData)
 
         conn = sqlite3.connect('database/pangkalan_data.db')
         c = conn.cursor()
 
-        query = "select Tanggal, 'NPM/NRP', Nama, Tanggal_Lahir, Golongan, Diagnosa, Perawatan_Gigi, Pengobatan FROM pengunjung"
+        query = "select Tanggal, `NPM/NRP`, Nama, Tanggal_Lahir, Golongan, Diagnosa, Perawatan_Gigi, Pengobatan FROM pengunjung"
             
         result = c.execute(query)
 
@@ -352,7 +362,7 @@ class Ui_MainWindow_utama(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Halaman Utama"))
         item = self.tableWidget.verticalHeaderItem(0)
         item.setText(_translate("MainWindow", "1"))
         item = self.tableWidget.verticalHeaderItem(1)

@@ -57,6 +57,7 @@ class Ui_MainWindow_riwayat(object):
         spacerItem1 = QtWidgets.QSpacerItem(739, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.gridLayout_4.addItem(spacerItem1, 0, 0, 1, 1)
         self.tableWidget = QtWidgets.QTableWidget(self.frame_4)
+        self.tableWidget.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
         self.tableWidget.setObjectName("tableWidget")
         self.tableWidget.setColumnCount(8)
         self.tableWidget.setRowCount(2)
@@ -130,7 +131,7 @@ class Ui_MainWindow_riwayat(object):
         conn = sqlite3.connect('database/pangkalan_data.db')
         c = conn.cursor()
 
-        query = "select Tanggal, 'NPM/NRP', Nama, Tanggal_Lahir, Golongan, Diagnosa, Perawatan_Gigi, Pengobatan FROM pengunjung"
+        query = "select Tanggal, Nama, `NPM/NRP`, 'Tanggal Lahir', Golongan, Diagnosa, Perawatan, Pengobatan FROM riwayat_pengunjung"
             
         result = c.execute(query)
 
@@ -145,7 +146,7 @@ class Ui_MainWindow_riwayat(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Data Riwayat Pengunjung"))
         item = self.tableWidget.verticalHeaderItem(0)
         item.setText(_translate("MainWindow", "1"))
         item = self.tableWidget.verticalHeaderItem(1)

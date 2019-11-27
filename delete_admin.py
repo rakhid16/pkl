@@ -21,13 +21,24 @@ class Ui_MainWindow_deleteAdmin(object):
     def deleteAdmin(self):
         conn = sqlite3.connect('database/pangkalan_data.db')
         cur = conn.cursor()
-        query=('DELETE FROM data_karyawan_mhs WHERE ID=("%s")' % (''.join(self.lineEdit.text())))
-        cur.execute(query)
-        conn.commit()
-        
-        print(query)
-        self.messagebox("Pesan","Data Telah Sukses Dihapus!")
-        cur.close()
+
+        query_verifikasi=('SELECT ID FROM data_karyawan_mhs WHERE ID=("%s")' % (''.join(self.lineEdit.text())))
+        a = cur.execute(query_verifikasi)
+        result = a.fetchall()
+
+        id_key = "[('"+self.lineEdit.text()+"',)]"
+
+        if (str(id_key) != str(result)): 
+            self.messagebox('Pesan','Error Data ID (NPM/NRP) Tidak Dapat Ditemukan')
+            cur.close()
+        else:    
+            query=('DELETE FROM data_karyawan_mhs WHERE ID=("%s")' % (''.join(self.lineEdit.text())))
+            cur.execute(query)
+            conn.commit()
+            
+            print(query)
+            self.messagebox("Pesan","Data Telah Sukses Dihapus!")
+            cur.close()
 
     def loadData(self):
         conn = sqlite3.connect('database/pangkalan_data.db')
@@ -134,6 +145,7 @@ class Ui_MainWindow_deleteAdmin(object):
         self.frame_4.setObjectName("frame_4")
         self.tableWidget = QtWidgets.QTableWidget(self.frame_4)
         self.tableWidget.setGeometry(QtCore.QRect(10, 26, 511, 301))
+        self.tableWidget.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
         self.tableWidget.setObjectName("tableWidget")
         self.tableWidget.setColumnCount(4)
         self.tableWidget.setRowCount(2)

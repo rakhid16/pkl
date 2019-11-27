@@ -163,10 +163,12 @@ class Ui_MainWindow_tambah_admin(object):
         conn = sqlite3.connect('database/pangkalan_data.db')
         cur = conn.cursor()
 
-        query_verifikasi=("SELECT ID FROM data_karyawan_mhs")
-        cur.execute(query_verifikasi)
-        verif = cur.fetchall()
-
+        query_verifikasi=('SELECT ID FROM data_karyawan_mhs WHERE ID=("%s")' % (''.join(self.lineEdit_2.text())))
+        a = cur.execute(query_verifikasi)
+        result = a.fetchall()
+        
+        id_key = "[('"+self.lineEdit_2.text()+"',)]"
+        
         if len(self.lineEdit.text()) <= 1:
             self.messagebox('Pesan','Nama Tidak Boleh Kosong!')
         elif len(self.lineEdit_2.text()) <= 1:
@@ -174,12 +176,12 @@ class Ui_MainWindow_tambah_admin(object):
         elif len(self.lineEdit_7.text()) <= 1:
             self.messagebox('Pesan','Golongan Tidak Boleh Kosong!')
         else:
-            id_key = self.lineEdit_2.text()
-            
-            if (id_key == verif): # HELP Butuh handling
-                    self.messagebox('Pesan','NPM/NRP Terdeteksi Duplikat')
+            # print(id_key == result)
+            if (str(id_key) == str(result)): 
+                    self.messagebox('Pesan','Error NPM/NRP Terdeteksi Duplikat')
+                    cur.close()
             else:
-                query=("INSERT INTO data_karyawan_mhs (Nama,\
+                query=("INSERT OR IGNORE INTO data_karyawan_mhs (Nama,\
                           'ID', \
                            Golongan, \
                            Tanggal_Lahir) VALUES (\
@@ -194,7 +196,9 @@ class Ui_MainWindow_tambah_admin(object):
                 conn.commit()
                 self.messagebox("Pesan","Data Telah Sukses Ditambah!")
                 cur.close()
-        
+        # print(id_key)
+        # print(result)
+
 import resource
 
 

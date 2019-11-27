@@ -14,5 +14,6 @@
     <file>img/satpam.png</file>
     <file>img/karyawan.png</file>
     <file>img/export.png</file>
+    <file>img/refresh.png</file>
   </qresource>
 </RCC>
