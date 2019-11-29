@@ -152,7 +152,7 @@ class Ui_MainWindow_tambah_admin(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "Tambah Data"))
         self.label_3.setText(_translate("MainWindow", "Simpan"))
         self.label_8.setText(_translate("MainWindow", "Batal"))
-        self.lineEdit_7.setPlaceholderText(_translate("MainWindow", "Mahasiswa/Dosen/dll"))
+        self.lineEdit_7.setPlaceholderText(_translate("MainWindow", "Mahasiswa/Dosen/Admin/Laboran/PAM/Kebersihan"))
         self.label_9.setText(_translate("MainWindow", "Nama"))
         self.label.setText(_translate("MainWindow", "NPM/NRP"))
         self.label_4.setText(_translate("MainWindow", "Golongan"))
@@ -178,20 +178,23 @@ class Ui_MainWindow_tambah_admin(object):
         else:
             # print(id_key == result)
             if (str(id_key) == str(result)): 
-                    self.messagebox('Pesan','Error NPM/NRP Terdeteksi Duplikat')
+                    self.messagebox('Pesan','Error NPM/NRP Sudah Ada, Mohon Masukkan NPM/NRP Yang Lain!')
                     cur.close()
             else:
                 query=("INSERT OR IGNORE INTO data_karyawan_mhs (Nama,\
                           'ID', \
                            Golongan, \
-                           Tanggal_Lahir) VALUES (\
+                           Tanggal_Lahir,\
+                           `Jumlah Kunjungan`) VALUES (\
                           '{0}',\
                           '{1}',\
                           '{2}',\
-                          '{3}')".format(self.lineEdit.text(),
+                          '{3}',\
+                          '{4}')".format(self.lineEdit.text(),
                                          self.lineEdit_2.text(),
                                          self.lineEdit_7.text(),
-                                         self.dateEdit.text()))
+                                         self.dateEdit.text(),
+                                         0))
                 cur.execute(query)        
                 conn.commit()
                 self.messagebox("Pesan","Data Telah Sukses Ditambah!")

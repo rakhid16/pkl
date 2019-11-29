@@ -198,7 +198,7 @@ class Ui_MainWindow_tambah(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "Tambah Data Pasien"))
         self.label_3.setText(_translate("MainWindow", "Simpan"))
         self.label_8.setText(_translate("MainWindow", "Reset"))
-        self.lineEdit_7.setPlaceholderText(_translate("MainWindow", "Mahasiswa/Dosen/dll"))
+        self.lineEdit_7.setPlaceholderText(_translate("MainWindow", "Mahasiswa/Dosen/Admin/Laboran/PAM/Kebersihan"))
         self.label_11.setText(_translate("MainWindow", "Tanggal \n"
 "Kunjungan"))
         self.label_9.setText(_translate("MainWindow", "Nama"))
@@ -218,33 +218,142 @@ class Ui_MainWindow_tambah(object):
         conn = sqlite3.connect('database/pangkalan_data.db')
         cur = conn.cursor()
         
-        query=("INSERT INTO pengunjung (Tanggal,\
-                            `NPM/NRP`, \
-                            Nama, \
-                            Tanggal_Lahir, \
-                            Golongan, \
-                            Diagnosa, \
-                            Perawatan_Gigi, \
-                            Pengobatan) VALUES (\
-                            '{0}',\
-                            '{1}',\
-                            '{2}',\
-                            '{3}',\
-                            '{4}',\
-                            '{5}',\
-                            '{6}',\
-                            '{7}')".format(self.dateEdit_2.text(),
-                                            self.lineEdit_2.text(),
-                                            self.lineEdit.text(),
-                                            self.dateEdit.text(),
-                                            self.lineEdit_7.text(),
-                                            self.textEdit.toPlainText(),
-                                            self.textEdit_2.toPlainText(),
-                                            self.textEdit_3.toPlainText()))
-        cur.execute(query)
-        conn.commit()
-        self.messagebox("Pesan","Data Telah Sukses Ditambah!")
-        cur.close()
+        if len(self.lineEdit.text()) <= 1:
+            self.messagebox('Pesan','Nama Tidak Boleh Kosong!')
+        elif len(self.lineEdit_2.text()) <= 1:
+            self.messagebox('Pesan','NPM/NRP Tidak Boleh Kosong!')
+        elif len(self.lineEdit_7.text()) <= 1:
+            self.messagebox('Pesan','Golongan Tidak Boleh Kosong!')
+        elif len(self.textEdit.toPlainText()) <= 1:
+            self.messagebox('Pesan','Diagnosa Tidak Boleh Kosong!')
+        elif len(self.textEdit_2.toPlainText()) <= 1:
+            self.messagebox('Pesan','Perawatan Tidak Boleh Kosong!')
+        elif len(self.textEdit_3.toPlainText()) <= 1:
+            self.messagebox('Pesan','Pengobatan Tidak Boleh Kosong!')
+        else:
+            query_verifikasi=('SELECT `NPM/NRP` FROM riwayat_pengunjung WHERE `NPM/NRP`=(%s)' % (''.join(self.lineEdit_2.text())))
+            a = cur.execute(query_verifikasi)
+            row = a.fetchone()
+
+            if row is not None:
+                a = row[0]
+                id_key = self.lineEdit_2.text()
+
+                if (str(id_key) == str(a)):
+                        query_updatae_val=('UPDATE data_karyawan_mhs SET `Jumlah Kunjungan`=`Jumlah Kunjungan`+1 WHERE ID=(%s)' % (''.join(self.lineEdit_2.text())))
+                        cur.execute(query_updatae_val)
+                        conn.commit()
+
+                        query=("INSERT INTO pengunjung (Tanggal,\
+                                    `NPM/NRP`, \
+                                    Nama, \
+                                    Tanggal_Lahir, \
+                                    Golongan, \
+                                    Diagnosa, \
+                                    Perawatan_Gigi, \
+                                    Pengobatan) VALUES (\
+                                    '{0}',\
+                                    '{1}',\
+                                    '{2}',\
+                                    '{3}',\
+                                    '{4}',\
+                                    '{5}',\
+                                    '{6}',\
+                                    '{7}')".format(self.dateEdit_2.text(),
+                                                    self.lineEdit_2.text(),
+                                                    self.lineEdit.text(),
+                                                    self.dateEdit.text(),
+                                                    self.lineEdit_7.text(),
+                                                    self.textEdit.toPlainText(),
+                                                    self.textEdit_2.toPlainText(),
+                                                    self.textEdit_3.toPlainText()))
+                        cur.execute(query)
+                        conn.commit()
+
+                        query_riwayat=("INSERT INTO riwayat_pengunjung (Tanggal,\
+                                            Nama, \
+                                            `NPM/NRP`, \
+                                            'Tanggal Lahir', \
+                                            Golongan, \
+                                            Diagnosa, \
+                                            Perawatan, \
+                                            Pengobatan) VALUES (\
+                                            '{0}',\
+                                            '{1}',\
+                                            '{2}',\
+                                            '{3}',\
+                                            '{4}',\
+                                            '{5}',\
+                                            '{6}',\
+                                            '{7}')".format(self.dateEdit_2.text(),
+                                                            self.lineEdit.text(),
+                                                            self.lineEdit_2.text(),
+                                                            self.dateEdit.text(),
+                                                            self.lineEdit_7.text(),
+                                                            self.textEdit.toPlainText(),
+                                                            self.textEdit_2.toPlainText(),
+                                                            self.textEdit_3.toPlainText()))
+                        cur.execute(query_riwayat)
+                        conn.commit()
+
+                        self.messagebox('Pesan','Data Telah Sukses Ditambah')
+                        cur.close()
+                
+            else:
+                query=("INSERT INTO pengunjung (Tanggal,\
+                                `NPM/NRP`, \
+                                Nama, \
+                                Tanggal_Lahir, \
+                                Golongan, \
+                                Diagnosa, \
+                                Perawatan_Gigi, \
+                                Pengobatan) VALUES (\
+                                '{0}',\
+                                '{1}',\
+                                '{2}',\
+                                '{3}',\
+                                '{4}',\
+                                '{5}',\
+                                '{6}',\
+                                '{7}')".format(self.dateEdit_2.text(),
+                                                self.lineEdit_2.text(),
+                                                self.lineEdit.text(),
+                                                self.dateEdit.text(),
+                                                self.lineEdit_7.text(),
+                                                self.textEdit.toPlainText(),
+                                                self.textEdit_2.toPlainText(),
+                                                self.textEdit_3.toPlainText()))
+                cur.execute(query)
+                conn.commit()
+                
+                query_riwayat=("INSERT INTO riwayat_pengunjung (Tanggal,\
+                                        Nama, \
+                                        `NPM/NRP`, \
+                                        'Tanggal Lahir', \
+                                        Golongan, \
+                                        Diagnosa, \
+                                        Perawatan, \
+                                        Pengobatan) VALUES (\
+                                        '{0}',\
+                                        '{1}',\
+                                        '{2}',\
+                                        '{3}',\
+                                        '{4}',\
+                                        '{5}',\
+                                        '{6}',\
+                                        '{7}')".format(self.dateEdit_2.text(),
+                                                        self.lineEdit.text(),
+                                                        self.lineEdit_2.text(),
+                                                        self.dateEdit.text(),
+                                                        self.lineEdit_7.text(),
+                                                        self.textEdit.toPlainText(),
+                                                        self.textEdit_2.toPlainText(),
+                                                        self.textEdit_3.toPlainText()))
+                cur.execute(query_riwayat)
+                conn.commit()
+
+                self.messagebox("Pesan","Data Telah Sukses Ditambah!")
+                cur.close()
 
 
 import resource

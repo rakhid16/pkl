@@ -153,7 +153,7 @@ class Ui_MainWindow_Edit(object):
         self.label_3.setText(_translate("MainWindow", "Simpan"))
         self.label_8.setText(_translate("MainWindow", "Batal"))
         self.lineEdit_2.setPlaceholderText(_translate("MainWindow", "Sesuaikan data NPM/NRP yang ingin di edit"))
-        self.lineEdit_7.setPlaceholderText(_translate("MainWindow", "Mahasiswa/Dosen/dll"))
+        self.lineEdit_7.setPlaceholderText(_translate("MainWindow", "Mahasiswa/Dosen/Admin/Laboran/PAM/Kebersihan"))
         self.label_9.setText(_translate("MainWindow", "Nama"))
         self.label.setText(_translate("MainWindow", "NPM/NRP"))
         self.label_4.setText(_translate("MainWindow", "Golongan"))

@@ -20,7 +20,7 @@ class Ui_MainWindow_edit(object):
         self.textEdit.setText("")
         self.textEdit_2.setText("")
         self.textEdit_3.setText("")
-        self.messagebox("Pesan","Data Telah DiReset Ulang!")
+        self.messagebox("Pesan","Data Telah Direset Ulang!")
 
     def messagebox(self, title, message):
         mess=QtWidgets.QMessageBox()
@@ -195,7 +195,7 @@ class Ui_MainWindow_edit(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "Edit Data Pasien"))
         self.label_3.setText(_translate("MainWindow", "Simpan"))
         self.label_8.setText(_translate("MainWindow", "Reset"))
-        self.lineEdit_7.setPlaceholderText(_translate("MainWindow", "Mahasiswa/Dosen/dll"))
+        self.lineEdit_7.setPlaceholderText(_translate("MainWindow", "Mahasiswa/Dosen/Admin/Laboran/PAM/Kebersihan"))
         self.label_11.setText(_translate("MainWindow", "Tanggal \n"
 "Kunjungan"))
         self.label_9.setText(_translate("MainWindow", "Nama"))

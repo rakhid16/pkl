@@ -29,7 +29,7 @@ class Ui_MainWindow_deleteAdmin(object):
         id_key = "[('"+self.lineEdit.text()+"',)]"
 
         if (str(id_key) != str(result)): 
-            self.messagebox('Pesan','Error Data ID (NPM/NRP) Tidak Dapat Ditemukan')
+            self.messagebox('Pesan','Error Data ID (NPM/NRP) Tidak Dapat Ditemukan!')
             cur.close()
         else:    
             query=('DELETE FROM data_karyawan_mhs WHERE ID=("%s")' % (''.join(self.lineEdit.text())))
