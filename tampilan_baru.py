@@ -6,7 +6,7 @@
 #
 # WARNING! All changes made in this file will be lost!
 
-
+import pandas as pd
 import sqlite3
 from PyQt5 import QtCore, QtGui, QtWidgets
 from tampilan_baru_ke_2 import Ui_MainWindow_golongan
@@ -16,6 +16,7 @@ from tambah import Ui_MainWindow_tambah
 from riwayat import Ui_MainWindow_riwayat
 from delete import Ui_MainWindow_deleteUtama
 from edit import Ui_MainWindow_edit
+from export import Ui_MainWindow_export
 
 
 workbook = Workbook('Data_Hasil_Ekspor.xlsx')
@@ -26,7 +27,7 @@ class Ui_MainWindow_utama(object):
         conn = sqlite3.connect('database/pangkalan_data.db')
         c = conn.cursor()
 
-        query = "select `NPM/NRP`, Nama, Tanggal, Tanggal_Lahir, Golongan, Diagnosa, Perawatan_Gigi, Pengobatan FROM pengunjung"
+        query = "SELECT Tanggal, `NPM/NRP`, Nama, Tanggal_Lahir, Golongan, Diagnosa, Perawatan_Gigi, Pengobatan FROM pengunjung"
             
         result = c.execute(query)
 
@@ -57,7 +58,7 @@ class Ui_MainWindow_utama(object):
         self.window=QtWidgets.QMainWindow()
         self.ui=Ui_MainWindow_riwayat()
         self.ui.setupUi_riwayat(self.window)
-        self.window.setFixedSize(802, 603)
+        self.window.setFixedSize(802, 530)
         self.window.show()
 
     def pindahTambah(self):
@@ -75,16 +76,13 @@ class Ui_MainWindow_utama(object):
         mess.exec_()
 
     def eksporData(self):
-        conn=sqlite3.connect('database/pangkalan_data.db')
-        c=conn.cursor()
-
-        query=c.execute("SELECT * FROM pengunjung where DATE(Tanggal)=CURRENT_DATE;")
-        for i, row in enumerate(query):
-            for j, value in enumerate(row):
-                worksheet.write(i, j, value)
-        workbook.close()
-
-        self.messagebox("Pesan","Data Telah Diekspor!")
+        self.window=QtWidgets.QMainWindow()
+        self.ui=Ui_MainWindow_export()
+        self.ui.setupUi_export(self.window)
+        self.window.setFixedSize(800, 530)
+        self.window.show()
+        
+        
 
     def button_pindah(self):
         self.window=QtWidgets.QMainWindow()

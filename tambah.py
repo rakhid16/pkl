@@ -94,14 +94,12 @@ class Ui_MainWindow_tambah(object):
         self.verticalLayout = QtWidgets.QVBoxLayout(self.widget)
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout.setObjectName("verticalLayout")
-        self.dateEdit_2 = QtWidgets.QDateEdit(self.widget)
+        self.lineEdit_3 = QtWidgets.QLineEdit(self.widget)
         font = QtGui.QFont()
         font.setPointSize(10)
-        self.dateEdit_2.setFont(font)
-        self.dateEdit_2.setCalendarPopup(True)
-        self.dateEdit_2.setDate(QtCore.QDate(2019, 10, 31))
-        self.dateEdit_2.setObjectName("dateEdit_2")
-        self.verticalLayout.addWidget(self.dateEdit_2)
+        self.lineEdit_3.setFont(font)
+        self.lineEdit_3.setObjectName("lineEdit_3")
+        self.verticalLayout.addWidget(self.lineEdit_3)
         self.lineEdit = QtWidgets.QLineEdit(self.widget)
         font = QtGui.QFont()
         font.setPointSize(10)
@@ -191,6 +189,7 @@ class Ui_MainWindow_tambah(object):
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
         self.pushButton_2.clicked.connect(self.batalReset)
+    
 
 
     def retranslateUi(self, MainWindow):
@@ -198,6 +197,7 @@ class Ui_MainWindow_tambah(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "Tambah Data Pasien"))
         self.label_3.setText(_translate("MainWindow", "Simpan"))
         self.label_8.setText(_translate("MainWindow", "Reset"))
+        self.lineEdit_3.setPlaceholderText(_translate("MainWindow", "Format Tanggal, ex: 2019-05-31"))
         self.lineEdit_7.setPlaceholderText(_translate("MainWindow", "Mahasiswa/Dosen/Admin/Laboran/PAM/Kebersihan"))
         self.label_11.setText(_translate("MainWindow", "Tanggal \n"
 "Kunjungan"))
@@ -218,6 +218,7 @@ class Ui_MainWindow_tambah(object):
         conn = sqlite3.connect('database/pangkalan_data.db')
         cur = conn.cursor()
         
+
         if len(self.lineEdit.text()) <= 1:
             self.messagebox('Pesan','Nama Tidak Boleh Kosong!')
         elif len(self.lineEdit_2.text()) <= 1:
@@ -259,7 +260,7 @@ class Ui_MainWindow_tambah(object):
                                     '{4}',\
                                     '{5}',\
                                     '{6}',\
-                                    '{7}')".format(self.dateEdit_2.text(),
+                                    '{7}')".format(self.lineEdit_3.text(),
                                                     self.lineEdit_2.text(),
                                                     self.lineEdit.text(),
                                                     self.dateEdit.text(),
@@ -285,7 +286,7 @@ class Ui_MainWindow_tambah(object):
                                             '{4}',\
                                             '{5}',\
                                             '{6}',\
-                                            '{7}')".format(self.dateEdit_2.text(),
+                                            '{7}')".format(self.lineEdit_3.text(),
                                                             self.lineEdit.text(),
                                                             self.lineEdit_2.text(),
                                                             self.dateEdit.text(),
@@ -315,7 +316,7 @@ class Ui_MainWindow_tambah(object):
                                 '{4}',\
                                 '{5}',\
                                 '{6}',\
-                                '{7}')".format(self.dateEdit_2.text(),
+                                '{7}')".format(self.lineEdit_3.text(),
                                                 self.lineEdit_2.text(),
                                                 self.lineEdit.text(),
                                                 self.dateEdit.text(),
@@ -341,7 +342,7 @@ class Ui_MainWindow_tambah(object):
                                         '{4}',\
                                         '{5}',\
                                         '{6}',\
-                                        '{7}')".format(self.dateEdit_2.text(),
+                                        '{7}')".format(self.lineEdit_3.text(),
                                                         self.lineEdit.text(),
                                                         self.lineEdit_2.text(),
                                                         self.dateEdit.text(),
