@@ -1,16 +1,8 @@
-# -*- coding: utf-8 -*-
-
-# Form implementation generated from reading ui file 'tampilan_baru_ke_2.ui'
-#
-# Created by: PyQt5 UI code generator 5.13.0
-#
-# WARNING! All changes made in this file will be lost!
-
-
-from PyQt5 import QtCore, QtGui, QtWidgets
 import sqlite3
-from tambah import Ui_MainWindow_tambah
-from riwayat import Ui_MainWindow_riwayat
+from win32api import GetSystemMetrics
+from PyQt5 import QtCore, QtGui, QtWidgets
+from Riwayat_Pasien import Ui_MainWindow_riwayat
+from Tambah_Data_Pasien import Ui_MainWindow_tambah
 
 class Ui_MainWindow_golongan(object):
     def pindahRiwayat(self):
@@ -92,11 +84,11 @@ class Ui_MainWindow_golongan(object):
         conn.close()
 
     def loadDataUtama(self, setupUi_2):
-        from tampilan_baru import Ui_MainWindow_utama
+        from Laman_Utama import Ui_MainWindow_utama
         self.window=QtWidgets.QMainWindow()
         self.ui=Ui_MainWindow_utama()
         self.ui.setupUi_utama(self.window)
-        self.window.setFixedSize(1361, 692)
+        self.window.setFixedSize(GetSystemMetrics(0), GetSystemMetrics(1))
         self.window.show()
 
     def setupUi_golongan(self, MainWindow):
@@ -396,6 +388,6 @@ if __name__ == "__main__":
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow_golongan()
     ui.setupUi_golongan(MainWindow)
-    MainWindow.setFixedSize(1361, 692)
+    MainWindow.setFixedSize(GetSystemMetrics(0), GetSystemMetrics(1))
     MainWindow.show()
     sys.exit(app.exec_())

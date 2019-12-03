@@ -1,16 +1,8 @@
-# -*- coding: utf-8 -*-
-
-# Form implementation generated from reading ui file 'tambah_admin.ui'
-#
-# Created by: PyQt5 UI code generator 5.13.0
-#
-# WARNING! All changes made in this file will be lost!
-
 import sqlite3
-from PyQt5 import QtCore, QtGui, QtWidgets
 from tkinter import messagebox
+from PyQt5 import QtCore, QtGui, QtWidgets
 
-class Ui_MainWindow_tambah_admin(object):
+class Ui_MainWindow_Edit(object):
     def batalReset(self):
         self.lineEdit.setText("")
         self.lineEdit_2.setText("")
@@ -24,7 +16,7 @@ class Ui_MainWindow_tambah_admin(object):
         mess.setStandardButtons(QtWidgets.QMessageBox.Ok)
         mess.exec_()
 
-    def setupUi_tambah_admin(self, MainWindow):
+    def setupUi_Edit(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(600, 378)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -144,31 +136,32 @@ class Ui_MainWindow_tambah_admin(object):
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
-        self.pushButton.clicked.connect(self.insertData)
+        self.pushButton.clicked.connect(self.editData)
         self.pushButton_2.clicked.connect(self.batalReset)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "Tambah Data"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Edit Data"))
         self.label_3.setText(_translate("MainWindow", "Simpan"))
         self.label_8.setText(_translate("MainWindow", "Batal"))
+        self.lineEdit_2.setPlaceholderText(_translate("MainWindow", "Sesuaikan data NPM/NRP yang ingin di edit"))
         self.lineEdit_7.setPlaceholderText(_translate("MainWindow", "Mahasiswa/Dosen/Admin/Laboran/PAM/Kebersihan"))
         self.label_9.setText(_translate("MainWindow", "Nama"))
         self.label.setText(_translate("MainWindow", "NPM/NRP"))
         self.label_4.setText(_translate("MainWindow", "Golongan"))
         self.label_2.setText(_translate("MainWindow", "Tanggal Lahir"))
-        self.label_5.setText(_translate("MainWindow", "Tambah Data"))
+        self.label_5.setText(_translate("MainWindow", "Edit Data"))
 
-    def insertData(self):
+    def editData(self):
         conn = sqlite3.connect('database/pangkalan_data.db')
         cur = conn.cursor()
 
         query_verifikasi=('SELECT ID FROM data_karyawan_mhs WHERE ID=("%s")' % (''.join(self.lineEdit_2.text())))
         a = cur.execute(query_verifikasi)
         result = a.fetchall()
-        
+
         id_key = "[('"+self.lineEdit_2.text()+"',)]"
-        
+
         if len(self.lineEdit.text()) <= 1:
             self.messagebox('Pesan','Nama Tidak Boleh Kosong!')
         elif len(self.lineEdit_2.text()) <= 1:
@@ -176,31 +169,22 @@ class Ui_MainWindow_tambah_admin(object):
         elif len(self.lineEdit_7.text()) <= 1:
             self.messagebox('Pesan','Golongan Tidak Boleh Kosong!')
         else:
-            # print(id_key == result)
-            if (str(id_key) == str(result)): 
-                    self.messagebox('Pesan','Error NPM/NRP Sudah Ada, Mohon Masukkan NPM/NRP Yang Lain!')
+            if (str(id_key) != str(result)): 
+                    self.messagebox('Pesan','Error Data NPM/NRP Tidak Dapat Ditemukan')
                     cur.close()
-            else:
-                query=("INSERT OR IGNORE INTO data_karyawan_mhs (Nama,\
-                          'ID', \
-                           Golongan, \
-                           Tanggal_Lahir,\
-                           `Jumlah Kunjungan`) VALUES (\
-                          '{0}',\
-                          '{1}',\
-                          '{2}',\
-                          '{3}',\
-                          '{4}')".format(self.lineEdit.text(),
-                                         self.lineEdit_2.text(),
-                                         self.lineEdit_7.text(),
-                                         self.dateEdit.text(),
-                                         0))
-                cur.execute(query)        
+            else:    
+                query=("UPDATE data_karyawan_mhs SET Nama='{0}',\
+                            Golongan='{1}', \
+                            Tanggal_Lahir='{2}' WHERE ID='{3}'").format(self.lineEdit.text(),
+                                            self.lineEdit_7.text(),
+                                            self.dateEdit.text(),
+                                            self.lineEdit_2.text()) 
+                cur.execute(query)
                 conn.commit()
-                self.messagebox("Pesan","Data Telah Sukses Ditambah!")
+
+                self.messagebox('Pesan','Data Sukses Diedit!')
                 cur.close()
-        # print(id_key)
-        # print(result)
+
 
 import resource
 
@@ -209,8 +193,10 @@ if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow_tambah_admin()
-    ui.setupUi_tambah_admin(MainWindow)
+    ui = Ui_MainWindow_Edit()
+    ui.setupUi_Edit(MainWindow)
     MainWindow.setFixedSize(600, 378)
     MainWindow.show()
     sys.exit(app.exec_())
+
+

@@ -1,23 +1,15 @@
-# -*- coding: utf-8 -*-
-
-# Form implementation generated from reading ui file 'tampilan_baru.ui'
-#
-# Created by: PyQt5 UI code generator 5.13.0
-#
-# WARNING! All changes made in this file will be lost!
-
-import pandas as pd
 import sqlite3
-from PyQt5 import QtCore, QtGui, QtWidgets
-from tampilan_baru_ke_2 import Ui_MainWindow_golongan
-from xlsxwriter.workbook import Workbook
+import pandas as pd
 from tkinter import messagebox
-from tambah import Ui_MainWindow_tambah
-from riwayat import Ui_MainWindow_riwayat
-from delete import Ui_MainWindow_deleteUtama
-from edit import Ui_MainWindow_edit
-from export import Ui_MainWindow_export
-
+from win32api import GetSystemMetrics
+from xlsxwriter.workbook import Workbook
+from PyQt5 import QtCore, QtGui, QtWidgets
+from Ekspor_Data import Ui_MainWindow_export
+from Riwayat_Pasien import Ui_MainWindow_riwayat
+from Tambah_Data_Pasien import Ui_MainWindow_tambah
+from Edit_Data_Pengunjung import Ui_MainWindow_edit
+from Data_Karyawan_Mhs import Ui_MainWindow_golongan
+from Hapus_Data_Pengunjung import Ui_MainWindow_deleteUtama
 
 workbook = Workbook('Data_Hasil_Ekspor.xlsx')
 worksheet = workbook.add_worksheet()
@@ -88,12 +80,12 @@ class Ui_MainWindow_utama(object):
         self.window=QtWidgets.QMainWindow()
         self.ui=Ui_MainWindow_golongan()
         self.ui.setupUi_golongan(self.window)
-        self.window.setFixedSize(1361, 692)
+        self.window.setFixedSize(GetSystemMetrics(0), GetSystemMetrics(1))
         self.window.show()
 
     def setupUi_utama(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1350, 867)
+        MainWindow.resize(GetSystemMetrics(0), GetSystemMetrics(1))
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.frame = QtWidgets.QFrame(self.centralwidget)
@@ -430,13 +422,12 @@ class Ui_MainWindow_utama(object):
 
 import resource
 
-
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow_utama()
     ui.setupUi_utama(MainWindow)
-    MainWindow.setFixedSize(1361, 692)
+    MainWindow.setFixedSize(GetSystemMetrics(0), GetSystemMetrics(1))
     MainWindow.show()
     sys.exit(app.exec_())

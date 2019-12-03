@@ -1,17 +1,9 @@
-# -*- coding: utf-8 -*-
-
-# Form implementation generated from reading ui file 'tampilan_admin.ui'
-#
-# Created by: PyQt5 UI code generator 5.13.0
-#
-# WARNING! All changes made in this file will be lost!
-
 import sqlite3
-from tambah_admin import Ui_MainWindow_tambah_admin
-from delete_admin import Ui_MainWindow_deleteAdmin
-from edit_admin import Ui_MainWindow_Edit
+from win32api import GetSystemMetrics
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+from Edit_Data_Karyawan_Mhs import Ui_MainWindow_Edit
+from Hapus_Data_Karyawan_Mhs import Ui_MainWindow_deleteAdmin
+from Tambah_Data_Kayrawan_Mhs import Ui_MainWindow_tambah_admin
 
 class Ui_MainWindow_Admin(object):
     def editData(self):
@@ -394,6 +386,6 @@ if __name__ == "__main__":
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow_Admin()
     ui.setupUi_Admin(MainWindow)
-    MainWindow.setFixedSize(1361, 692)
+    MainWindow.setFixedSize(GetSystemMetrics(0), GetSystemMetrics(1))
     MainWindow.show()
     sys.exit(app.exec_())
