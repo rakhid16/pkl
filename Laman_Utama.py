@@ -1,6 +1,7 @@
 import sqlite3
 import pandas as pd
 from tkinter import messagebox
+import matplotlib.pyplot as plt
 from win32api import GetSystemMetrics
 from xlsxwriter.workbook import Workbook
 from PyQt5 import QtCore, QtGui, QtWidgets
@@ -365,6 +366,21 @@ class Ui_MainWindow_utama(object):
         query = "select Tanggal, `NPM/NRP`, Nama, Tanggal_Lahir, Golongan, Diagnosa, Perawatan_Gigi, Pengobatan FROM pengunjung"
             
         result = c.execute(query)
+
+        '''
+        data = pd.read_sql("select * from riwayat_pengunjung", conn, index_col='Tanggal', parse_dates=True)
+        data.index = pd.to_datetime(data.index)
+        data.index.name = "Kurun Waktu"
+
+        data.resample('M').count()['Nama'].plot(grid=True, linewidth=3.5)
+
+        plt.style.use("seaborn-whitegrid")
+        plt.ylabel("Jumlah Pasien")
+        plt.title("Statistik Kunjungan Poliklinik GIGI UPN Veteran Jawa Timur")
+        plt.ylim(0,data.resample('M').count()['Nama'].max()*1.25)
+
+        plt.show()
+        '''
 
         self.tableWidget.setRowCount(0)
         for row_number, row_data in enumerate(result):
