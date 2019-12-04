@@ -5,8 +5,7 @@ from tkinter import messagebox
 from xlsxwriter.workbook import Workbook
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-workbook = Workbook('Data_Hasil_Ekspor.xlsx')
-worksheet = workbook.add_worksheet()
+
 
 
 class Ui_MainWindow_export(object):
@@ -16,6 +15,9 @@ class Ui_MainWindow_export(object):
         tes_query=("SELECT Tanggal, `NPM/NRP`, Nama, Tanggal_Lahir, Golongan, Diagnosa, Perawatan_Gigi, Pengobatan FROM pengunjung WHERE Tanggal BETWEEN '{0}' AND '{1}'").format(self.lineEdit.text(),
                                             self.lineEdit_2.text())
         query=c.execute(tes_query)
+        
+        workbook = Workbook("Data Ekspor Tanggal " + str(self.lineEdit.text()) + " sampai " +  str(self.lineEdit_2.text()) + ".xlsx")
+        worksheet = workbook.add_worksheet()
 
         worksheet.write('A1', 'Tanggal')
         worksheet.set_column('A:A', 13)
@@ -179,7 +181,7 @@ class Ui_MainWindow_export(object):
         conn = sqlite3.connect('database/pangkalan_data.db')
         c = conn.cursor()
 
-        query = "select Tanggal, Nama, `NPM/NRP`, 'Tanggal Lahir', Golongan, Diagnosa, Perawatan, Pengobatan FROM riwayat_pengunjung"
+        query = "select Tanggal, Nama, `NPM/NRP`, `Tanggal Lahir`, Golongan, Diagnosa, Perawatan, Pengobatan FROM riwayat_pengunjung"
             
         result = c.execute(query)
 
@@ -221,10 +223,6 @@ class Ui_MainWindow_export(object):
         self.label_5.setText(_translate("MainWindow", "Ekspor"))
 
 import resource
-
-Bulan = ["Januari", "Februari", "Maret", "April",
-        "Mei","Juni", "Juli", "Agustus",
-        "September", "Oktober", "November", "Desember"]
 
 if __name__ == "__main__":
     import sys
