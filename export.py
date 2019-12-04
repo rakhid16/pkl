@@ -186,7 +186,7 @@ class Ui_MainWindow_export(object):
         conn = sqlite3.connect('database/pangkalan_data.db')
         c = conn.cursor()
 
-        query = "select Tanggal, Nama, `NPM/NRP`, 'Tanggal Lahir', Golongan, Diagnosa, Perawatan, Pengobatan FROM riwayat_pengunjung"
+        query = "select Tanggal, Nama, `NPM/NRP`, `Tanggal Lahir`, Golongan, Diagnosa, Perawatan, Pengobatan FROM riwayat_pengunjung"
             
         result = c.execute(query)
 
