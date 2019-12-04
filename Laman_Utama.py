@@ -23,22 +23,22 @@ from Hapus_Data_Pengunjung import Ui_MainWindow_deleteUtama
 
 
 class Ui_MainWindow_utama(object):
-    def refreshData(self):
-        # conn = sqlite3.connect('database/pangkalan_data.db')
-        # c = conn.cursor()
+    # def refreshData(self):
+    #     # conn = sqlite3.connect('database/pangkalan_data.db')
+    #     # c = conn.cursor()
 
-        # query = "SELECT Tanggal, `NPM/NRP`, Nama, Tanggal_Lahir, Golongan, Diagnosa, Perawatan_Gigi, Pengobatan FROM pengunjung"
+    #     # query = "SELECT Tanggal, `NPM/NRP`, Nama, Tanggal_Lahir, Golongan, Diagnosa, Perawatan_Gigi, Pengobatan FROM pengunjung"
             
-        # result = c.execute(query)
+    #     # result = c.execute(query)
 
-        # self.tableWidget.setRowCount(0)
-        # for row_number, row_data in enumerate(result):
-        #     self.tableWidget.insertRow(row_number)
-        #     for column_number, data in enumerate(row_data):
-        #         self.tableWidget.setItem(row_number, column_number, QtWidgets.QTableWidgetItem(str(data)))
+    #     # self.tableWidget.setRowCount(0)
+    #     # for row_number, row_data in enumerate(result):
+    #     #     self.tableWidget.insertRow(row_number)
+    #     #     for column_number, data in enumerate(row_data):
+    #     #         self.tableWidget.setItem(row_number, column_number, QtWidgets.QTableWidgetItem(str(data)))
 
-        self.messagebox("Pesan","Telah Direfresh!")
-        # c.close()
+    #     self.messagebox("Pesan","Telah Direfresh!")
+    #     # c.close()
 
     def pindaheditData(self):
         self.window=QtWidgets.QMainWindow()
@@ -284,18 +284,18 @@ class Ui_MainWindow_utama(object):
         self.label_4.setGeometry(QtCore.QRect(1248, 84, 58, 16))
         self.label_4.setAlignment(QtCore.Qt.AlignCenter)
         self.label_4.setObjectName("label_4")
-        self.pushButton_9 = QtWidgets.QPushButton(self.frame_4)
-        self.pushButton_9.setGeometry(QtCore.QRect(270, 10, 72, 68))
-        self.pushButton_9.setText("")
-        icon9 = QtGui.QIcon()
-        icon9.addPixmap(QtGui.QPixmap(":/images/img/refresh.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.pushButton_9.setIcon(icon9)
-        self.pushButton_9.setIconSize(QtCore.QSize(60, 60))
-        self.pushButton_9.setObjectName("pushButton_9")
-        self.label_13 = QtWidgets.QLabel(self.frame_4)
-        self.label_13.setGeometry(QtCore.QRect(275, 84, 64, 16))
-        self.label_13.setAlignment(QtCore.Qt.AlignCenter)
-        self.label_13.setObjectName("label_13")
+        # self.pushButton_9 = QtWidgets.QPushButton(self.frame_4)
+        # self.pushButton_9.setGeometry(QtCore.QRect(270, 10, 72, 68))
+        # self.pushButton_9.setText("")
+        # icon9 = QtGui.QIcon()
+        # icon9.addPixmap(QtGui.QPixmap(":/images/img/refresh.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        # self.pushButton_9.setIcon(icon9)
+        # self.pushButton_9.setIconSize(QtCore.QSize(60, 60))
+        # self.pushButton_9.setObjectName("pushButton_9")
+        # self.label_13 = QtWidgets.QLabel(self.frame_4)
+        # self.label_13.setGeometry(QtCore.QRect(275, 84, 64, 16))
+        # self.label_13.setAlignment(QtCore.Qt.AlignCenter)
+        # self.label_13.setObjectName("label_13")
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
@@ -313,7 +313,7 @@ class Ui_MainWindow_utama(object):
         self.export_2.clicked.connect(self.eksporData)
         self.pushButton_8.clicked.connect(self.pindahdelData)
         self.pushButton_6.clicked.connect(self.pindaheditData)
-        self.pushButton_9.clicked.connect(self.refreshData)
+        # self.pushButton_9.clicked.connect(self.refreshData)
         
 
         conn = sqlite3.connect('database/pangkalan_data.db')
@@ -357,7 +357,7 @@ class Ui_MainWindow_utama(object):
         self.label_3.setText(_translate("MainWindow", "Tambah Data"))
         self.label_12.setText(_translate("MainWindow", "Hapus Data"))
         self.label_4.setText(_translate("MainWindow", "Ekspor Data"))
-        self.label_13.setText(_translate("MainWindow", "Refresh Data"))
+        # self.label_13.setText(_translate("MainWindow", "Refresh Data"))
 import resource
 
 
