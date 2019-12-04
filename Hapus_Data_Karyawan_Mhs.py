@@ -1,14 +1,6 @@
-# -*- coding: utf-8 -*-
-
-# Form implementation generated from reading ui file 'delete_admin.ui'
-#
-# Created by: PyQt5 UI code generator 5.13.0
-#
-# WARNING! All changes made in this file will be lost!
-
 import sqlite3
-from PyQt5 import QtCore, QtGui, QtWidgets
 from tkinter import messagebox
+from PyQt5 import QtCore, QtGui, QtWidgets
 
 class Ui_MainWindow_deleteAdmin(object):
     def messagebox(self, title, message):
@@ -343,8 +335,8 @@ class Ui_MainWindow_deleteAdmin(object):
         self.label_7.setText(_translate("MainWindow", "Keamanan"))
         self.label_8.setText(_translate("MainWindow", "Kebersihan"))
         self.label_9.setText(_translate("MainWindow", "Mahasiswa"))
-import resource
 
+import resource
 
 if __name__ == "__main__":
     import sys

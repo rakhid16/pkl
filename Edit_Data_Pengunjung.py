@@ -1,16 +1,6 @@
-# -*- coding: utf-8 -*-
-
-# Form implementation generated from reading ui file 'tambah dan edit.ui'
-#
-# Created by: PyQt5 UI code generator 5.13.0
-#
-# WARNING! All changes made in this file will be lost!
-
-
-from PyQt5 import QtCore, QtGui, QtWidgets
 import sqlite3
 from tkinter import messagebox
-
+from PyQt5 import QtCore, QtGui, QtWidgets
 
 class Ui_MainWindow_edit(object):
     def batalReset(self):
