@@ -1,3 +1,12 @@
+# -*- coding: utf-8 -*-
+
+# Form implementation generated from reading ui file 'tampilan_baru.ui'
+#
+# Created by: PyQt5 UI code generator 5.13.0
+#
+# WARNING! All changes made in this file will be lost!
+
+
 import sqlite3
 import pandas as pd
 from tkinter import messagebox
@@ -12,26 +21,24 @@ from Edit_Data_Pengunjung import Ui_MainWindow_edit
 from Data_Karyawan_Mhs import Ui_MainWindow_golongan
 from Hapus_Data_Pengunjung import Ui_MainWindow_deleteUtama
 
-workbook = Workbook('Data_Hasil_Ekspor.xlsx')
-worksheet = workbook.add_worksheet()
 
 class Ui_MainWindow_utama(object):
     def refreshData(self):
-        conn = sqlite3.connect('database/pangkalan_data.db')
-        c = conn.cursor()
+        # conn = sqlite3.connect('database/pangkalan_data.db')
+        # c = conn.cursor()
 
-        query = "SELECT Tanggal, `NPM/NRP`, Nama, Tanggal_Lahir, Golongan, Diagnosa, Perawatan_Gigi, Pengobatan FROM pengunjung"
+        # query = "SELECT Tanggal, `NPM/NRP`, Nama, Tanggal_Lahir, Golongan, Diagnosa, Perawatan_Gigi, Pengobatan FROM pengunjung"
             
-        result = c.execute(query)
+        # result = c.execute(query)
 
-        self.tableWidget.setRowCount(0)
-        for row_number, row_data in enumerate(result):
-            self.tableWidget.insertRow(row_number)
-            for column_number, data in enumerate(row_data):
-                self.tableWidget.setItem(row_number, column_number, QtWidgets.QTableWidgetItem(str(data)))
+        # self.tableWidget.setRowCount(0)
+        # for row_number, row_data in enumerate(result):
+        #     self.tableWidget.insertRow(row_number)
+        #     for column_number, data in enumerate(row_data):
+        #         self.tableWidget.setItem(row_number, column_number, QtWidgets.QTableWidgetItem(str(data)))
 
         self.messagebox("Pesan","Telah Direfresh!")
-        c.close()
+        # c.close()
 
     def pindaheditData(self):
         self.window=QtWidgets.QMainWindow()
@@ -74,78 +81,30 @@ class Ui_MainWindow_utama(object):
         self.ui.setupUi_export(self.window)
         self.window.setFixedSize(800, 530)
         self.window.show()
-        
-        
 
     def button_pindah(self):
         self.window=QtWidgets.QMainWindow()
         self.ui=Ui_MainWindow_golongan()
         self.ui.setupUi_golongan(self.window)
         self.window.setFixedSize(GetSystemMetrics(0), GetSystemMetrics(1))
+        self.window.setFixedSize(1361, 692)
         self.window.show()
 
     def setupUi_utama(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(GetSystemMetrics(0), GetSystemMetrics(1))
+        MainWindow.resize(1350, 867)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.frame = QtWidgets.QFrame(self.centralwidget)
-        self.frame.setGeometry(QtCore.QRect(9, 9, 1331, 641))
+        self.frame.setGeometry(QtCore.QRect(10, 30, 1331, 641))
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")
         self.frame_5 = QtWidgets.QFrame(self.frame)
-        self.frame_5.setGeometry(QtCore.QRect(194, 110, 1141, 420))
+        self.frame_5.setGeometry(QtCore.QRect(204, 110, 1101, 420))
         self.frame_5.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_5.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_5.setObjectName("frame_5")
-        self.tableWidget = QtWidgets.QTableWidget(self.frame_5)
-        self.tableWidget.setGeometry(QtCore.QRect(30, 20, 1091, 401))
-        self.tableWidget.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.tableWidget.setObjectName("tableWidget")
-        self.tableWidget.setColumnCount(8)
-        self.tableWidget.setRowCount(8)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget.setVerticalHeaderItem(0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget.setVerticalHeaderItem(1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget.setVerticalHeaderItem(2, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget.setVerticalHeaderItem(3, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget.setVerticalHeaderItem(4, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget.setVerticalHeaderItem(5, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget.setVerticalHeaderItem(6, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget.setVerticalHeaderItem(7, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget.setHorizontalHeaderItem(0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget.setHorizontalHeaderItem(1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget.setHorizontalHeaderItem(2, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget.setHorizontalHeaderItem(3, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget.setHorizontalHeaderItem(4, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget.setHorizontalHeaderItem(5, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget.setHorizontalHeaderItem(6, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget.setHorizontalHeaderItem(7, item)
-        self.tableWidget.horizontalHeader().setVisible(True)
-        self.tableWidget.horizontalHeader().setCascadingSectionResizes(False)
-        self.tableWidget.horizontalHeader().setHighlightSections(True)
-        self.tableWidget.horizontalHeader().setSortIndicatorShown(False)
-        self.tableWidget.horizontalHeader().setStretchLastSection(False)
-        self.tableWidget.verticalHeader().setVisible(True)
-        self.tableWidget.verticalHeader().setCascadingSectionResizes(False)
-        self.tableWidget.verticalHeader().setDefaultSectionSize(23)
-        self.tableWidget.verticalHeader().setHighlightSections(True)
         self.frame_3 = QtWidgets.QFrame(self.frame)
         self.frame_3.setGeometry(QtCore.QRect(570, 10, 761, 115))
         self.frame_3.setFrameShape(QtWidgets.QFrame.NoFrame)
@@ -199,7 +158,7 @@ class Ui_MainWindow_utama(object):
         self.frame_2.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_2.setObjectName("frame_2")
         self.layoutWidget = QtWidgets.QWidget(self.frame_2)
-        self.layoutWidget.setGeometry(QtCore.QRect(30, 10, 141, 91))
+        self.layoutWidget.setGeometry(QtCore.QRect(30, 20, 141, 101))
         self.layoutWidget.setObjectName("layoutWidget")
         self.verticalLayout_7 = QtWidgets.QVBoxLayout(self.layoutWidget)
         self.verticalLayout_7.setContentsMargins(0, 0, 0, 0)
@@ -217,7 +176,7 @@ class Ui_MainWindow_utama(object):
         self.label_5.setObjectName("label_5")
         self.verticalLayout_7.addWidget(self.label_5)
         self.layoutWidget1 = QtWidgets.QWidget(self.frame_2)
-        self.layoutWidget1.setGeometry(QtCore.QRect(30, 110, 141, 91))
+        self.layoutWidget1.setGeometry(QtCore.QRect(30, 120, 141, 101))
         self.layoutWidget1.setObjectName("layoutWidget1")
         self.verticalLayout_6 = QtWidgets.QVBoxLayout(self.layoutWidget1)
         self.verticalLayout_6.setContentsMargins(0, 0, 0, 0)
@@ -235,7 +194,7 @@ class Ui_MainWindow_utama(object):
         self.label_6.setObjectName("label_6")
         self.verticalLayout_6.addWidget(self.label_6)
         self.layoutWidget2 = QtWidgets.QWidget(self.frame_2)
-        self.layoutWidget2.setGeometry(QtCore.QRect(30, 210, 141, 101))
+        self.layoutWidget2.setGeometry(QtCore.QRect(30, 220, 141, 101))
         self.layoutWidget2.setObjectName("layoutWidget2")
         self.verticalLayout_5 = QtWidgets.QVBoxLayout(self.layoutWidget2)
         self.verticalLayout_5.setContentsMargins(0, 0, 0, 0)
@@ -253,7 +212,7 @@ class Ui_MainWindow_utama(object):
         self.label_7.setObjectName("label_7")
         self.verticalLayout_5.addWidget(self.label_7)
         self.layoutWidget3 = QtWidgets.QWidget(self.frame_2)
-        self.layoutWidget3.setGeometry(QtCore.QRect(30, 320, 141, 91))
+        self.layoutWidget3.setGeometry(QtCore.QRect(30, 320, 141, 101))
         self.layoutWidget3.setObjectName("layoutWidget3")
         self.verticalLayout_8 = QtWidgets.QVBoxLayout(self.layoutWidget3)
         self.verticalLayout_8.setContentsMargins(0, 0, 0, 0)
@@ -338,10 +297,6 @@ class Ui_MainWindow_utama(object):
         self.label_13.setAlignment(QtCore.Qt.AlignCenter)
         self.label_13.setObjectName("label_13")
         MainWindow.setCentralWidget(self.centralwidget)
-        self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 1350, 21))
-        self.menubar.setObjectName("menubar")
-        MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
@@ -359,6 +314,7 @@ class Ui_MainWindow_utama(object):
         self.pushButton_8.clicked.connect(self.pindahdelData)
         self.pushButton_6.clicked.connect(self.pindaheditData)
         self.pushButton_9.clicked.connect(self.refreshData)
+        
 
         conn = sqlite3.connect('database/pangkalan_data.db')
         c = conn.cursor()
@@ -367,7 +323,7 @@ class Ui_MainWindow_utama(object):
             
         result = c.execute(query)
 
-        '''
+        
         data = pd.read_sql("select * from riwayat_pengunjung", conn, index_col='Tanggal', parse_dates=True)
         data.index = pd.to_datetime(data.index)
         data.index.name = "Kurun Waktu"
@@ -380,51 +336,18 @@ class Ui_MainWindow_utama(object):
         plt.ylim(0,data.resample('M').count()['Nama'].max()*1.25)
 
         plt.show()
-        '''
+        
+        # self.tableWidget.setRowCount(0)
+        # for row_number, row_data in enumerate(result):
+        #     self.tableWidget.insertRow(row_number)
+        #     for column_number, data in enumerate(row_data):
+        #         self.tableWidget.setItem(row_number, column_number, QtWidgets.QTableWidgetItem(str(data)))
 
-        self.tableWidget.setRowCount(0)
-        for row_number, row_data in enumerate(result):
-            self.tableWidget.insertRow(row_number)
-            for column_number, data in enumerate(row_data):
-                self.tableWidget.setItem(row_number, column_number, QtWidgets.QTableWidgetItem(str(data)))
-
-        conn.close()
+        # conn.close()
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Halaman Utama"))
-        item = self.tableWidget.verticalHeaderItem(0)
-        item.setText(_translate("MainWindow", "1"))
-        item = self.tableWidget.verticalHeaderItem(1)
-        item.setText(_translate("MainWindow", "2"))
-        item = self.tableWidget.verticalHeaderItem(2)
-        item.setText(_translate("MainWindow", "3"))
-        item = self.tableWidget.verticalHeaderItem(3)
-        item.setText(_translate("MainWindow", "5"))
-        item = self.tableWidget.verticalHeaderItem(4)
-        item.setText(_translate("MainWindow", "6"))
-        item = self.tableWidget.verticalHeaderItem(5)
-        item.setText(_translate("MainWindow", "7"))
-        item = self.tableWidget.verticalHeaderItem(6)
-        item.setText(_translate("MainWindow", "8"))
-        item = self.tableWidget.verticalHeaderItem(7)
-        item.setText(_translate("MainWindow", "10"))
-        item = self.tableWidget.horizontalHeaderItem(0)
-        item.setText(_translate("MainWindow", "Tanggal"))
-        item = self.tableWidget.horizontalHeaderItem(1)
-        item.setText(_translate("MainWindow", "NPM/NRP"))
-        item = self.tableWidget.horizontalHeaderItem(2)
-        item.setText(_translate("MainWindow", "Nama"))
-        item = self.tableWidget.horizontalHeaderItem(3)
-        item.setText(_translate("MainWindow", "Tanggal lahir"))
-        item = self.tableWidget.horizontalHeaderItem(4)
-        item.setText(_translate("MainWindow", "Golongan"))
-        item = self.tableWidget.horizontalHeaderItem(5)
-        item.setText(_translate("MainWindow", "Diagnosa"))
-        item = self.tableWidget.horizontalHeaderItem(6)
-        item.setText(_translate("MainWindow", "Perawatan"))
-        item = self.tableWidget.horizontalHeaderItem(7)
-        item.setText(_translate("MainWindow", "Pengobatan"))
         self.label_11.setText(_translate("MainWindow", "Lihat Riwayat"))
         self.label_5.setText(_translate("MainWindow", "Karyawan"))
         self.label_6.setText(_translate("MainWindow", "Keamanan"))
@@ -435,8 +358,8 @@ class Ui_MainWindow_utama(object):
         self.label_12.setText(_translate("MainWindow", "Hapus Data"))
         self.label_4.setText(_translate("MainWindow", "Ekspor Data"))
         self.label_13.setText(_translate("MainWindow", "Refresh Data"))
-
 import resource
+
 
 if __name__ == "__main__":
     import sys
