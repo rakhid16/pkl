@@ -315,7 +315,7 @@ class Ui_MainWindow_deleteAdmin(object):
         item = self.tableWidget.horizontalHeaderItem(3)
         item.setText(_translate("MainWindow", "Golongan"))
         self.label_2.setText(_translate("MainWindow", "ID Yang Ingin Dihapus"))
-        self.lineEdit.setPlaceholderText(_translate("MainWindow", "Kolom ID"))
+        self.lineEdit.setPlaceholderText(_translate("MainWindow", "Ex : 170810100XX"))
         self.label_5.setText(_translate("MainWindow", "Hapus"))
         self.label_6.setText(_translate("MainWindow", "Karyawan"))
         self.label_7.setText(_translate("MainWindow", "Keamanan"))
