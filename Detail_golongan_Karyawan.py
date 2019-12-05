@@ -1,22 +1,18 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'riwayat.ui'
+# Form implementation generated from reading ui file 'detail_golongan.ui'
 #
 # Created by: PyQt5 UI code generator 5.13.0
 #
 # WARNING! All changes made in this file will be lost!
 
 import sqlite3
-from tkinter import messagebox
-from xlsxwriter.workbook import Workbook
+from win32api import GetSystemMetrics
 from PyQt5 import QtCore, QtGui, QtWidgets
+from tkinter import messagebox
 
-workbook = Workbook('Data_Hasil_Ekspor.xlsx')
-worksheet = workbook.add_worksheet()
-
-
-class Ui_MainWindow_riwayat(object):
-
+class Ui_MainWindow_karyawan(object):
+    
     def messagebox(self, title, message):
         mess=QtWidgets.QMessageBox()
         mess.setWindowTitle(title)
@@ -24,7 +20,7 @@ class Ui_MainWindow_riwayat(object):
         mess.setStandardButtons(QtWidgets.QMessageBox.Ok)
         mess.exec_()
 
-    def setupUi_riwayat(self, MainWindow): 
+    def setupUi_karyawan(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(800, 600)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -45,7 +41,7 @@ class Ui_MainWindow_riwayat(object):
         self.gridLayout_4.setObjectName("gridLayout_4")
         self.tableWidget = QtWidgets.QTableWidget(self.frame_4)
         self.tableWidget.setObjectName("tableWidget")
-        self.tableWidget.setColumnCount(8)
+        self.tableWidget.setColumnCount(5)
         self.tableWidget.setRowCount(2)
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget.setVerticalHeaderItem(0, item)
@@ -85,7 +81,7 @@ class Ui_MainWindow_riwayat(object):
         conn = sqlite3.connect('database/pangkalan_data.db')
         c = conn.cursor()
 
-        query = "select Tanggal, Nama, `NPM/NRP`, 'Tanggal Lahir', Golongan, Diagnosa, Perawatan, Pengobatan FROM riwayat_pengunjung"
+        query = "select * from data_karyawan_mhs WHERE Golongan='Dosen' OR Golongan='Admin' OR Golongan='Laboran'"
             
         result = c.execute(query)
 
@@ -95,32 +91,25 @@ class Ui_MainWindow_riwayat(object):
             for column_number, data in enumerate(row_data):
                 self.tableWidget.setItem(row_number, column_number, QtWidgets.QTableWidgetItem(str(data)))
 
-        conn.close()
+        c.close()
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "Riwayat Data Pengunjung"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Halaman Detail Karyawan"))
         item = self.tableWidget.verticalHeaderItem(0)
         item.setText(_translate("MainWindow", "1"))
         item = self.tableWidget.verticalHeaderItem(1)
         item.setText(_translate("MainWindow", "2"))
-        item = self.tableWidget.horizontalHeaderItem(0)
-        item.setText(_translate("MainWindow", "Tanggal"))
+        item = self.tableWidget.horizontalHeaderItem(0)        
+        item.setText(_translate("MainWindow", "NPM/NRP"))
         item = self.tableWidget.horizontalHeaderItem(1)
         item.setText(_translate("MainWindow", "Nama"))
         item = self.tableWidget.horizontalHeaderItem(2)
-        item.setText(_translate("MainWindow", "NPM/NRP"))
-        item = self.tableWidget.horizontalHeaderItem(3)
         item.setText(_translate("MainWindow", "Tanggal Lahir"))
-        item = self.tableWidget.horizontalHeaderItem(4)
+        item = self.tableWidget.horizontalHeaderItem(3)
         item.setText(_translate("MainWindow", "Golongan"))
-        item = self.tableWidget.horizontalHeaderItem(5)
-        item.setText(_translate("MainWindow", "Diagnosa"))
-        item = self.tableWidget.horizontalHeaderItem(6)
-        item.setText(_translate("MainWindow", "Perawatan"))
-        item = self.tableWidget.horizontalHeaderItem(7)
-        item.setText(_translate("MainWindow", "Pengobatan"))
-
+        item = self.tableWidget.horizontalHeaderItem(4)
+        item.setText(_translate("MainWindow", "Jumlah Kunjungan"))
 import resource
 
 
@@ -128,8 +117,9 @@ if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow_riwayat()
-    ui.setupUi_riwayat(MainWindow)
-    MainWindow.setFixedSize(800, 530)
+    ui = Ui_MainWindow_karyawan()
+    ui.setupUi_karyawan(MainWindow)
+    MainWindow.setFixedSize(800, 590)
     MainWindow.show()
     sys.exit(app.exec_())
+

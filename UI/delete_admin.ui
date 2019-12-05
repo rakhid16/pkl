@@ -23,71 +23,13 @@
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
-      <widget class="QFrame" name="frame_2">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>10</y>
-         <width>759</width>
-         <height>98</height>
-        </rect>
-       </property>
-       <property name="frameShape">
-        <enum>QFrame::StyledPanel</enum>
-       </property>
-       <property name="frameShadow">
-        <enum>QFrame::Raised</enum>
-       </property>
-       <layout class="QGridLayout" name="gridLayout_3">
-        <item row="0" column="0">
-         <layout class="QHBoxLayout" name="horizontalLayout">
-          <item>
-           <widget class="QLabel" name="label_3">
-            <property name="text">
-             <string/>
-            </property>
-            <property name="pixmap">
-             <pixmap resource="img_rsc.qrc">:/images/img/upn logo.png</pixmap>
-            </property>
-            <property name="scaledContents">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLabel" name="label">
-            <property name="text">
-             <string/>
-            </property>
-            <property name="pixmap">
-             <pixmap resource="img_rsc.qrc">:/images/img/poli gigi logo.png</pixmap>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item row="0" column="1">
-         <spacer name="horizontalSpacer">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>258</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-       </layout>
-      </widget>
       <widget class="QFrame" name="frame_4">
        <property name="geometry">
         <rect>
-         <x>200</x>
-         <y>105</y>
-         <width>531</width>
-         <height>331</height>
+         <x>130</x>
+         <y>0</y>
+         <width>601</width>
+         <height>431</height>
         </rect>
        </property>
        <property name="frameShape">
@@ -100,9 +42,9 @@
         <property name="geometry">
          <rect>
           <x>10</x>
-          <y>26</y>
-          <width>511</width>
-          <height>301</height>
+          <y>40</y>
+          <width>581</width>
+          <height>391</height>
          </rect>
         </property>
         <row>
@@ -271,10 +213,10 @@
       <widget class="QFrame" name="frame_8">
        <property name="geometry">
         <rect>
-         <x>30</x>
-         <y>130</y>
-         <width>171</width>
-         <height>351</height>
+         <x>10</x>
+         <y>20</y>
+         <width>191</width>
+         <height>431</height>
         </rect>
        </property>
        <property name="frameShape">
@@ -286,10 +228,10 @@
        <widget class="QWidget" name="layoutWidget_2">
         <property name="geometry">
          <rect>
-          <x>30</x>
-          <y>0</y>
-          <width>111</width>
-          <height>71</height>
+          <x>10</x>
+          <y>20</y>
+          <width>91</width>
+          <height>91</height>
          </rect>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_7">
@@ -325,10 +267,10 @@
        <widget class="QWidget" name="layoutWidget_3">
         <property name="geometry">
          <rect>
-          <x>30</x>
-          <y>80</y>
-          <width>111</width>
-          <height>71</height>
+          <x>10</x>
+          <y>120</y>
+          <width>91</width>
+          <height>91</height>
          </rect>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_6">
@@ -364,10 +306,10 @@
        <widget class="QWidget" name="layoutWidget_4">
         <property name="geometry">
          <rect>
-          <x>30</x>
-          <y>160</y>
-          <width>111</width>
-          <height>71</height>
+          <x>10</x>
+          <y>220</y>
+          <width>91</width>
+          <height>91</height>
          </rect>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -403,10 +345,10 @@
        <widget class="QWidget" name="layoutWidget_5">
         <property name="geometry">
          <rect>
-          <x>30</x>
-          <y>240</y>
-          <width>111</width>
-          <height>71</height>
+          <x>10</x>
+          <y>323</y>
+          <width>91</width>
+          <height>91</height>
          </rect>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_8">

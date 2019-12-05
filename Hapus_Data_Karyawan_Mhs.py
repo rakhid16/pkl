@@ -1,6 +1,16 @@
+# -*- coding: utf-8 -*-
+
+# Form implementation generated from reading ui file 'delete_admin.ui'
+#
+# Created by: PyQt5 UI code generator 5.13.0
+#
+# WARNING! All changes made in this file will be lost!
+
+
 import sqlite3
 from tkinter import messagebox
 from PyQt5 import QtCore, QtGui, QtWidgets
+
 
 class Ui_MainWindow_deleteAdmin(object):
     def messagebox(self, title, message):
@@ -107,37 +117,13 @@ class Ui_MainWindow_deleteAdmin(object):
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")
-        self.frame_2 = QtWidgets.QFrame(self.frame)
-        self.frame_2.setGeometry(QtCore.QRect(10, 10, 759, 98))
-        self.frame_2.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_2.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_2.setObjectName("frame_2")
-        self.gridLayout_3 = QtWidgets.QGridLayout(self.frame_2)
-        self.gridLayout_3.setObjectName("gridLayout_3")
-        self.horizontalLayout = QtWidgets.QHBoxLayout()
-        self.horizontalLayout.setObjectName("horizontalLayout")
-        self.label_3 = QtWidgets.QLabel(self.frame_2)
-        self.label_3.setText("")
-        self.label_3.setPixmap(QtGui.QPixmap(":/images/img/upn logo.png"))
-        self.label_3.setScaledContents(True)
-        self.label_3.setObjectName("label_3")
-        self.horizontalLayout.addWidget(self.label_3)
-        self.label = QtWidgets.QLabel(self.frame_2)
-        self.label.setText("")
-        self.label.setPixmap(QtGui.QPixmap(":/images/img/poli gigi logo.png"))
-        self.label.setObjectName("label")
-        self.horizontalLayout.addWidget(self.label)
-        self.gridLayout_3.addLayout(self.horizontalLayout, 0, 0, 1, 1)
-        spacerItem = QtWidgets.QSpacerItem(258, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.gridLayout_3.addItem(spacerItem, 0, 1, 1, 1)
         self.frame_4 = QtWidgets.QFrame(self.frame)
-        self.frame_4.setGeometry(QtCore.QRect(200, 105, 531, 331))
+        self.frame_4.setGeometry(QtCore.QRect(130, 0, 601, 431))
         self.frame_4.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_4.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_4.setObjectName("frame_4")
         self.tableWidget = QtWidgets.QTableWidget(self.frame_4)
-        self.tableWidget.setGeometry(QtCore.QRect(10, 26, 511, 301))
-        self.tableWidget.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+        self.tableWidget.setGeometry(QtCore.QRect(10, 40, 581, 391))
         self.tableWidget.setObjectName("tableWidget")
         self.tableWidget.setColumnCount(4)
         self.tableWidget.setRowCount(2)
@@ -202,12 +188,12 @@ class Ui_MainWindow_deleteAdmin(object):
         self.label_5.setAlignment(QtCore.Qt.AlignCenter)
         self.label_5.setObjectName("label_5")
         self.frame_8 = QtWidgets.QFrame(self.frame)
-        self.frame_8.setGeometry(QtCore.QRect(30, 130, 171, 351))
+        self.frame_8.setGeometry(QtCore.QRect(10, 20, 191, 431))
         self.frame_8.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_8.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_8.setObjectName("frame_8")
         self.layoutWidget_2 = QtWidgets.QWidget(self.frame_8)
-        self.layoutWidget_2.setGeometry(QtCore.QRect(30, 0, 111, 71))
+        self.layoutWidget_2.setGeometry(QtCore.QRect(10, 20, 91, 91))
         self.layoutWidget_2.setObjectName("layoutWidget_2")
         self.verticalLayout_7 = QtWidgets.QVBoxLayout(self.layoutWidget_2)
         self.verticalLayout_7.setContentsMargins(0, 0, 0, 0)
@@ -225,7 +211,7 @@ class Ui_MainWindow_deleteAdmin(object):
         self.label_6.setObjectName("label_6")
         self.verticalLayout_7.addWidget(self.label_6)
         self.layoutWidget_3 = QtWidgets.QWidget(self.frame_8)
-        self.layoutWidget_3.setGeometry(QtCore.QRect(30, 80, 111, 71))
+        self.layoutWidget_3.setGeometry(QtCore.QRect(10, 120, 91, 91))
         self.layoutWidget_3.setObjectName("layoutWidget_3")
         self.verticalLayout_6 = QtWidgets.QVBoxLayout(self.layoutWidget_3)
         self.verticalLayout_6.setContentsMargins(0, 0, 0, 0)
@@ -243,7 +229,7 @@ class Ui_MainWindow_deleteAdmin(object):
         self.label_7.setObjectName("label_7")
         self.verticalLayout_6.addWidget(self.label_7)
         self.layoutWidget_4 = QtWidgets.QWidget(self.frame_8)
-        self.layoutWidget_4.setGeometry(QtCore.QRect(30, 160, 111, 71))
+        self.layoutWidget_4.setGeometry(QtCore.QRect(10, 220, 91, 91))
         self.layoutWidget_4.setObjectName("layoutWidget_4")
         self.verticalLayout_5 = QtWidgets.QVBoxLayout(self.layoutWidget_4)
         self.verticalLayout_5.setContentsMargins(0, 0, 0, 0)
@@ -261,7 +247,7 @@ class Ui_MainWindow_deleteAdmin(object):
         self.label_8.setObjectName("label_8")
         self.verticalLayout_5.addWidget(self.label_8)
         self.layoutWidget_5 = QtWidgets.QWidget(self.frame_8)
-        self.layoutWidget_5.setGeometry(QtCore.QRect(30, 240, 111, 71))
+        self.layoutWidget_5.setGeometry(QtCore.QRect(10, 323, 91, 91))
         self.layoutWidget_5.setObjectName("layoutWidget_5")
         self.verticalLayout_8 = QtWidgets.QVBoxLayout(self.layoutWidget_5)
         self.verticalLayout_8.setContentsMargins(0, 0, 0, 0)

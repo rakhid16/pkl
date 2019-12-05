@@ -23,71 +23,13 @@
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
-      <widget class="QFrame" name="frame_2">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>10</y>
-         <width>759</width>
-         <height>98</height>
-        </rect>
-       </property>
-       <property name="frameShape">
-        <enum>QFrame::StyledPanel</enum>
-       </property>
-       <property name="frameShadow">
-        <enum>QFrame::Raised</enum>
-       </property>
-       <layout class="QGridLayout" name="gridLayout_3">
-        <item row="0" column="0">
-         <layout class="QHBoxLayout" name="horizontalLayout">
-          <item>
-           <widget class="QLabel" name="label_3">
-            <property name="text">
-             <string/>
-            </property>
-            <property name="pixmap">
-             <pixmap resource="img_rsc.qrc">:/images/img/upn logo.png</pixmap>
-            </property>
-            <property name="scaledContents">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLabel" name="label">
-            <property name="text">
-             <string/>
-            </property>
-            <property name="pixmap">
-             <pixmap resource="img_rsc.qrc">:/images/img/poli gigi logo.png</pixmap>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item row="0" column="1">
-         <spacer name="horizontalSpacer">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>258</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-       </layout>
-      </widget>
       <widget class="QFrame" name="frame_4">
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>114</y>
+         <y>-20</y>
          <width>759</width>
-         <height>331</height>
+         <height>461</height>
         </rect>
        </property>
        <property name="frameShape">
@@ -100,9 +42,9 @@
         <property name="geometry">
          <rect>
           <x>10</x>
-          <y>26</y>
+          <y>50</y>
           <width>741</width>
-          <height>291</height>
+          <height>401</height>
          </rect>
         </property>
         <row>
@@ -161,9 +103,9 @@
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>440</y>
+         <y>450</y>
          <width>762</width>
-         <height>111</height>
+         <height>101</height>
         </rect>
        </property>
        <property name="frameShape">
@@ -287,45 +229,6 @@
          <set>Qt::AlignCenter</set>
         </property>
        </widget>
-       <widget class="QPushButton" name="pushButton_3">
-        <property name="geometry">
-         <rect>
-          <x>30</x>
-          <y>11</y>
-          <width>72</width>
-          <height>68</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="icon">
-         <iconset resource="img_rsc.qrc">
-          <normaloff>:/images/img/refresh.png</normaloff>:/images/img/refresh.png</iconset>
-        </property>
-        <property name="iconSize">
-         <size>
-          <width>60</width>
-          <height>60</height>
-         </size>
-        </property>
-       </widget>
-       <widget class="QLabel" name="label_6">
-        <property name="geometry">
-         <rect>
-          <x>31</x>
-          <y>78</y>
-          <width>71</width>
-          <height>20</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Refresh Data</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
       </widget>
      </widget>
     </item>
@@ -341,7 +244,6 @@
     </rect>
    </property>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources>
   <include location="img_rsc.qrc"/>

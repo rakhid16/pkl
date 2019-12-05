@@ -1,3 +1,12 @@
+# -*- coding: utf-8 -*-
+
+# Form implementation generated from reading ui file 'delete_utama.ui'
+#
+# Created by: PyQt5 UI code generator 5.13.0
+#
+# WARNING! All changes made in this file will be lost!
+
+
 import sqlite3
 from tkinter import messagebox
 from PyQt5 import QtCore, QtGui, QtWidgets
@@ -47,37 +56,13 @@ class Ui_MainWindow_deleteUtama(object):
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")
-        self.frame_2 = QtWidgets.QFrame(self.frame)
-        self.frame_2.setGeometry(QtCore.QRect(10, 10, 759, 98))
-        self.frame_2.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_2.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_2.setObjectName("frame_2")
-        self.gridLayout_3 = QtWidgets.QGridLayout(self.frame_2)
-        self.gridLayout_3.setObjectName("gridLayout_3")
-        self.horizontalLayout = QtWidgets.QHBoxLayout()
-        self.horizontalLayout.setObjectName("horizontalLayout")
-        self.label_3 = QtWidgets.QLabel(self.frame_2)
-        self.label_3.setText("")
-        self.label_3.setPixmap(QtGui.QPixmap(":/images/img/upn logo.png"))
-        self.label_3.setScaledContents(True)
-        self.label_3.setObjectName("label_3")
-        self.horizontalLayout.addWidget(self.label_3)
-        self.label = QtWidgets.QLabel(self.frame_2)
-        self.label.setText("")
-        self.label.setPixmap(QtGui.QPixmap(":/images/img/poli gigi logo.png"))
-        self.label.setObjectName("label")
-        self.horizontalLayout.addWidget(self.label)
-        self.gridLayout_3.addLayout(self.horizontalLayout, 0, 0, 1, 1)
-        spacerItem = QtWidgets.QSpacerItem(258, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.gridLayout_3.addItem(spacerItem, 0, 1, 1, 1)
         self.frame_4 = QtWidgets.QFrame(self.frame)
-        self.frame_4.setGeometry(QtCore.QRect(10, 114, 759, 331))
+        self.frame_4.setGeometry(QtCore.QRect(10, -20, 759, 461))
         self.frame_4.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_4.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_4.setObjectName("frame_4")
         self.tableWidget = QtWidgets.QTableWidget(self.frame_4)
-        self.tableWidget.setGeometry(QtCore.QRect(10, 26, 741, 291))
-        self.tableWidget.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+        self.tableWidget.setGeometry(QtCore.QRect(10, 50, 741, 401))
         self.tableWidget.setObjectName("tableWidget")
         self.tableWidget.setColumnCount(8)
         self.tableWidget.setRowCount(2)
@@ -102,7 +87,7 @@ class Ui_MainWindow_deleteUtama(object):
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget.setHorizontalHeaderItem(7, item)
         self.frame_3 = QtWidgets.QFrame(self.frame)
-        self.frame_3.setGeometry(QtCore.QRect(10, 440, 762, 111))
+        self.frame_3.setGeometry(QtCore.QRect(10, 450, 762, 101))
         self.frame_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_3.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_3.setObjectName("frame_3")
@@ -155,9 +140,6 @@ class Ui_MainWindow_deleteUtama(object):
         self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 21))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
-        self.statusbar = QtWidgets.QStatusBar(MainWindow)
-        self.statusbar.setObjectName("statusbar")
-        MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
@@ -187,11 +169,11 @@ class Ui_MainWindow_deleteUtama(object):
         item = self.tableWidget.verticalHeaderItem(1)
         item.setText(_translate("MainWindow", "2"))
         item = self.tableWidget.horizontalHeaderItem(0)
-        item.setText(_translate("MainWindow", "NPM/NRP"))
+        item.setText(_translate("MainWindow", "Tanggal"))
         item = self.tableWidget.horizontalHeaderItem(1)
         item.setText(_translate("MainWindow", "Nama"))
         item = self.tableWidget.horizontalHeaderItem(2)
-        item.setText(_translate("MainWindow", "Tanggal"))
+        item.setText(_translate("MainWindow", "NPM/NRP"))
         item = self.tableWidget.horizontalHeaderItem(3)
         item.setText(_translate("MainWindow", "Tanggal Lahir"))
         item = self.tableWidget.horizontalHeaderItem(4)

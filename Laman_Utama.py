@@ -18,8 +18,11 @@ from Ekspor_Data import Ui_MainWindow_export
 from Riwayat_Pasien import Ui_MainWindow_riwayat
 from Tambah_Data_Pasien import Ui_MainWindow_tambah
 from Edit_Data_Pengunjung import Ui_MainWindow_edit
-from Data_Karyawan_Mhs import Ui_MainWindow_golongan
 from Hapus_Data_Pengunjung import Ui_MainWindow_deleteUtama
+from Detail_golongan_Karyawan import Ui_MainWindow_karyawan
+from Detail_golongan_Keamanan import Ui_MainWindow_keamanan
+from Detail_golongan_Kebersihan import Ui_MainWindow_kebersihan
+from Detail_golongan_Mahasiswa import Ui_MainWindow_Mahasiswa
 
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.figure import Figure
@@ -33,15 +36,7 @@ class Ui_MainWindow_utama(object):
     def refreshData(self):
         self.frame_5.deleteLater()
         self.setupUi_utama(MainWindow)
-        # self.frame_5 = QtWidgets.QFrame(self.frame)
         self.frame_5.setGeometry(QtCore.QRect(164, 110, 2141, 631))
-        # self.frame_5.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        # self.frame_5.setFrameShadow(QtWidgets.QFrame.Raised)
-        # self.frame_5.setObjectName("frame_5")
-        
-        # self.window.destroy
-        # self.setupUi_utama(MainWindow)
-       
 
         self.messagebox("Pesan","Grafik sudah di Refresh")
         
@@ -88,10 +83,34 @@ class Ui_MainWindow_utama(object):
         self.window.setFixedSize(800, 530)
         self.window.show()
 
-    def button_pindah(self):
+    def button_pindah_karyawan(self):
         self.window=QtWidgets.QMainWindow()
-        self.ui=Ui_MainWindow_golongan()
-        self.ui.setupUi_golongan(self.window)
+        self.ui=Ui_MainWindow_karyawan()
+        self.ui.setupUi_karyawan(self.window)
+        self.window.setFixedSize(GetSystemMetrics(0), GetSystemMetrics(1))
+        self.window.setFixedSize(800, 590)
+        self.window.show()
+        
+    def button_pindah_keamanan(self):
+        self.window=QtWidgets.QMainWindow()
+        self.ui=Ui_MainWindow_keamanan()
+        self.ui.setupUi_keamanan(self.window)
+        self.window.setFixedSize(GetSystemMetrics(0), GetSystemMetrics(1))
+        self.window.setFixedSize(800, 590)
+        self.window.show()
+
+    def button_pindah_kebersihan(self):
+        self.window=QtWidgets.QMainWindow()
+        self.ui=Ui_MainWindow_kebersihan()
+        self.ui.setupUi_kebersihan(self.window)
+        self.window.setFixedSize(GetSystemMetrics(0), GetSystemMetrics(1))
+        self.window.setFixedSize(800, 590)
+        self.window.show()
+
+    def button_pindah_mahasiswa(self):
+        self.window=QtWidgets.QMainWindow()
+        self.ui=Ui_MainWindow_Mahasiswa()
+        self.ui.setupUi_Mahasiswa(self.window)
         self.window.setFixedSize(GetSystemMetrics(0), GetSystemMetrics(1))
         self.window.setFixedSize(800, 590)
         self.window.show()
@@ -322,10 +341,10 @@ class Ui_MainWindow_utama(object):
 
         self.pushButton_7.clicked.connect(self.pindahRiwayat)
         self.pushButton_5.clicked.connect(self.pindahTambah)
-        self.pushButton.clicked.connect(self.button_pindah)
-        self.pushButton_2.clicked.connect(self.button_pindah)
-        self.pushButton_3.clicked.connect(self.button_pindah)
-        self.pushButton_4.clicked.connect(self.button_pindah)
+        self.pushButton.clicked.connect(self.button_pindah_karyawan)
+        self.pushButton_2.clicked.connect(self.button_pindah_keamanan)
+        self.pushButton_3.clicked.connect(self.button_pindah_kebersihan)
+        self.pushButton_4.clicked.connect(self.button_pindah_mahasiswa)
         self.export_2.clicked.connect(self.eksporData)
         self.pushButton_8.clicked.connect(self.pindahdelData)
         self.pushButton_6.clicked.connect(self.pindaheditData)
@@ -365,7 +384,7 @@ class PlotCanvas(FigureCanvas):
 
         data = pd.read_sql("select * from riwayat_pengunjung", con, index_col='Tanggal', parse_dates=True)
         data.index = pd.to_datetime(data.index)
-        data.index.name = "Kurun Waktu"
+        data.index.name = " "
         
         plt.style.use("seaborn-whitegrid")
         plt.ylabel("Jumlah Pasien")
