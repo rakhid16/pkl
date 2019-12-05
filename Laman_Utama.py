@@ -21,24 +21,30 @@ from Edit_Data_Pengunjung import Ui_MainWindow_edit
 from Data_Karyawan_Mhs import Ui_MainWindow_golongan
 from Hapus_Data_Pengunjung import Ui_MainWindow_deleteUtama
 
+from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
+from matplotlib.figure import Figure
+import matplotlib.pyplot as plt
+
+m = 0
+
+import random
 
 class Ui_MainWindow_utama(object):
-    # def refreshData(self):
-    #     # conn = sqlite3.connect('database/pangkalan_data.db')
-    #     # c = conn.cursor()
+    def refreshData(self):
+        self.frame_5.deleteLater()
+        self.setupUi_utama(MainWindow)
+        # self.frame_5 = QtWidgets.QFrame(self.frame)
+        self.frame_5.setGeometry(QtCore.QRect(164, 110, 2141, 631))
+        # self.frame_5.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        # self.frame_5.setFrameShadow(QtWidgets.QFrame.Raised)
+        # self.frame_5.setObjectName("frame_5")
+        
+        # self.window.destroy
+        # self.setupUi_utama(MainWindow)
+       
 
-    #     # query = "SELECT Tanggal, `NPM/NRP`, Nama, Tanggal_Lahir, Golongan, Diagnosa, Perawatan_Gigi, Pengobatan FROM pengunjung"
-            
-    #     # result = c.execute(query)
-
-    #     # self.tableWidget.setRowCount(0)
-    #     # for row_number, row_data in enumerate(result):
-    #     #     self.tableWidget.insertRow(row_number)
-    #     #     for column_number, data in enumerate(row_data):
-    #     #         self.tableWidget.setItem(row_number, column_number, QtWidgets.QTableWidgetItem(str(data)))
-
-    #     self.messagebox("Pesan","Telah Direfresh!")
-    #     # c.close()
+        self.messagebox("Pesan","Grafik sudah di Refresh")
+        
 
     def pindaheditData(self):
         self.window=QtWidgets.QMainWindow()
@@ -87,7 +93,7 @@ class Ui_MainWindow_utama(object):
         self.ui=Ui_MainWindow_golongan()
         self.ui.setupUi_golongan(self.window)
         self.window.setFixedSize(GetSystemMetrics(0), GetSystemMetrics(1))
-        self.window.setFixedSize(1361, 692)
+        self.window.setFixedSize(800, 590)
         self.window.show()
 
     def setupUi_utama(self, MainWindow):
@@ -101,10 +107,15 @@ class Ui_MainWindow_utama(object):
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")
         self.frame_5 = QtWidgets.QFrame(self.frame)
-        self.frame_5.setGeometry(QtCore.QRect(204, 110, 1101, 420))
+        self.frame_5.setGeometry(QtCore.QRect(164, 110, 1200, 731))
         self.frame_5.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_5.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_5.setObjectName("frame_5")
+        global m
+        m=PlotCanvas(self.frame_5, width=11, height=3.6)
+        self.label_14 = QtWidgets.QLabel(self.frame_5)
+        self.label_14.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_14.setObjectName("label_14")
         self.frame_3 = QtWidgets.QFrame(self.frame)
         self.frame_3.setGeometry(QtCore.QRect(570, 10, 761, 115))
         self.frame_3.setFrameShape(QtWidgets.QFrame.NoFrame)
@@ -153,12 +164,12 @@ class Ui_MainWindow_utama(object):
         spacerItem3 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.gridLayout_4.addItem(spacerItem3, 0, 1, 1, 1)
         self.frame_2 = QtWidgets.QFrame(self.frame)
-        self.frame_2.setGeometry(QtCore.QRect(10, 110, 181, 451))
+        self.frame_2.setGeometry(QtCore.QRect(-20, 110, 161, 451))
         self.frame_2.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_2.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_2.setObjectName("frame_2")
         self.layoutWidget = QtWidgets.QWidget(self.frame_2)
-        self.layoutWidget.setGeometry(QtCore.QRect(30, 20, 141, 101))
+        self.layoutWidget.setGeometry(QtCore.QRect(50, 20, 111, 91))
         self.layoutWidget.setObjectName("layoutWidget")
         self.verticalLayout_7 = QtWidgets.QVBoxLayout(self.layoutWidget)
         self.verticalLayout_7.setContentsMargins(0, 0, 0, 0)
@@ -176,7 +187,7 @@ class Ui_MainWindow_utama(object):
         self.label_5.setObjectName("label_5")
         self.verticalLayout_7.addWidget(self.label_5)
         self.layoutWidget1 = QtWidgets.QWidget(self.frame_2)
-        self.layoutWidget1.setGeometry(QtCore.QRect(30, 120, 141, 101))
+        self.layoutWidget1.setGeometry(QtCore.QRect(50, 120, 111, 91))
         self.layoutWidget1.setObjectName("layoutWidget1")
         self.verticalLayout_6 = QtWidgets.QVBoxLayout(self.layoutWidget1)
         self.verticalLayout_6.setContentsMargins(0, 0, 0, 0)
@@ -194,7 +205,7 @@ class Ui_MainWindow_utama(object):
         self.label_6.setObjectName("label_6")
         self.verticalLayout_6.addWidget(self.label_6)
         self.layoutWidget2 = QtWidgets.QWidget(self.frame_2)
-        self.layoutWidget2.setGeometry(QtCore.QRect(30, 220, 141, 101))
+        self.layoutWidget2.setGeometry(QtCore.QRect(50, 220, 111, 101))
         self.layoutWidget2.setObjectName("layoutWidget2")
         self.verticalLayout_5 = QtWidgets.QVBoxLayout(self.layoutWidget2)
         self.verticalLayout_5.setContentsMargins(0, 0, 0, 0)
@@ -212,7 +223,7 @@ class Ui_MainWindow_utama(object):
         self.label_7.setObjectName("label_7")
         self.verticalLayout_5.addWidget(self.label_7)
         self.layoutWidget3 = QtWidgets.QWidget(self.frame_2)
-        self.layoutWidget3.setGeometry(QtCore.QRect(30, 320, 141, 101))
+        self.layoutWidget3.setGeometry(QtCore.QRect(50, 333, 111, 101))
         self.layoutWidget3.setObjectName("layoutWidget3")
         self.verticalLayout_8 = QtWidgets.QVBoxLayout(self.layoutWidget3)
         self.verticalLayout_8.setContentsMargins(0, 0, 0, 0)
@@ -284,18 +295,23 @@ class Ui_MainWindow_utama(object):
         self.label_4.setGeometry(QtCore.QRect(1248, 84, 58, 16))
         self.label_4.setAlignment(QtCore.Qt.AlignCenter)
         self.label_4.setObjectName("label_4")
-        # self.pushButton_9 = QtWidgets.QPushButton(self.frame_4)
-        # self.pushButton_9.setGeometry(QtCore.QRect(270, 10, 72, 68))
-        # self.pushButton_9.setText("")
-        # icon9 = QtGui.QIcon()
-        # icon9.addPixmap(QtGui.QPixmap(":/images/img/refresh.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        # self.pushButton_9.setIcon(icon9)
-        # self.pushButton_9.setIconSize(QtCore.QSize(60, 60))
-        # self.pushButton_9.setObjectName("pushButton_9")
-        # self.label_13 = QtWidgets.QLabel(self.frame_4)
-        # self.label_13.setGeometry(QtCore.QRect(275, 84, 64, 16))
-        # self.label_13.setAlignment(QtCore.Qt.AlignCenter)
-        # self.label_13.setObjectName("label_13")
+        self.label_14 = QtWidgets.QLabel(self.frame_5)
+        self.label_14.setGeometry(QtCore.QRect(533, 368, 64, 16))
+        self.label_14.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_14.setObjectName("label_14")
+
+        self.pushButton_9 = QtWidgets.QPushButton(self.frame_4)
+        self.pushButton_9.setGeometry(QtCore.QRect(270, 10, 72, 68))
+        self.pushButton_9.setText("")
+        icon9 = QtGui.QIcon()
+        icon9.addPixmap(QtGui.QPixmap(":/images/img/refresh.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_9.setIcon(icon9)
+        self.pushButton_9.setIconSize(QtCore.QSize(60, 60))
+        self.pushButton_9.setObjectName("pushButton_9")
+        self.label_13 = QtWidgets.QLabel(self.frame_4)
+        self.label_13.setGeometry(QtCore.QRect(275, 84, 64, 16))
+        self.label_13.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_13.setObjectName("label_13")
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
@@ -313,37 +329,7 @@ class Ui_MainWindow_utama(object):
         self.export_2.clicked.connect(self.eksporData)
         self.pushButton_8.clicked.connect(self.pindahdelData)
         self.pushButton_6.clicked.connect(self.pindaheditData)
-        # self.pushButton_9.clicked.connect(self.refreshData)
-        
-
-        conn = sqlite3.connect('database/pangkalan_data.db')
-        c = conn.cursor()
-
-        query = "select Tanggal, `NPM/NRP`, Nama, Tanggal_Lahir, Golongan, Diagnosa, Perawatan_Gigi, Pengobatan FROM pengunjung"
-            
-        result = c.execute(query)
-
-        
-        data = pd.read_sql("select * from riwayat_pengunjung", conn, index_col='Tanggal', parse_dates=True)
-        data.index = pd.to_datetime(data.index)
-        data.index.name = "Kurun Waktu"
-
-        data.resample('M').count()['Nama'].plot(grid=True, linewidth=3.5)
-
-        plt.style.use("seaborn-whitegrid")
-        plt.ylabel("Jumlah Pasien")
-        plt.title("Statistik Kunjungan Poliklinik GIGI UPN Veteran Jawa Timur")
-        plt.ylim(0,data.resample('M').count()['Nama'].max()*1.25)
-
-        plt.show()
-        
-        # self.tableWidget.setRowCount(0)
-        # for row_number, row_data in enumerate(result):
-        #     self.tableWidget.insertRow(row_number)
-        #     for column_number, data in enumerate(row_data):
-        #         self.tableWidget.setItem(row_number, column_number, QtWidgets.QTableWidgetItem(str(data)))
-
-        # conn.close()
+        self.pushButton_9.clicked.connect(self.refreshData)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -357,8 +343,47 @@ class Ui_MainWindow_utama(object):
         self.label_3.setText(_translate("MainWindow", "Tambah Data"))
         self.label_12.setText(_translate("MainWindow", "Hapus Data"))
         self.label_4.setText(_translate("MainWindow", "Ekspor Data"))
-        # self.label_13.setText(_translate("MainWindow", "Refresh Data"))
+        self.label_13.setText(_translate("MainWindow", "Refresh Data"))
+        self.label_14.setText(_translate("MainWindow", "Kurun Waktu"))
 import resource
+
+
+class PlotCanvas(FigureCanvas):
+    def __init__(self, parent=None, width=7, height=3, dpi=100):
+        fig = Figure(figsize=(width, height), dpi=dpi)
+        con = sqlite3.connect("database/pangkalan_data.db")
+
+        self.axes = fig.add_subplot(111)
+
+        FigureCanvas.__init__(self, fig)
+        self.setParent(parent)
+
+        FigureCanvas.setSizePolicy(self,
+                QtWidgets.QSizePolicy.Expanding,
+                QtWidgets.QSizePolicy.Expanding)
+        FigureCanvas.updateGeometry(self)
+
+        data = pd.read_sql("select * from riwayat_pengunjung", con, index_col='Tanggal', parse_dates=True)
+        data.index = pd.to_datetime(data.index)
+        data.index.name = "Kurun Waktu"
+        
+        plt.style.use("seaborn-whitegrid")
+        plt.ylabel("Jumlah Pasien")
+        plt.title("Statistik Kunjungan Poliklinik GIGI UPN Veteran Jawa Timur")
+        plt.ylim(0,data.resample('M').count()['Nama'].max()*1.25)
+        
+        data.resample('M').count()['Nama'].plot(grid=True, linewidth=3.5, ax=self.axes)
+
+        self.plot()
+        # self.restrart()
+
+
+    def plot(self):
+        self.draw()
+        self.flush_events()
+
+    # def restrart(self):
+        # self.flush_events()
 
 
 if __name__ == "__main__":
