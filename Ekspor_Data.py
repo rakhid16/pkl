@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'export_rentang.ui'
+# Form implementation generated from reading ui file 'coba_rentang_dude.ui'
 #
 # Created by: PyQt5 UI code generator 5.13.0
 #
@@ -17,13 +17,15 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 class Ui_MainWindow_export(object):
     def exportData_rentang(self):
+        
+        
         conn=sqlite3.connect('database/pangkalan_data.db')
         c=conn.cursor()
-        tes_query=("SELECT Tanggal, `NPM/NRP`, Nama, Tanggal_Lahir, Golongan, Diagnosa, Perawatan_Gigi, Pengobatan FROM pengunjung WHERE Tanggal BETWEEN '{0}' AND '{1}'").format(self.lineEdit.text(),
-                                            self.lineEdit_2.text())
+        tes_query=("SELECT Tanggal, `NPM/NRP`, Nama, Tanggal_Lahir, Golongan, Diagnosa, Perawatan_Gigi, Pengobatan FROM pengunjung WHERE Tanggal BETWEEN '{0}' AND '{1}'").format(self.dateEdit_2.text(),
+                                            self.dateEdit_3.text())
         query=c.execute(tes_query)
         
-        workbook = Workbook("Data Ekspor Tanggal " + str(self.lineEdit.text()) + " sampai " +  str(self.lineEdit_2.text()) + ".xlsx")
+        workbook = Workbook("Data Ekspor Tanggal " + str(self.dateEdit_2.text()) + " sampai " +  str(self.dateEdit_3.text()) + ".xlsx")
         worksheet = workbook.add_worksheet()
 
         worksheet.write('A1', 'Tanggal')
@@ -105,18 +107,11 @@ class Ui_MainWindow_export(object):
         self.frame_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_3.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_3.setObjectName("frame_3")
-        self.lineEdit = QtWidgets.QLineEdit(self.frame_3)
-        self.lineEdit.setGeometry(QtCore.QRect(380, 35, 113, 20))
-        self.lineEdit.setText("")
-        self.lineEdit.setObjectName("lineEdit")
         self.label_2 = QtWidgets.QLabel(self.frame_3)
-        self.label_2.setGeometry(QtCore.QRect(407, 10, 61, 16))
+        self.label_2.setGeometry(QtCore.QRect(360, 10, 61, 16))
         self.label_2.setObjectName("label_2")
-        self.lineEdit_2 = QtWidgets.QLineEdit(self.frame_3)
-        self.lineEdit_2.setGeometry(QtCore.QRect(510, 35, 113, 20))
-        self.lineEdit_2.setObjectName("lineEdit_2")
         self.label_6 = QtWidgets.QLabel(self.frame_3)
-        self.label_6.setGeometry(QtCore.QRect(527, 10, 81, 16))
+        self.label_6.setGeometry(QtCore.QRect(515, 10, 81, 16))
         self.label_6.setObjectName("label_6")
         self.layoutWidget = QtWidgets.QWidget(self.frame_3)
         self.layoutWidget.setGeometry(QtCore.QRect(0, 0, 7, 15))
@@ -147,6 +142,26 @@ class Ui_MainWindow_export(object):
         self.label_5.setAlignment(QtCore.Qt.AlignCenter)
         self.label_5.setObjectName("label_5")
         self.verticalLayout.addWidget(self.label_5)
+        self.dateEdit_2 = QtWidgets.QDateEdit(self.frame_3)
+        self.dateEdit_2.setGeometry(QtCore.QRect(325, 35, 131, 22))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.dateEdit_2.setFont(font)
+        self.dateEdit_2.setAutoFillBackground(False)
+        self.dateEdit_2.setCalendarPopup(True)
+        self.dateEdit_2.setTimeSpec(QtCore.Qt.LocalTime)
+        self.dateEdit_2.setDate(QtCore.QDate(2019, 10, 31))
+        self.dateEdit_2.setObjectName("dateEdit_2")
+        self.dateEdit_3 = QtWidgets.QDateEdit(self.frame_3)
+        self.dateEdit_3.setGeometry(QtCore.QRect(490, 35, 131, 22))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.dateEdit_3.setFont(font)
+        self.dateEdit_3.setAutoFillBackground(False)
+        self.dateEdit_3.setCalendarPopup(True)
+        self.dateEdit_3.setTimeSpec(QtCore.Qt.LocalTime)
+        self.dateEdit_3.setDate(QtCore.QDate(2019, 10, 31))
+        self.dateEdit_3.setObjectName("dateEdit_3")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 21))
@@ -178,7 +193,7 @@ class Ui_MainWindow_export(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "Export Rentang Data"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         item = self.tableWidget.verticalHeaderItem(0)
         item.setText(_translate("MainWindow", "1"))
         item = self.tableWidget.verticalHeaderItem(1)
@@ -199,12 +214,14 @@ class Ui_MainWindow_export(object):
         item.setText(_translate("MainWindow", "Perawatan"))
         item = self.tableWidget.horizontalHeaderItem(7)
         item.setText(_translate("MainWindow", "Pengobatan"))
-        self.lineEdit.setPlaceholderText(_translate("MainWindow", "Ex : 2019-02-31"))
         self.label_2.setText(_translate("MainWindow", "Dari Tanggal"))
-        self.lineEdit_2.setPlaceholderText(_translate("MainWindow", "Ex : 2019-03-30"))
         self.label_6.setText(_translate("MainWindow", "Sampai Tanggal"))
         self.label_5.setText(_translate("MainWindow", "Ekspor"))
+        self.dateEdit_2.setDisplayFormat(_translate("MainWindow", "yyyy-MM-dd"))
+        self.dateEdit_3.setDisplayFormat(_translate("MainWindow", "yyyy-MM-dd"))
 import resource
+
+
 
 
 if __name__ == "__main__":

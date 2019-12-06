@@ -35,6 +35,7 @@ import random
 class Ui_MainWindow_utama(object):
     def refreshData(self):
         self.frame_5.deleteLater()
+        self.MainWindow = Ui_MainWindow_utama
         self.setupUi_utama(MainWindow)
         self.frame_5.setGeometry(QtCore.QRect(164, 110, 2141, 631))
 
