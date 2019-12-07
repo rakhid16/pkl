@@ -8,6 +8,7 @@ class Ui_MainWindow_tambah_admin(object):
         self.lineEdit_2.setText("")
         self.lineEdit_7.setText("")
         self.messagebox("Pesan","Data Telah Direset Ulang!")
+        
 
     def messagebox(self, title, message):
         mess=QtWidgets.QMessageBox()
@@ -150,6 +151,7 @@ class Ui_MainWindow_tambah_admin(object):
         self.label_4.setText(_translate("MainWindow", "Golongan"))
         self.label_2.setText(_translate("MainWindow", "Tanggal Lahir"))
         self.label_5.setText(_translate("MainWindow", "Tambah Data"))
+        self.dateEdit.setDisplayFormat(_translate("MainWindow", "yyyy-MM-dd"))
 
     def insertData(self):
         conn = sqlite3.connect('database/pangkalan_data.db')

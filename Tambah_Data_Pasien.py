@@ -84,12 +84,16 @@ class Ui_MainWindow_tambah(object):
         self.verticalLayout = QtWidgets.QVBoxLayout(self.widget)
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout.setObjectName("verticalLayout")
-        self.lineEdit_3 = QtWidgets.QLineEdit(self.widget)
+        self.dateEdit_2 = QtWidgets.QDateEdit(self.widget)
         font = QtGui.QFont()
         font.setPointSize(10)
-        self.lineEdit_3.setFont(font)
-        self.lineEdit_3.setObjectName("lineEdit_3")
-        self.verticalLayout.addWidget(self.lineEdit_3)
+        self.dateEdit_2.setFont(font)
+        self.dateEdit_2.setAutoFillBackground(False)
+        self.dateEdit_2.setCalendarPopup(True)
+        self.dateEdit_2.setTimeSpec(QtCore.Qt.LocalTime)
+        self.dateEdit_2.setDate(QtCore.QDate(2019, 10, 31))
+        self.dateEdit_2.setObjectName("dateEdit_2")
+        self.verticalLayout.addWidget(self.dateEdit_2)
         self.lineEdit = QtWidgets.QLineEdit(self.widget)
         font = QtGui.QFont()
         font.setPointSize(10)
@@ -187,7 +191,6 @@ class Ui_MainWindow_tambah(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "Tambah Data Pasien"))
         self.label_3.setText(_translate("MainWindow", "Simpan"))
         self.label_8.setText(_translate("MainWindow", "Reset"))
-        self.lineEdit_3.setPlaceholderText(_translate("MainWindow", "Format Tanggal, ex: 2019-05-31"))
         self.lineEdit_7.setPlaceholderText(_translate("MainWindow", "Mahasiswa/Dosen/Admin/Laboran/PAM/Kebersihan"))
         self.label_11.setText(_translate("MainWindow", "Tanggal \n"
 "Kunjungan"))
@@ -203,6 +206,8 @@ class Ui_MainWindow_tambah(object):
         self.label_6.setText(_translate("MainWindow", "Perawatan"))
         self.label_5.setText(_translate("MainWindow", "Diagnosa"))
         self.label_7.setText(_translate("MainWindow", "Pengobatan"))
+        self.dateEdit.setDisplayFormat(_translate("MainWindow", "yyyy-MM-dd"))
+        self.dateEdit_2.setDisplayFormat(_translate("MainWindow", "yyyy-MM-dd"))
 
     def insertData(self):
         conn = sqlite3.connect('database/pangkalan_data.db')
@@ -250,7 +255,7 @@ class Ui_MainWindow_tambah(object):
                                     '{4}',\
                                     '{5}',\
                                     '{6}',\
-                                    '{7}')".format(self.lineEdit_3.text(),
+                                    '{7}')".format(self.dateEdit_2.text(),
                                                     self.lineEdit_2.text(),
                                                     self.lineEdit.text(),
                                                     self.dateEdit.text(),
@@ -276,7 +281,7 @@ class Ui_MainWindow_tambah(object):
                                             '{4}',\
                                             '{5}',\
                                             '{6}',\
-                                            '{7}')".format(self.lineEdit_3.text(),
+                                            '{7}')".format(self.dateEdit_2.text(),
                                                             self.lineEdit.text(),
                                                             self.lineEdit_2.text(),
                                                             self.dateEdit.text(),
@@ -306,7 +311,7 @@ class Ui_MainWindow_tambah(object):
                                 '{4}',\
                                 '{5}',\
                                 '{6}',\
-                                '{7}')".format(self.lineEdit_3.text(),
+                                '{7}')".format(self.dateEdit_2.text(),
                                                 self.lineEdit_2.text(),
                                                 self.lineEdit.text(),
                                                 self.dateEdit.text(),
@@ -332,7 +337,7 @@ class Ui_MainWindow_tambah(object):
                                         '{4}',\
                                         '{5}',\
                                         '{6}',\
-                                        '{7}')".format(self.lineEdit_3.text(),
+                                        '{7}')".format(self.dateEdit_2.text(),
                                                         self.lineEdit.text(),
                                                         self.lineEdit_2.text(),
                                                         self.dateEdit.text(),

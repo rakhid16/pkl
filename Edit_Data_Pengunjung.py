@@ -200,6 +200,9 @@ class Ui_MainWindow_edit(object):
         self.label_6.setText(_translate("MainWindow", "Perawatan"))
         self.label_5.setText(_translate("MainWindow", "Diagnosa"))
         self.label_7.setText(_translate("MainWindow", "Pengobatan"))
+        self.dateEdit.setDisplayFormat(_translate("MainWindow", "yyyy-MM-dd"))
+        self.dateEdit_2.setDisplayFormat(_translate("MainWindow", "yyyy-MM-dd"))
+        
 
     def editData(self):
         conn = sqlite3.connect('database/pangkalan_data.db')
@@ -210,29 +213,41 @@ class Ui_MainWindow_edit(object):
         result = a.fetchall()
         
         id_key = "[("+self.lineEdit_2.text()+",)]"
-
-        if (str(id_key) != str(result)):
-                self.messagebox('Pesan','Error Data NPM/NRP Tidak Ditemukan')
-                cur.close()
+        if len(self.lineEdit.text()) <= 1:
+            self.messagebox('Pesan','Nama Tidak Boleh Kosong!')
+        elif len(self.lineEdit_2.text()) <= 1:
+            self.messagebox('Pesan','NPM/NRP Tidak Boleh Kosong!')    
+        elif len(self.lineEdit_7.text()) <= 1:
+            self.messagebox('Pesan','Golongan Tidak Boleh Kosong!')
+        elif len(self.textEdit.toPlainText()) <= 1:
+            self.messagebox('Pesan','Diagnosa Tidak Boleh Kosong!')
+        elif len(self.textEdit_2.toPlainText()) <= 1:
+            self.messagebox('Pesan','Perawatan Tidak Boleh Kosong!')
+        elif len(self.textEdit_3.toPlainText()) <= 1:
+            self.messagebox('Pesan','Pengobatan Tidak Boleh Kosong!')
         else:
-            query=("UPDATE pengunjung SET Tanggal='{0}',\
-                                Nama='{1}', \
-                                Tanggal_Lahir='{2}', \
-                                Golongan='{3}', \
-                                Diagnosa='{4}', \
-                                Perawatan_Gigi='{5}', \
-                                Pengobatan='{6}' WHERE `NPM/NRP`='{7}'").format(self.dateEdit_2.text(),
-                                                self.lineEdit.text(),
-                                                self.dateEdit.text(),
-                                                self.lineEdit_7.text(),
-                                                self.textEdit.toPlainText(),
-                                                self.textEdit_2.toPlainText(),
-                                                self.textEdit_3.toPlainText(),
-                                                self.lineEdit_2.text())
-            cur.execute(query)
-            conn.commit()
-            self.messagebox("Pesan","Data Telah Sukses Diedit!")
-            cur.close()
+            if (str(id_key) != str(result)):
+                    self.messagebox('Pesan','Error Data NPM/NRP Tidak Ditemukan')
+                    cur.close()
+            else:
+                query=("UPDATE pengunjung SET Tanggal='{0}',\
+                                    Nama='{1}', \
+                                    Tanggal_Lahir='{2}', \
+                                    Golongan='{3}', \
+                                    Diagnosa='{4}', \
+                                    Perawatan_Gigi='{5}', \
+                                    Pengobatan='{6}' WHERE `NPM/NRP`='{7}'").format(self.dateEdit_2.text(),
+                                                    self.lineEdit.text(),
+                                                    self.dateEdit.text(),
+                                                    self.lineEdit_7.text(),
+                                                    self.textEdit.toPlainText(),
+                                                    self.textEdit_2.toPlainText(),
+                                                    self.textEdit_3.toPlainText(),
+                                                    self.lineEdit_2.text())
+                cur.execute(query)
+                conn.commit()
+                self.messagebox("Pesan","Data Telah Sukses Diedit!")
+                cur.close()
 
 
 import resource

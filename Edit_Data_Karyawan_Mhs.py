@@ -151,6 +151,7 @@ class Ui_MainWindow_Edit(object):
         self.label_4.setText(_translate("MainWindow", "Golongan"))
         self.label_2.setText(_translate("MainWindow", "Tanggal Lahir"))
         self.label_5.setText(_translate("MainWindow", "Edit Data"))
+        self.dateEdit.setDisplayFormat(_translate("MainWindow", "yyyy-MM-dd"))
 
     def editData(self):
         conn = sqlite3.connect('database/pangkalan_data.db')
