@@ -34,6 +34,14 @@ import random
 
 class Ui_MainWindow_utama(object):
     def refreshData(self):
+        # MainWindow = Ui_MainWindow_utama()
+        # self.frame_5.deleteLater()
+        # self.ui = Ui_MainWindow_utama()
+        # self.ui.setupUi_utama(self)
+
+
+        self.frame_5.deleteLater()
+        # PlotCanvas()
         self.MainWindow = Ui_MainWindow_utama
         self.setupUi_utama(MainWindow)
         self.frame_5.setGeometry(QtCore.QRect(164, 110, 2141, 631))
@@ -402,7 +410,9 @@ class PlotCanvas(FigureCanvas):
         self.flush_events()
 
     # def restrart(self):
-        # self.flush_events()
+    #     self.flush_events()
+    #     self.plot()
+
 
 
 if __name__ == "__main__":

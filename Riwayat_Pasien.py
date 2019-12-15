@@ -44,6 +44,7 @@ class Ui_MainWindow_riwayat(object):
         self.gridLayout_4 = QtWidgets.QGridLayout(self.frame_4)
         self.gridLayout_4.setObjectName("gridLayout_4")
         self.tableWidget = QtWidgets.QTableWidget(self.frame_4)
+        self.tableWidget.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)        
         self.tableWidget.setObjectName("tableWidget")
         self.tableWidget.setColumnCount(8)
         self.tableWidget.setRowCount(2)

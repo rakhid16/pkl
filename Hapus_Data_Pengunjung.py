@@ -62,6 +62,7 @@ class Ui_MainWindow_deleteUtama(object):
         self.frame_4.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_4.setObjectName("frame_4")
         self.tableWidget = QtWidgets.QTableWidget(self.frame_4)
+        self.tableWidget.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)        
         self.tableWidget.setGeometry(QtCore.QRect(10, 50, 741, 401))
         self.tableWidget.setObjectName("tableWidget")
         self.tableWidget.setColumnCount(8)
@@ -149,7 +150,7 @@ class Ui_MainWindow_deleteUtama(object):
         conn = sqlite3.connect('database/pangkalan_data.db')
         c = conn.cursor()
 
-        query = "select `NPM/NRP`, Nama, Tanggal, Tanggal_Lahir, Golongan, Diagnosa, Perawatan_Gigi, Pengobatan FROM pengunjung"
+        query = "select `NPM/NRP`, Tanggal, Nama, Tanggal_Lahir, Golongan, Diagnosa, Perawatan_Gigi, Pengobatan FROM pengunjung"
             
         result = c.execute(query)
 
@@ -169,11 +170,11 @@ class Ui_MainWindow_deleteUtama(object):
         item = self.tableWidget.verticalHeaderItem(1)
         item.setText(_translate("MainWindow", "2"))
         item = self.tableWidget.horizontalHeaderItem(0)
-        item.setText(_translate("MainWindow", "Tanggal"))
-        item = self.tableWidget.horizontalHeaderItem(1)
-        item.setText(_translate("MainWindow", "Nama"))
-        item = self.tableWidget.horizontalHeaderItem(2)
         item.setText(_translate("MainWindow", "NPM/NRP"))
+        item = self.tableWidget.horizontalHeaderItem(1)
+        item.setText(_translate("MainWindow", "Tanngal"))
+        item = self.tableWidget.horizontalHeaderItem(2)
+        item.setText(_translate("MainWindow", "Nama"))
         item = self.tableWidget.horizontalHeaderItem(3)
         item.setText(_translate("MainWindow", "Tanggal Lahir"))
         item = self.tableWidget.horizontalHeaderItem(4)

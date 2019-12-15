@@ -123,6 +123,7 @@ class Ui_MainWindow_deleteAdmin(object):
         self.frame_4.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_4.setObjectName("frame_4")
         self.tableWidget = QtWidgets.QTableWidget(self.frame_4)
+        self.tableWidget.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
         self.tableWidget.setGeometry(QtCore.QRect(10, 40, 581, 391))
         self.tableWidget.setObjectName("tableWidget")
         self.tableWidget.setColumnCount(4)
