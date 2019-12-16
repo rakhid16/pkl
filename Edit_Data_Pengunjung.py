@@ -211,7 +211,7 @@ class Ui_MainWindow_edit(object):
         conn = sqlite3.connect('database/pangkalan_data.db')
         cur = conn.cursor()
 
-        query_verifikasi=('SELECT `NPM/NRP` FROM pengunjung WHERE `NPM/NRP`=("%s")' % (''.join(self.lineEdit_2.text())))
+        query_verifikasi=('SELECT `NPM/NRP` FROM riwayat_pengunjung WHERE `NPM/NRP`=("%s")' % (''.join(self.lineEdit_2.text())))
         a = cur.execute(query_verifikasi)
         result = a.fetchall()
         
@@ -239,12 +239,12 @@ class Ui_MainWindow_edit(object):
                     self.messagebox('Pesan','Error Data NPM/NRP Tidak Ditemukan')
                     cur.close()
             else:
-                query=("UPDATE pengunjung SET Tanggal='{0}',\
+                query=("UPDATE riwayat_pengunjung SET Tanggal='{0}',\
                                     Nama='{1}', \
-                                    Tanggal_Lahir='{2}', \
+                                    `Tanggal Lahir`='{2}', \
                                     Golongan='{3}', \
                                     Diagnosa='{4}', \
-                                    Perawatan_Gigi='{5}', \
+                                    Perawatan='{5}', \
                                     Pengobatan='{6}' WHERE `NPM/NRP`='{7}'").format(self.dateEdit_2.text(),
                                                     self.lineEdit.text(),
                                                     self.dateEdit.text(),

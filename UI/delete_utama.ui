@@ -131,32 +131,6 @@
         </property>
         <layout class="QGridLayout" name="gridLayout_2"/>
        </widget>
-       <widget class="QWidget" name="layoutWidget">
-        <property name="geometry">
-         <rect>
-          <x>570</x>
-          <y>38</y>
-          <width>101</width>
-          <height>41</height>
-         </rect>
-        </property>
-        <layout class="QGridLayout" name="gridLayout_8">
-         <item row="0" column="0">
-          <widget class="QLabel" name="label_2">
-           <property name="text">
-            <string>NPM/NRP</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="0">
-          <widget class="QLineEdit" name="lineEdit">
-           <property name="placeholderText">
-            <string>Ex : 170810100XX</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </widget>
        <widget class="QFrame" name="frame_7">
         <property name="geometry">
          <rect>
@@ -193,8 +167,8 @@
        <widget class="QPushButton" name="pushButton">
         <property name="geometry">
          <rect>
-          <x>679</x>
-          <y>11</y>
+          <x>640</x>
+          <y>10</y>
           <width>72</width>
           <height>68</height>
          </rect>
@@ -216,17 +190,71 @@
        <widget class="QLabel" name="label_5">
         <property name="geometry">
          <rect>
-          <x>687</x>
-          <y>78</y>
-          <width>61</width>
+          <x>628</x>
+          <y>80</y>
+          <width>101</width>
           <height>20</height>
          </rect>
         </property>
         <property name="text">
-         <string>Hapus Data</string>
+         <string>Hapus Semua Data</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>10</y>
+          <width>571</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Data yang terhapus pada laman ini adalah data pengunjung bulanan yang bersifat sementara saja. </string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_2">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>30</y>
+          <width>521</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Data yang berhasil dimasukkan sudah tersimpan di dalam riwayat pengunjung.</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_3">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>50</y>
+          <width>501</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Lakukan penghapusan data pada laman ini tiap awal bulan saja.</string>
         </property>
        </widget>
       </widget>

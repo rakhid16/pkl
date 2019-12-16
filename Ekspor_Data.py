@@ -16,9 +16,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 
 class Ui_MainWindow_export(object):
-    def exportData_rentang(self):
-        
-        
+    def exportData_rentang(self):      
         conn=sqlite3.connect('database/pangkalan_data.db')
         c=conn.cursor()
         tes_query=("SELECT Tanggal, `NPM/NRP`, Nama, Tanggal_Lahir, Golongan, Diagnosa, Perawatan_Gigi, Pengobatan FROM pengunjung WHERE Tanggal BETWEEN '{0}' AND '{1}'").format(self.dateEdit_2.text(),
@@ -179,7 +177,7 @@ class Ui_MainWindow_export(object):
         conn = sqlite3.connect('database/pangkalan_data.db')
         c = conn.cursor()
 
-        query = "select Tanggal, Nama, `NPM/NRP`, `Tanggal Lahir`, Golongan, Diagnosa, Perawatan, Pengobatan FROM riwayat_pengunjung"
+        query = "select Tanggal, Nama, `NPM/NRP`, `Tanggal Lahir`, Golongan, Diagnosa, Perawatan, Pengobatan FROM riwayat_pengunjung ORDER BY DATE(Tanggal)"
             
         result = c.execute(query)
 
@@ -193,7 +191,8 @@ class Ui_MainWindow_export(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Export Data Pasien"))
+        self.tableWidget.setSortingEnabled(True)
         item = self.tableWidget.verticalHeaderItem(0)
         item.setText(_translate("MainWindow", "1"))
         item = self.tableWidget.verticalHeaderItem(1)
