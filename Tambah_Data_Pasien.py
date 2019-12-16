@@ -101,6 +101,7 @@ class Ui_MainWindow_tambah(object):
         self.lineEdit.setObjectName("lineEdit")
         self.verticalLayout.addWidget(self.lineEdit)
         self.lineEdit_2 = QtWidgets.QLineEdit(self.widget)
+        self.lineEdit_2.setValidator(QtGui.QIntValidator())
         font = QtGui.QFont()
         font.setPointSize(10)
         self.lineEdit_2.setFont(font)
@@ -213,6 +214,8 @@ class Ui_MainWindow_tambah(object):
         conn = sqlite3.connect('database/pangkalan_data.db')
         cur = conn.cursor()
         
+        coy = ["Mahasiswa", "Kebersihan", "PAM", "Dosen", "Laboran", "Admin"]
+        flag = self.lineEdit_7.text()
 
         if len(self.lineEdit.text()) <= 1:
             self.messagebox('Pesan','Nama Tidak Boleh Kosong!')
@@ -226,6 +229,9 @@ class Ui_MainWindow_tambah(object):
             self.messagebox('Pesan','Perawatan Tidak Boleh Kosong!')
         elif len(self.textEdit_3.toPlainText()) <= 1:
             self.messagebox('Pesan','Pengobatan Tidak Boleh Kosong!')
+        elif flag not in coy :
+            self.messagebox('Pesan','Golongan Harus Sesuai Format teliti lagi !')
+        
         else:
             query_verifikasi=('SELECT `NPM/NRP` FROM riwayat_pengunjung WHERE `NPM/NRP`=(%s)' % (''.join(self.lineEdit_2.text())))
             a = cur.execute(query_verifikasi)

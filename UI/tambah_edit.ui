@@ -125,6 +125,9 @@
          <height>211</height>
         </rect>
        </property>
+       <property name="inputMethodHints">
+        <set>Qt::ImhNone</set>
+       </property>
        <property name="frameShape">
         <enum>QFrame::StyledPanel</enum>
        </property>
@@ -168,6 +171,21 @@
             <font>
              <pointsize>10</pointsize>
             </font>
+           </property>
+           <property name="inputMethodHints">
+            <set>Qt::ImhDialableCharactersOnly|Qt::ImhFormattedNumbersOnly|Qt::ImhPreferNumbers</set>
+           </property>
+           <property name="inputMask">
+            <string>009</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="maxLength">
+            <number>3</number>
+           </property>
+           <property name="clearButtonEnabled">
+            <bool>false</bool>
            </property>
           </widget>
          </item>

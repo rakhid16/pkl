@@ -1,7 +1,7 @@
 import sqlite3
 from tkinter import messagebox
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+\
 class Ui_MainWindow_edit(object):
     def batalReset(self):
         self.lineEdit.setText("")
@@ -101,6 +101,7 @@ class Ui_MainWindow_edit(object):
         self.lineEdit_2.setFont(font)
         self.lineEdit_2.setObjectName("lineEdit_2")
         self.verticalLayout.addWidget(self.lineEdit_2)
+        self.lineEdit_2.setValidator(QtGui.QIntValidator())
         self.lineEdit_7 = QtWidgets.QLineEdit(self.widget)
         font = QtGui.QFont()
         font.setPointSize(10)
@@ -212,6 +213,9 @@ class Ui_MainWindow_edit(object):
         a = cur.execute(query_verifikasi)
         result = a.fetchall()
         
+        coy = ["Mahasiswa", "Kebersihan", "PAM", "Dosen", "Laboran", "Admin"]
+        flag = self.lineEdit_7.text()
+
         id_key = "[("+self.lineEdit_2.text()+",)]"
         if len(self.lineEdit.text()) <= 1:
             self.messagebox('Pesan','Nama Tidak Boleh Kosong!')
@@ -224,7 +228,10 @@ class Ui_MainWindow_edit(object):
         elif len(self.textEdit_2.toPlainText()) <= 1:
             self.messagebox('Pesan','Perawatan Tidak Boleh Kosong!')
         elif len(self.textEdit_3.toPlainText()) <= 1:
-            self.messagebox('Pesan','Pengobatan Tidak Boleh Kosong!')
+            self.messagebox('Pesan','Pengobatan Tidak Boleh Kosong!')       
+        elif flag not in coy :
+            self.messagebox('Pesan','Golongan Harus Sesuai Format teliti lagi !')
+        
         else:
             if (str(id_key) != str(result)):
                     self.messagebox('Pesan','Error Data NPM/NRP Tidak Ditemukan')
