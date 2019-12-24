@@ -125,7 +125,7 @@ class Ui_MainWindow_utama(object):
 
     def setupUi_utama(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1350, 867)
+        MainWindow.resize(200, 200)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.frame = QtWidgets.QFrame(self.centralwidget)

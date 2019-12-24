@@ -171,7 +171,7 @@ class Ui_MainWindow_deleteUtama(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "Hapus Data Pasien"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         item = self.tableWidget.verticalHeaderItem(0)
         item.setText(_translate("MainWindow", "1"))
         item = self.tableWidget.verticalHeaderItem(1)

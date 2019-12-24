@@ -16,10 +16,11 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 
 class Ui_MainWindow_export(object):
-    def exportData_rentang(self):      
+    def exportData_rentang(self):
+              
         conn=sqlite3.connect('database/pangkalan_data.db')
         c=conn.cursor()
-        tes_query=("SELECT Tanggal, `NPM/NRP`, Nama, Tanggal_Lahir, Golongan, Diagnosa, Perawatan_Gigi, Pengobatan FROM pengunjung WHERE Tanggal BETWEEN '{0}' AND '{1}'").format(self.dateEdit_2.text(),
+        tes_query=("SELECT Tanggal, `NPM/NRP`, Nama, `Tanggal Lahir`, Golongan, Diagnosa, Perawatan, Pengobatan FROM riwayat_pengunjung WHERE Tanggal BETWEEN '{0}' AND '{1}'").format(self.dateEdit_2.text(),
                                             self.dateEdit_3.text())
         query=c.execute(tes_query)
         
