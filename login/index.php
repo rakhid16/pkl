@@ -1,3 +1,7 @@
+<?php  
+include '../config/dbconfig.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -23,12 +27,21 @@
     <hr style="width:50%; color: black">
   </center>
     
-    <form action="/pertamina/home/" method="post" style="margin-left: 120px; margin-right: 110px; border: 2px solid #d74040; background-color: white;">
+    <form action="/pertamina/routes/routeLogin.php" method="post" style="margin-left: 120px; margin-right: 110px; border: 2px solid #d74040; background-color: white;">
       <div class="login_box">
+      
+      <?php 
+      if(isset($_GET['status'])){
+        if($_GET['status']=="gagal"){
+          echo "<p><font color=red> Nama dan Password tidak sesuai !</font></p>";
+        }
+      }
+      ?>
+
         <i class="fas fa-user"></i> Nama Pengguna<br>
-        <input type="text" name="ct1" required><br>
+        <input type="text" name="nama" required><br>
         <i class="fas fa-lock"></i> Sandi Lewat<br>
-        <input type="password" name="ct1org1" required>
+        <input type="password" name="sandi" required>
       </div>
 
       <center>
