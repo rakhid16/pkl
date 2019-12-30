@@ -10,6 +10,8 @@ include '../config/dbconfig.php';
 
   <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
 
+  <link rel="stylesheet" href="/pertamina/static/css/formLogin.css" />
+
   <link rel="stylesheet" href="/pertamina/static/css/login.css" />
   <link rel="shortcut icon" type="image/png" href="/pertamina/static/img/favicon.png"/>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
@@ -17,38 +19,59 @@ include '../config/dbconfig.php';
 
 <body>
 
-  <div class="left-side">
-  <center><img src="work.svg">
-    <p><h1>Selamat Datang!</h1>#EnergiUnggulIndonesiaMaju</p>
-  </div>
+<div class="left-side">
+    <center><img src="work.svg">
+      <p><h1>Lorem Ipsum!</h1>Dolor si amet</p>
+    </div>
+<div class="right-side">
 
-  <div class="right-side">
-    <center style="font-size:25px; margin-left: 120px; margin-right: 110px; ;background-color: white; border: 2px solid #d74040;">Silahkan masuk untuk melanjutkan
-    <hr style="width:50%; color: black">
-  </center>
-    
-    <form action="/pertamina/routes/routeLogin.php" method="post" style="margin-left: 120px; margin-right: 110px; border: 2px solid #d74040; background-color: white;">
-      <div class="login_box">
+<div style="background: white; height: 460px; width: 450px; margin-left: 120px; margin-top: 30px;border-radius: 25px">
+  <center>
+          <img src="../static/img/logo.png" width="40%" height="50%">
+  </center>  
+
+<form class="form" action="/pertamina/routes/routeLogin.php" method="post">
       
       <?php 
-      if(isset($_GET['status'])){
-        if($_GET['status']=="gagal"){
-          echo "<p><font color=red> Nama dan Password tidak sesuai !</font></p>";
+        if(isset($_GET['status'])){
+          if($_GET['status']=="gagal"){
+            echo "<p><font color=red> Nama dan Password tidak sesuai !</font></p>";
+          }
         }
-      }
       ?>
 
-        <i class="fas fa-user"></i> Nama Pengguna<br>
-        <input type="text" name="nama" required><br>
-        <i class="fas fa-lock"></i> Sandi Lewat<br>
-        <input type="password" name="sandi" required>
-      </div>
+      <p class="field" style="margin-left: 100px; margin-top: 10px">
+        <input type="text" name="nama" placeholder="Nama" required/>
+        <i class="fa fa-user"></i>
+      </p>
 
-      <center>
-        <button type="submit" style="margin-bottom: 20px; margin-top: 20px;"><b>Masuk</b></button>
-      </center>
+      <p class="field" style="margin-left: 100px;">
+        <input type="password" name="sandi" placeholder="Sandi" required/>
+        <i class="fa fa-lock"></i>
+      </p>
+
+<center>
+      <p class="submit"><input type="submit" name="commit" value="Masuk" style="background: #DA251C"></p>
+</center>
+
+      <p class="remember" style="margin-left: 45px">
+        <input type="checkbox" id="remember" name="remember" />
+        <label for="remember"><span></span>Remember Me</label>
+        <a style="color: red; float: right; margin-right: 75px; font-size: 14px; font-style: italic; font-weight: bold;" href="#">Lupa Sandi?</a>
+      
+      </p>
+
+ <center>
+<p>
+  Don't have an account? <a href="" style="color: red; font-weight: bold; font-size: 14px">Sign Up</a> 
+</p>
+</center>
     </form>
-  </div>
+
+
+</div>
+
+</div>
 
 </body>
 </html>

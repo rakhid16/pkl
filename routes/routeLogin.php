@@ -9,7 +9,6 @@ $sandi = mysqli_real_escape_string(connDB(),$_POST['sandi']);
 // $nama = $_POST['nama'];
 // $sandi = $_POST['sandi'];
 
-
 $query_data = mysqli_query(connDB(), "SELECT * FROM coba WHERE nama='$nama' and sandi='$sandi'");
 $cek = mysqli_num_rows($query_data);
 

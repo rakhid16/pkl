@@ -5,7 +5,7 @@ html{
 
 
 body{
-    background: linear-gradient(to left, whitesmoke 50%, #d74040 50%);
+    background: linear-gradient(to left, whitesmoke 50%, #DA251C 50%);
     justify-content: space-evenly;
     align-items: center;
     display: flex;
@@ -46,15 +46,16 @@ center button{
     display: inline-block;
     padding: 10px 25px;
     color: whitesmoke;
-    background-color: #d74040;
+    background-color: #DA251C;
     cursor: pointer;
     border-radius: 12px;
+    border: 2px solid #DA251C;
 }
 
 center button:hover {
     background-color: white;
-    color: #d74040;
-    border: 2px solid #d74040;
+    color: #DA251C;
+    border: 2px solid #DA251C;
   }
 
 .input1{
