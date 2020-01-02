@@ -3,7 +3,7 @@
 		$dbServer = 'localhost';
 		$dbUser = 'root';
 		$dbPass = '';
-		$dbName = 'users';
+		$dbName = 'pekerja_mor_v';
 
 		$conn = mysqli_connect($dbServer, $dbUser, $dbPass);
 
