@@ -8,7 +8,7 @@ include '../config/dbconfig.php';
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Dashboard v.1.0 | Adminpro - Admin Template</title>
+    <title>Beranda</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
@@ -17,7 +17,7 @@ include '../config/dbconfig.php';
     <!-- favicon
 		============================================ -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
-    <link rel="shortcut icon" type="image/x-icon" href="../static/css/homeCSS/img/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="../static/img/favicon.png">
     <!-- Google Fonts
 		============================================ -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i,800" rel="stylesheet">
@@ -187,7 +187,7 @@ include '../config/dbconfig.php';
                             <div class="col-lg-6 col-md-1 col-sm-1 col-xs-12">
                                 <div class="header-top-menu tabl-d-n">
                                     <ul class="nav navbar-nav mai-top-nav">
-                                        <li class="nav-item"><a href="#" class="nav-link" style="font-size: 22px">Project Data Table </a>
+                                        <li class="nav-item"><a href="#" class="nav-link" style="font-size: 22px">Data Karyawan MOR v</a>
                                         </li>
                                         <li class="nav-item"><a href="#" class="nav-link"></a>
                                         </li>
@@ -395,7 +395,7 @@ include '../config/dbconfig.php';
                                 </div>
                                 <div class="sparkline8-graph">
                                     <div class="datatable-dashv1-list custom-datatable-overright">
-                                        <table id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-show-pagination-switch="true" data-show-refresh="true" data-key-events="true" data-show-toggle="true" data-resizable="true" data-cookie="true" data-cookie-id-table="saveId" data-show-export="true" data-click-to-select="true" data-toolbar="#toolbar">
+                                        <table id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="false" data-show-pagination-switch="false" data-show-refresh="false" data-key-events="true" data-show-toggle="false" data-resizable="true" data-cookie="true" data-cookie-id-table="saveId" data-show-export="false" data-click-to-select="true" data-toolbar="#toolbar">
                                             <thead>
                                                 <tr>
                                                     <!-- <th data-field="state" data-checkbox="true"></th> -->
