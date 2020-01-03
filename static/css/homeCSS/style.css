@@ -4019,10 +4019,10 @@ ul.breadcome-menu {
 	color: #303030;
 }
 .materialdesign .header-top-area, .materialdesign .fixed-header-top{
-	background: linear-gradient(to right, #ff9966 0%, #ff66cc 100%);
+	background: linear-gradient(to right, #ffffff 0%, #DA251C 100%);
 }
 .materialdesign .header-top-menu .navbar-nav>li .dropdown-menu, .materialdesign .header-right-info ul.header-right-menu li .author-message-top, .materialdesign .header-right-info ul.header-right-menu li .notification-author, .materialdesign .header-right-info ul.header-right-menu li .author-log, .materialdesign .header-right-info ul.header-right-menu li .admintab-wrap.menu-setting-wrap.menu-setting-wrap-bg.dropdown-menu{
-	background: linear-gradient(to bottom, #ff9966 0%, #ff66cc 100%);
+	background: linear-gradient(to bottom, #ffffff 0%, #DA251C 100%);
 }
 .materialdesign .header-right-info .author-message-top:before, .materialdesign .header-right-info .notification-author:before{
 	border-bottom: 10px solid #ff9966;
