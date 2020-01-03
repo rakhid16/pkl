@@ -3746,6 +3746,7 @@ ul.breadcome-menu {
 }
 .materialdesign .admin-dashone-data-table-area, .materialdesign .transition-world-area{
 	margin-bottom:15px;
+	/*margin-top:150px;*/
 }
 .darklayout .sparkline-hd, .darklayout .smart-sparkline-hd, .darklayout .sparkline7-hd, .darklayout .sparkline8-hd, .darklayout .sparkline9-hd, .darklayout .sparkline10-hd, .darklayout .sparkline11-hd, .darklayout .sparkline12-hd, .darklayout .sparkline13-hd, .darklayout .sparkline14-hd, .darklayout .sparkline15-hd, .darklayout .sparkline16-hd {
     background: #393939;

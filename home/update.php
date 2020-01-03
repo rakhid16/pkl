@@ -1,39 +1,29 @@
 <?php 
   include ('../config/dbconfig.php'); 
 
-  $status = '';
+  $notif = '';
   $result = '';
-  
-  if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-      if (isset($_GET['nopeg'])) {
-          //query SQL
-          $nopeg = $_GET['nopeg'];
-          $query = "SELECT * FROM data_karyawan WHERE nopeg = '$nopeg'"; 
-
-          //eksekusi query
-          $result = mysqli_query(connDB(),$query);
-      }  
-  }
-
+      //menangkap data post
   if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+      $nopeg = $_POST['nopeg'];
       $nama = $_POST['nama'];
       $email = $_POST['email'];
       $jabatan = $_POST['jabatan'];
       $subarea = $_POST['subarea'];
       //query SQL
-      $sql = "UPDATE data_karyawan SET nama='$nama', email='$email', jabatan='$jabatan' WHERE subarea='$subarea'";
+      $sql = "UPDATE data_karyawan SET nama='$nama', email='$email', jabatan='$jabatan', subarea='$subarea' WHERE nopeg='$nopeg'";
 
       //eksekusi query
       $result = mysqli_query(connDB(),$sql);
       if ($result) {
-        $status = 'ok';
+        $notif = 'ok';
       }
       else{
-        $status = 'err';
+        $notif = 'err';
       }
 
       //redirect ke halaman lain
-      header('Location: home.php?status='.$status);
+      header('Location: ./?notif='.$notif);
   }
   
 

@@ -12,10 +12,11 @@ include '../config/dbconfig.php';
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
-           <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />  
-           <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />  
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> 
     <!-- favicon
 		============================================ -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
     <link rel="shortcut icon" type="image/x-icon" href="../static/css/homeCSS/img/favicon.ico">
     <!-- Google Fonts
 		============================================ -->
@@ -25,7 +26,7 @@ include '../config/dbconfig.php';
     <link rel="stylesheet" href="../static/css/homeCSS/bootstrap.min.css">
     <!-- Bootstrap CSS
 		============================================ -->
-    <link rel="stylesheet" href="../static/css/homeCSS/font-awesome.min.css">
+    <!-- <link rel="stylesheet" href="../static/css/homeCSS/font-awesome.min.css"> -->
     <!-- adminpro icon CSS
 		============================================ -->
     <link rel="stylesheet" href="../static/css/homeCSS/adminpro-custon-icon.css">
@@ -108,7 +109,8 @@ include '../config/dbconfig.php';
                                 <a href="images-cropper.html" class="dropdown-item">Images Cropper</a>
                             </div>
                         </li>
-                        <li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa big-icon fa-pie-chart"></i> <span class="mini-dn">Miscellaneous</span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
+                        <li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa big-icon fa-pie-chart"></i> 
+                            <span class="mini-dn">Miscellaneous</span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
                             <div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
                                 <a href="profile.html" class="dropdown-item">Profile</a>
                                 <a href="contact-client.html" class="dropdown-item">Contact Client</a>
@@ -177,6 +179,7 @@ include '../config/dbconfig.php';
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-lg-1 col-md-6 col-sm-6 col-xs-12">
+
                                 <button type="button" id="sidebarCollapse" class="btn bar-button-pro header-drl-controller-btn btn-info navbar-btn">
                                     <i class="fa fa-bars"></i>
                                 </button>
@@ -188,14 +191,14 @@ include '../config/dbconfig.php';
                             <div class="col-lg-6 col-md-1 col-sm-1 col-xs-12">
                                 <div class="header-top-menu tabl-d-n">
                                     <ul class="nav navbar-nav mai-top-nav">
-                                        <li class="nav-item"><a href="#" class="nav-link">Home</a>
+                                        <li class="nav-item"><a href="#" class="nav-link" style="font-size: 22px">Project Data Table </a>
                                         </li>
-                                        <li class="nav-item"><a href="#" class="nav-link">About</a>
+                                        <li class="nav-item"><a href="#" class="nav-link"></a>
                                         </li>
-                                        <li class="nav-item"><a href="#" class="nav-link">Services</a>
+                                        <li class="nav-item"><a href="#" class="nav-link"></a>
                                         </li>
-                                        <li class="nav-item dropdown">
-                                            <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">Project <span class="angle-down-topmenu"><i class="fa fa-angle-down"></i></span></a>
+                                        <!-- <li class="nav-item dropdown">
+                                            <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"> <span class="angle-down-topmenu"><i class="fa fa-angle-down"></i></span></a>
                                             <div role="menu" class="dropdown-menu animated flipInX">
                                                 <a href="#" class="dropdown-item">Company Info</a>
                                                 <a href="#" class="dropdown-item">Documentation</a>
@@ -205,14 +208,14 @@ include '../config/dbconfig.php';
                                             </div>
                                         </li>
                                         <li class="nav-item"><a href="#" class="nav-link">Support</a>
-                                        </li>
+                                        </li> -->
                                     </ul>
                                 </div>
                             </div>
                             <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12">
                                 <div class="header-right-info">
                                     <ul class="nav navbar-nav mai-top-nav header-right-menu">
-                                        <li class="nav-item dropdown">
+                                        <!-- <li class="nav-item dropdown">
                                             <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><span class="adminpro-icon adminpro-chat-pro"></span><span class="indicator-ms"></span></a>
                                             <div role="menu" class="author-message-top dropdown-menu animated flipInX">
                                                 <div class="message-single-top">
@@ -272,8 +275,8 @@ include '../config/dbconfig.php';
                                                     <a href="#">View All Messages</a>
                                                 </div>
                                             </div>
-                                        </li>
-                                        <li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa fa-bell-o" aria-hidden="true"></i><span class="indicator-nt"></span></a>
+                                        </li> -->
+                                        <!-- <li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa fa-bell-o" aria-hidden="true"></i><span class="indicator-nt"></span></a>
                                             <div role="menu" class="notification-author dropdown-menu animated flipInX">
                                                 <div class="notification-single-top">
                                                     <h1>Notifications</h1>
@@ -332,29 +335,29 @@ include '../config/dbconfig.php';
                                                     <a href="#">View All Notification</a>
                                                 </div>
                                             </div>
-                                        </li>
+                                        </li> -->
                                         <li class="nav-item">
-                                            <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
-                                                <span class="adminpro-icon adminpro-user-rounded header-riht-inf"></span>
-                                                <span class="admin-name">Advanda Cro</span>
-                                                <span class="author-project-icon adminpro-icon adminpro-down-arrow"></span>
+                                            <a href="logout.php" class="nav-link dropdown-toggle">
+                                                <span class="adminpro-icon adminpro-user-rounded header-riht-inf" style="float: right;"></span>
+                                                <!-- <span class="admin-name">Advanda Cro</span> -->
+                                                <!-- <span class="author-project-icon adminpro-icon adminpro-down-arrow"></span> -->
                                             </a>
-                                            <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated flipInX">
-                                                <li><a href="#"><span class="adminpro-icon adminpro-home-admin author-log-ic"></span>My Account</a>
-                                                </li>
-                                                <li><a href="#"><span class="adminpro-icon adminpro-user-rounded author-log-ic"></span>My Profile</a>
+                                            <!-- <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated flipInX"> -->
+                                                <!-- <li><a href="#"><span class="adminpro-icon adminpro-home-admin author-log-ic"></span>My Account</a> -->
+                                                <!-- </li> -->
+                                                <!-- <li><a href="#"><span class="adminpro-icon adminpro-user-rounded author-log-ic"></span>My Profile</a>
                                                 </li>
                                                 <li><a href="#"><span class="adminpro-icon adminpro-money author-log-ic"></span>User Billing</a>
                                                 </li>
                                                 <li><a href="#"><span class="adminpro-icon adminpro-settings author-log-ic"></span>Settings</a>
                                                 </li>
-                                                <li><a href="#"><span class="adminpro-icon adminpro-locked author-log-ic"></span>Log Out</a>
-                                                </li>
-                                            </ul>
+                                                 --><!-- <li><a href="#"><span class="adminpro-icon adminpro-locked author-log-ic"></span>Log Out</a>
+                                                </li> -->
+                                            <!-- </ul> -->
                                         </li>
-                                        <li class="nav-item nav-setting-open"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa fa-tasks"></i></a>
+                                        <!-- <li class="nav-item nav-setting-open"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa fa-tasks"></i></a> -->
 
-                                            <div role="menu" class="admintab-wrap menu-setting-wrap menu-setting-wrap-bg dropdown-menu animated flipInX">
+                                            <!-- <div role="menu" class="admintab-wrap menu-setting-wrap menu-setting-wrap-bg dropdown-menu animated flipInX">
                                                 <ul class="nav nav-tabs custon-set-tab">
                                                     <li class="active"><a data-toggle="tab" href="#Notes">Notes</a>
                                                     </li>
@@ -787,7 +790,7 @@ include '../config/dbconfig.php';
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div> -->
                                         </li>
                                     </ul>
                                 </div>
@@ -798,7 +801,7 @@ include '../config/dbconfig.php';
             </div>
             <!-- Header top area end-->
             <!-- Breadcome start-->
-            <div class="breadcome-area mg-b-30 small-dn">
+         <!--    <div class="breadcome-area mg-b-30 small-dn">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-12">
@@ -811,21 +814,21 @@ include '../config/dbconfig.php';
 												<a href=""><i class="fa fa-search"></i></a>
 											</form>
 										</div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    </div> -->
+                                    <!-- <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                         <ul class="breadcome-menu">
                                             <li><a href="#">Home</a> <span class="bread-slash">/</span>
                                             </li>
                                             <li><span class="bread-blod">Dashboard</span>
                                             </li>
                                         </ul>
-                                    </div>
-                                </div>
+                                    </div> -->
+                                <!-- </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <!-- Breadcome End-->
             <!-- Mobile Menu start -->
             <div class="mobile-menu-area">
@@ -1271,7 +1274,7 @@ include '../config/dbconfig.php';
                                 </div>
                             </div>
                         </div> -->
-                        <<!-- div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                        <!-- div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
                             <div class="about-sparkline shadow-reset desplay-n-tablet-pro">
                                 <div class="sparkline-hd">
                                     <div class="main-spark-hd">
@@ -1508,37 +1511,39 @@ include '../config/dbconfig.php';
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="sparkline8-list shadow-reset">
-                                <div class="sparkline8-hd">
+                                <div class="sparkline8-hd" style="margin-top: 15px;">
                                     <div class="main-sparkline8-hd">
-                                        <h1>Projects Data Table</h1>
+                                        <!-- <h1>Projects Data Table</h1> -->
                                         <div class="sparkline8-outline-icon">
                                             <span class="sparkline8-collapse-link"><i class="fa fa-chevron-up"></i></span>
                                             <span><i class="fa fa-wrench"></i></span>
-                                            <span class="sparkline8-collapse-close"><i class="fa fa-times"></i></span>
+                                            <!-- <span class="sparkline8-collapse-close"><i class="fa fa-times"></i></span> -->
                                         </div>
                                     </div>
                                 </div>
                                 <div class="sparkline8-graph">
                                     <div class="datatable-dashv1-list custom-datatable-overright">
-                                        <div id="toolbar">
+                                        <!-- <div id="toolbar">
                                             <select class="form-control">
                                                 <option value="">Export Basic</option>
                                                 <option value="all">Export All</option>
                                                 <option value="selected">Export Selected</option>
                                             </select>
-                                        </div>
+                                        </div> -->
                                         <table id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-show-pagination-switch="true" data-show-refresh="true" data-key-events="true" data-show-toggle="true" data-resizable="true" data-cookie="true" data-cookie-id-table="saveId" data-show-export="true" data-click-to-select="true" data-toolbar="#toolbar">
                                             <thead>
                                                 <tr>
-                                                    <th data-field="state" data-checkbox="true"></th>
+                                                    <!-- <th data-field="state" data-checkbox="true"></th> -->
                                                     <th data-field="id">No Pegawai</th>
-                                                    <th data-field="name" data-editable="true">Nama</th>
-                                                    <th data-field="email" data-editable="true">Email</th>
-                                                    <th data-field="phone" data-editable="true">Jabatan</th>
-                                                    <th data-field="company" data-editable="true">Sub Area</th>
+                                                    <th data-field="name" data-editable="false">Nama</th>
+                                                    <th data-field="email" data-editable="false">Email</th>
+                                                    <th data-field="phone" data-editable="false">Jabatan</th>
+                                                    <th data-field="company" data-editable="false">Sub Area</th>
                                                     <th data-field="complete">KBO</th>
-                                                    <th data-field="task" data-editable="true">CC</th>
+                                                    <th data-field="task" data-editable="false">CC</th>
+                                                    <th data-field="status" data-editable="false">Status</th>
                                                     <th data-field="action" data-editable="false">Action</th>
+                                                    
                                                     <!-- <th data-field="date" data-editable="true">Date</th>
                                                     <th data-field="price" data-editable="true">Price</th>
                                                     <th data-field="action">Action</th> -->
@@ -1548,13 +1553,13 @@ include '../config/dbconfig.php';
 												<?php 
 									                  //proses menampilkan data dari database:
 									                  //siapkan query SQL
-									                  $query = "SELECT * FROM data_karyawan";
+									                  $query = "SELECT * FROM data_karyawan WHERE status1='aktif'";
 									                  $result = mysqli_query(connDB(),$query);
 									            ?>
 
 									            <?php while($data = mysqli_fetch_array($result)): ?>
 									                  <tr>
-									                    <td></td>
+									                    
 									                    <td><?php echo $data['nopeg'];  ?></td>
 									                    <td><?php echo $data['nama'];  ?></td>
 									                    <td><?php echo $data['email'];  ?></td>
@@ -1562,12 +1567,15 @@ include '../config/dbconfig.php';
 									                    <td><?php echo $data['subarea'];  ?></td>
 									                    <td><?php echo $data['kbo'];  		?></td>
 									                    <td><?php echo $data['kode_cc'];  ?></td>
-									                    <td>
+                                                        <td><?php echo $data['status1'];  ?></td>
+									                    
 
-									                      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal"> Edit Data</button><br><br>
+									                      <?php echo "<td><center><a href='#myModal' id='custId' data-toggle='modal' data-id=".$data['nopeg']."><i class='fas fa-user-edit'></i></a></center>"; ?>
+									                      <br>
 
-									                      <button type="button" class="btn btn-success"><i class="fas fa-hand-point-down"> <a href="<?php echo "delete.php?nopeg=".$data['nopeg']; ?>"></i> Delete</button> 
+									                      <center><a href="<?php echo "nonAktif.php?nopeg=".$data['nopeg']; ?>"><i style="color: red" class="fas fa-user-times"></i></a></center> 
 									                    </td>
+
 									                    
 									                  </tr>
 								                 <?php endwhile ?>
@@ -1900,6 +1908,43 @@ include '../config/dbconfig.php';
             <!-- Data table area End-->
         </div>
     </div>
+
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Update Data Karyawan</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="fetched-data"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Keluar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+        $('#myModal').on('show.bs.modal', function (e) {
+            var nopeg = $(e.relatedTarget).data('id');
+            //menggunakan fungsi ajax untuk pengambilan data
+            $.ajax({
+                type : 'post',
+                url : 'detail.php',
+                data :  'nopeg='+ nopeg,
+                success : function(data){
+                $('.fetched-data').html(data);//menampilkan data ke dalam modal
+                }
+            });
+         });
+    });
+  </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
     <!-- jquery
 		============================================ -->
     <script src="../static/js/homeJS/vendor/jquery-1.11.3.min.js"></script>
@@ -1960,8 +2005,8 @@ include '../config/dbconfig.php';
 
 </html>
 
-<div id="myModal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
+<!-- <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog" role="document">
            <div class="modal-content">   
               <div class="modal-body">
                 <form method="POST" action="update.php">
@@ -1979,3 +2024,4 @@ include '../config/dbconfig.php';
            </div>
         </div>
 </div>
+ -->
