@@ -16,4 +16,12 @@
 
 		return $conn;
 	}
+
+	define('HOST','localhost');
+	define('USER','root');
+	define('PASS','');
+	define('DB1', 'pekerja_mor_v');
+
+	// Buat Koneksinya
+	$db1 = new mysqli(HOST, USER, PASS, DB1);
 ?>
