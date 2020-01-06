@@ -2,7 +2,7 @@
 
 include '../config/dbconfig.php';
 
-  $status = 'Non Aktif';
+  $status = 'Aktif';
   $notif = '';
   //melakukan pengecekan apakah ada form yang dipost
   if ($_SERVER['REQUEST_METHOD'] === 'GET') {
@@ -22,7 +22,7 @@ include '../config/dbconfig.php';
           }
 
           //redirect ke halaman lain
-          header('Location: http://localhost/pertamina/home/karyawanAktif?notif='.$notif);
+          header('Location: http://localhost/pertamina/home/karyawanNonAktif?notif='.$notif);
           exit;
       }  
   }

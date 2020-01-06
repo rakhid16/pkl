@@ -34,7 +34,7 @@ html, body.materialdesign {background: #ebebeb}
 a:focus {outline:0px solid}
 img {max-width:100%;height:auto}
 .fix {overflow:hidden}
-p {margin:0 0 15px;}
+p {margin:0 0 0px;}
 h1, h2, h3, h4, h5, h6 {
   margin: 0 0 10px;
   font-weight:400;
@@ -854,13 +854,13 @@ ul.breadcome-menu li a:hover{
 }
 .sparkline-content a{
 	color:#fff;
-	background:linear-gradient(to bottom, #ff9966 0%, #d75151 100%);
+	background:#9CC82B;
 	padding:10px 20px;
 	display:inline-block;
 }
 .sparkline-content a:hover{
 	color:#fff;
-	background:linear-gradient(to bottom, #ff9966 0%, #d75151 100%);
+	background:#9CC82B;
 }
 .table.table-adminpro{
 	margin-bottom:0px;
@@ -868,7 +868,7 @@ ul.breadcome-menu li a:hover{
 .jqstooltip {
   width: auto !important;
   height: auto !important;
-  background-color: linear-gradient(to bottom, #ff66ff 0%, #ff6666 100%) !important;
+  background-color: linear-gradient(to bottom, #ff66ff 0%, #9CC82B 100%) !important;
 }
 .code-adminpro{
 	text-align:left;
@@ -1299,8 +1299,8 @@ ul.comment-action-st li a{
 	padding-left:10px;
 }
 .custom-datatable-overright .pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover{
-	background: linear-gradient(to bottom, #ff9966 0%, #d75151 100%);
-    border-color: #ff9966;
+	background: #9CC82B;
+    border-color: #9CC82B;
 }
 .custom-datatable-overright .fixed-table-toolbar .bs-bars, .fixed-table-toolbar .search, .fixed-table-toolbar .columns{
 	margin-top: 0px;
@@ -1524,7 +1524,7 @@ ul.comment-action-st li a{
 	width:100%
 }
 .custom-datatable-overright.dashtwo-project-list-data table tbody tr td.complete-project-dashtwo{
-	background:linear-gradient(to bottom, #ff9966 0%, #d75151 100%);
+	background: #9CC82B;
 }
 .custom-datatable-overright.dashtwo-project-list-data table tbody tr td.canceled-project-dashtwo{
 	background:#ed5565;
@@ -2753,15 +2753,14 @@ ul.profile-contact-menu {
 	color:#fff;
 }
 .btn-group-xs>.btn, .btn-xs{
-	background:linear-gradient(to bottom, #ff9966 0%, #d75151 100%);
+	background: #9CC82B;
 	color:#fff;
 }
 .btn-group-xs>.btn:focus, .btn-xs:focus{
 	outline:none;
 }
 .btn.focus, .btn:focus, .btn:hover, .btn:active{
-	color:#fff;
-	background:linear-gradient(to bottom, #ff9966 0%, #d75151 100%);
+	color:black;
 	outline:none;
 }
 .project-list-ad-bl .btn:focus{
@@ -3312,8 +3311,8 @@ ul.profile-contact-menu {
     width: 100%;
 }
 .custom-go-button .btn-primary, .custom-dropdowns-button .dropdown-toggle, .dropdown-segmented .dropdown-toggle, .dropdown-segmented .btn-white {
-    background: linear-gradient(to bottom, #ff9966 0%, #d75151 100%);
-    border-color: #ff9966;
+    background: #9CC82B;
+    border-color: #9CC82B;
     color: #FFFFFF;
 	border-top-left-radius: 0;
     border-bottom-left-radius: 0;
@@ -3321,18 +3320,18 @@ ul.profile-contact-menu {
 .custom-go-button .btn-primary, .custom-go-button .btn-primary:active, .custom-go-button .btn-primary:focus, .custom-dropdowns-button .dropdown-toggle, .custom-dropdowns-button .dropdown-toggle:active, .custom-dropdowns-button .dropdown-toggle:focus, .dropdown-segmented .dropdown-toggle, .dropdown-segmented .dropdown-toggle:active, .dropdown-segmented .dropdown-toggle:focus{
 	border-top-right-radius: 0;
     border-bottom-right-radius: 0;
-	background: linear-gradient(to bottom, #ff9966 0%, #d75151 100%);
-    border-color: #ff9966;
+	background: linear-gradient(to bottom, #9CC82B);
+    border-color: #9CC82B;
 }
 .dropdown-segmented .dropdown-toggle, .dropdown-segmented .dropdown-toggle:active, .dropdown-segmented .dropdown-toggle:focus{
-	border-left:1px solid #d75151;
+	border-left:1px solid #9CC82B;
 }
 .cancel-wp .btn-white, .cancel-wp .btn-white:active, .cancel-wp .btn-white:focus{
 	border-radius:0px;
 	outline:none;
 }
 .file-upload-inner.ts-forms input[type="text"]:hover, .file-upload-inner.ts-forms input[type="text"]:focus, .file-upload-inner.ts-forms input[type="text"]:active, .file-upload-inner.ts-forms .file-button:hover + input{
-	border: 1px solid #ff9966;
+	border: 1px solid #9CC82B;
 	height: 35px;
 }
 .file-upload-inner.ts-forms input[type="text"]{
@@ -4026,14 +4025,25 @@ ul.breadcome-menu {
 	margin:0px;
 }
 .materialdesign #sidebar .sidebar-header{
-	background: linear-gradient(to bottom, #DA251C 0%, #ffffff 100%);
+	background: white;
 }
+
+.materialdesign #sidebar .sidebar-header h3{
+	color:  	#0093DD;
+	font-weight: bold;
+}
+
+.materialdesign #sidebar .sidebar-header p{
+	color:  	#0093DD;
+	font-weight: bold;
+}
+
 .materialdesign .footer-copyright-area{
 	background: #fff;
 	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
 }
 .materialdesign #sidebar{
-	background: #fff;
+	background: white;
 	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
 }
 .materialdesign .sidebar-header h3, .materialdesign #sidebar .sidebar-header strong, .materialdesign .sidebar-header p, .materialdesign .footer-copy-right p, .materialdesign .footer-copy-right a{
@@ -4041,12 +4051,13 @@ ul.breadcome-menu {
 }
 .materialdesign .left-custom-menu-adp-wrap ul.left-sidebar-menu-pro li a:hover, .materialdesign .left-custom-menu-adp-wrap ul.left-sidebar-menu-pro li a:focus, .materialdesign .left-custom-menu-adp-wrap ul.left-sidebar-menu-pro li a:active, .materialdesign .left-custom-menu-adp-wrap ul.left-sidebar-menu-pro li a:visited{
 	color: #303030;
+	font-weight: bold !important
 }
 .materialdesign .left-custom-menu-adp-wrap ul.left-sidebar-menu-pro li a, .materialdesign .adminpro-custon-design .panel-heading, .materialdesign .adminpro-custon-design .admin-panel-content p{
 	color: #303030;
 }
 .materialdesign .header-top-area, .materialdesign .fixed-header-top{
-	background: linear-gradient(to right, #ffffff 0%, #DA251C 100%);
+	background: #DA251C
 }
 .materialdesign .header-top-menu .navbar-nav>li .dropdown-menu, .materialdesign .header-right-info ul.header-right-menu li .author-message-top, .materialdesign .header-right-info ul.header-right-menu li .notification-author, .materialdesign .header-right-info ul.header-right-menu li .author-log, .materialdesign .header-right-info ul.header-right-menu li .admintab-wrap.menu-setting-wrap.menu-setting-wrap-bg.dropdown-menu{
 	background: linear-gradient(to bottom, #ffffff 0%, #DA251C 100%);
@@ -4055,17 +4066,23 @@ ul.breadcome-menu {
 	border-bottom: 10px solid #ff9966;
 }
 .materialdesign .header-top-menu .navbar-nav>li .dropdown-menu a:hover, .materialdesign .header-right-info ul.header-right-menu li .dropdown-header-top.author-log li a:hover, .materialdesign  .header-right-info ul.header-right-menu li .dropdown-header-top.author-log li a:focus, .materialdesign  .header-drl-controller-btn.btn-info:active:focus, .btn-info:active:hover{
-    background: #172054;
+	 background: white;
+	 color: #DA251C;
+	 border-color: #03a9f4;
+	 border-style: solid;
+	border-width: 3px;
 }
 .materialdesign .header-drl-controller-btn.btn-info {
-    background-color: #ff9966;
-    border-color: #ff9966;
+   background-color: #DA251C;
+	border-color: white;
+	border-style: solid;
+	border-width: 3px;
 }
 .materialdesign .left-custom-menu-adp-wrap ul.left-sidebar-menu-pro li a:hover, .materialdesign .left-custom-menu-adp-wrap ul.left-sidebar-menu-pro li a:focus, .materialdesign .left-custom-menu-adp-wrap ul.left-sidebar-menu-pro li a:active, .materialdesign .left-custom-menu-adp-wrap ul.left-sidebar-menu-pro li a:visited{
-	background: #ebebeb;
+	background:  	#3cd4fa;
 }
 .materialdesign .left-custom-menu-adp-wrap ul.left-sidebar-menu-pro li .left-menu-dropdown{
-	background: #ececec;
+	background:  	#3cd4fa;
 }
 .materialdesign .flot-tick-label.tickLabel, .materialdesign .legend > div{
 	color: #fff;
@@ -4077,7 +4094,7 @@ ul.breadcome-menu {
 	border-top: 1px solid #eb166f;
 }
 .materialdesign .menu-setting-wrap.menu-setting-wrap-bg .nav-tabs>li.active>a, .materialdesign .menu-setting-wrap.menu-setting-wrap-bg .nav-tabs>li.active>a:focus, .materialdesign .menu-setting-wrap.menu-setting-wrap-bg .nav-tabs>li.active>a:hover .notes-img{
-	background: #ff9966;
+	background: #9CC82B;
 }
 .materialdesign .breadcome-heading .form-control, .breadcome-heading .form-control:focus {
     border: 1px solid #ececec;
@@ -4086,7 +4103,7 @@ ul.breadcome-menu {
     color: #fff;
     padding-left: 20px;
     padding-right: 40px;
-    background: linear-gradient(to bottom, #ff9966 0%, #d75151 100%);
+    background: linear-gradient(to bottom, #9CC82B 0%, #d75151 100%);
     box-shadow: none;
     border-radius: 30px;
     width: 200px;
