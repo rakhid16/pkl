@@ -1,0 +1,14 @@
+RewriteEngine On
+RewriteRule ^login$ /pertamina/controllers/c_login/login.php
+RewriteRule ^home$ /pertamina/controllers/c_home/home.php
+RewriteRule ^home/karyawan_aktif$ /pertamina/controllers/c_home/c_karyawan_aktif/karyawan_aktif.php
+RewriteRule ^home/karyawan_nonaktif$ /pertamina/controllers/c_home/c_karyawan_nonaktif/karyawan_nonaktif.php
+RewriteRule ^home/master_data_kbo$ /pertamina/controllers/c_home/c_master_data_kbo/master_data_kbo.php
+RewriteRule ^home/master_data_cc$ /pertamina/controllers/c_home/c_master_data_cc/master_data_cc.php
+RewriteRule ^home/upload_berkas$ /pertamina/controllers/c_home/c_upload_berkas/upload_berkas.php
+RewriteRule ^home/sertifikat$ /pertamina/controllers/c_home/c_sertifikat/sertifikasi_dan_pelatihan.php
+
+# percobaan
+RewriteRule ^home/op$ /pertamina/views/v_home/v_upload_berkas/sembarang.php
+RewriteRule ^home/op$ /pertamina/views/v_home/v_upload_berkas/sembarang.php
+RewriteRule ^home/index1 /pertamina/views/v_home/v_sertifikat/index1.php
