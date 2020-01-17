@@ -81,16 +81,16 @@
                                             <div class="toolbar">
                                                 <?php
                                                     require_once '../../../config/dbconfig.php';
-                                                    $query = "SELECT distinct fungsi from data_kbo ORDER BY fungsi ASC";
+                                                    $query = "SELECT distinct nama_fungsi from fungsi ORDER BY nama_fungsi ASC";
                                                     $result = mysqli_query(connDB(), $query);
                                                 ?>
                                                 
                                                 <select name="s_fungsi" id="s_fungsi" class="form-control-filter">
                                                     <option value="">-- Pilih Fungsi --</option>
                                                     <?php while ($data = mysqli_fetch_assoc($result)) {?>
-                                                        <option value="<?php echo $data['fungsi'];?>">
-                                                            <?php echo $data['fungsi'];?>
-                                                            <?php if ($data['fungsi'] == 1 ){ echo "selected"; } ?>
+                                                        <option value="<?php echo $data['nama_fungsi'];?>">
+                                                            <?php echo $data['nama_fungsi'];?>
+                                                            <?php if ($data['nama_fungsi'] == 1 ){ echo "selected"; } ?>
                                                         </option>
                                                     <?php } ?>
                                                 </select>

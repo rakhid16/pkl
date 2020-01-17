@@ -1,4 +1,18 @@
 <body class="materialdesign">
+<style type="text/css">
+    .container{width: 500px;}
+    .ui-widget-header{background: lightblue}
+    .lb{
+        height: 40px;
+    }
+    .nilai{
+        margin-left: 220px;
+        padding: 9px;
+        text-align: center;
+        position: absolute;
+    }
+
+</style>
     <div class="wrapper-pro">
 
         <div class="left-sidebar-pro">
@@ -76,6 +90,16 @@
                         <div class="col-lg-12">
                             <div class="sparkline8-list shadow-reset">
                                 <div class="sparkline8-hd" style="margin-top: 15px;">
+                                <?php  
+                                    $pilih_file = "";
+                                    if (isset($_POST['upload_file'])) {
+                                        $s_fungsi = $_POST['pilih_file'];
+                                        $pilih_file = $_POST['pilih_file'];
+                                        echo '<div class="container">
+                                                <div class="lb"><span class="nilai"></span></div>
+                                            </div>';
+                                    }
+                                ?>
                                 <p align=center style="font-size:20px; font-color: black">Unggah Berkas</p>
                                 </div>
 
@@ -93,28 +117,53 @@
                                             echo '<center style="color:#DA251C; font-weight: bold">Ukuran Terlalu Besar!</center>';
                                           }
                                           else{
-                                            echo '<center style="color:#DA251C; font-weight: bold">Berhasil Upload File!</center>';
+                                            echo '<center style="color:#DA251C; font-weight: bold">Berhasil Upload File!</center><div class="container">
+                                                <div class="lb"><span class="nilai"></span></div>
+                                            </div>';
                                          }
                                         }
                                 ?>
                                         <div class="toolbar">
-                                          <!--   <form  action="../../pertamina/model/m_upload_berkas.php" method="post" enctype="multipart/form-data" style="height: 200px">
-                                            <input type="file" name="file" style="margin-bottom: 10px">
-                                            <input id="rename_file" type="text" name="edit_file" placeholder="Rename File" style="margin-top: 10px; float: left;"><br><br><br>
-                                            <p align="left"><input type="submit" name="upload" class="btn btn-primary" value="Upload"></p>
-                                        </form>
- -->
-                                        <div style="height: 100px">
-                                            <button name="tombol_upload" type="button" class="btn btn-success" data-toggle="modal" data-target="#tambah" style="margin-top: 20px; float: left; margin-left: 20px">Upload File</button>
-                                        
-                                        </div>
-                                        <div id='preview'>
+                                            <form  action="../../pertamina/model/m_upload_berkas.php" method="post" enctype="multipart/form-data" style="height: 300px" class="md-form">
+                                            <?php
+                                                require_once '../../../config/dbconfig.php';
+                                                $query = "SELECT distinct kode, judul from master_pelatihan_sertifikasi ORDER BY judul ASC";
+                                                $result = mysqli_query(connDB(), $query);
+                                            ?>
+                                            <div class="judul" style="margin-left: -770px">
+                                            <select name="s_kode" id="s_kode" class="chosen" style="float: left; width: 330px !important;margin-left: 0px;" required>
+                                                    <option value="">Pilih Kategori/Judul -- Kode</option>
+                                                    <?php while ($data = mysqli_fetch_assoc($result)) {?>
+                                                        <option style="font-size: 12px !important; text-align: left;" value="<?php echo $data['kode'];?>">
+                                                            <?php echo $data['judul']."&nbsp;"."---"."&nbsp;".$data['kode']."<br>";?>
+                                                            <?php if ($data['kode'] == 1 ){ echo "selected"; } ?>
+                                                        </option>
+                                                    <?php } ?>
+                                            </select></div><br>
+                                            <?php
+                                                require_once '../../../config/dbconfig.php';
+                                                $query = "SELECT distinct nopeg, nama from data_karyawan ORDER BY nopeg ASC";
+                                                $result = mysqli_query(connDB(), $query);
+                                            ?>
+                                            <div class="judul" style="margin-left: -770px">
+                                            <select name="s_nopeg" id="s_nopeg" class="chosen" style="float: left; width: 330px !important;margin-left: 0px;" required>
+                                                    <option value="">Pilih Nama Pegawai -- No Pegawai</option>
+                                                    <?php while ($data = mysqli_fetch_assoc($result)) {?>
+                                                        <option style="font-size: 12px !important; text-align: left;" value="<?php echo $data['nopeg'];?>">
+                                                            <?php echo $data['nama']."&nbsp;"."---"."&nbsp;".$data['nopeg']."<br>";?>
+                                                            <?php if ($data['nopeg'] == 1 ){ echo "selected"; } ?>
+                                                        </option>
+                                                    <?php } ?>
+                                            </select></div>
 
-                                           
-                                            <embed src="../views/v_home/v_upload_berkas/data_berkas/<?php echo $data['nama_file']; ?>" width="400px" height="600px" />'
-                                           
-                                            <!-- // '<embed src="../views/v_home/v_upload_berkas/data_berkas/.'$global_upload'.pdf" width="400px" height="600px" />';
-                                            // '$glob -->
+                                            <input id="tanggal_file" type="date" class="form-control" name="tanggal_file" placeholder="Start Date" style="margin-top: 20px; float: left; width: 250px;" value="2000-01-01" required><br><br><br>
+                                            
+                                            <input type="file" name="pilih_file" value="Pilih File" style="background-color: #f0ede9; border-radius: 5px; height: 30px; padding: 4px; width: 250px; margin-top: 10px" required>
+                                            
+                                            <input type="hidden" name="edit_file" value="<?php echo $s_kode.'_'.$s_nopeg.'_'.$tanggal_file; ?>">
+                                            <p align="left"><input id="btn" type="submit" name="upload_file" class="btn btn-primary" value="Upload" style="margin-top: 15px; float: left;"></p>  
+                                        </form>           
+
                                             </div>
                                         </div> 
                                             
@@ -128,6 +177,7 @@
                                             </thead>
                                         </table>
                                     </div>
+
                                 </div>
                             </div>
                         </div>
@@ -138,37 +188,6 @@
         </div>
     </div>
 
-    <div id="tambah" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="mdodal-title">Upload File</h4>
-                </div>
-                <form action="../../pertamina/model/m_upload_berkas.php" method="post" enctype="multipart/form-data">
-                    <div class="modal-body">
-                        <div class="modal-group">
-                            <label class="control-label" for="nama_file">Nama File</label>
-                            <input type="text" name="nama_file" class="form-control" id="nama_file" required>
-                        </div><br>
-                        <div class="modal-group">
-                            <label class="control-label" for="file">Pilih File</label>
-                            <input type="file" name="file" class="form-control" id="file" required>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <input type="submit" class="btn btn-success" name="upload" value="Upload" id="upload">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
-                    </div>
-                   
-                    </script>
-                </form>
-                
-            </div>
-        </div>
-
-
-    </div>
 
 </body>
 

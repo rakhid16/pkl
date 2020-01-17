@@ -124,7 +124,7 @@
                                                 <td><?php echo "<center><p style='margin-left:-9.6px'>$file_name</p></center>"; ?></td>
                                                 <?php echo "<td><center>
 
-                                                <a style='margin-left: -9.6px' title='Edit Data Sertifikat' href='#myModal' id='custId' data-toggle='modal' data-id=".$data['no_sertifikat']."><i class='fas fa-edit'></i></a>
+                                                <a style='margin-left: -9.6px' title='Edit Data Sertifikat' href='#myModal' id='custId' data-toggle='modal' data-id='".$data['no_sertifikat']."'><i class='fas fa-edit'></i></a>
 
                                                 <a style='margin-left: 5.6px' title='Lihat File Sertifikat' href='#myModal1' id='custId' data-toggle='modal' data-id=".$data['no_sertifikat']."><i class='fas fa-address-card'></i></a></center>"; ?>
                                              

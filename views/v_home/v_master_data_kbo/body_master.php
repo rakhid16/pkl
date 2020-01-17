@@ -113,7 +113,7 @@
 
                                         <div class="toolbar">
                                             <div>
-                                        <?php
+                                            <?php
                                                     require_once '../../../config/dbconfig.php';
                                                     $query = "SELECT distinct fungsi, kbo from data_kbo ORDER BY fungsi ASC";
                                                     $result = mysqli_query(connDB(), $query);

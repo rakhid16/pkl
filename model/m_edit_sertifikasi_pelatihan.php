@@ -3,6 +3,7 @@
     $username = "root";
     $password = "";
     $dbname = "pekerja_mor_v";
+    include_once '../config/dbconfig.php';
 
     // MEMBUAT KONEKSI
     $koneksi = new mysqli($servername, $username, $password, $dbname);
@@ -16,8 +17,10 @@
         $no_sertifikat = $_POST['no_sertifikat'];
 
         // AMBIL DATA BERDASARKAN ID DAN MENAMPILKANNYA KE DALAM FORM MODAL BOOTSTRAP
-        $sql = "SELECT DISTINCT no_sertifikat, nopeg, start_date, expired_date, kode, file_name FROM pelatihan_sertifikasi WHERE no_sertifikat = $no_sertifikat";
+        $sql = "SELECT DISTINCT no_sertifikat, nopeg, start_date, expired_date, kode, file_name FROM pelatihan_sertifikasi WHERE no_sertifikat = '$no_sertifikat'";
         $result = $koneksi->query($sql);
+
+        var_dump($no_sertifikat);
 
         if (is_array($result) || is_object($result)){
             foreach ($result as $data){ ?>

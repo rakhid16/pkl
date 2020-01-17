@@ -17,7 +17,7 @@
       ?>
     <!-- USERNAME, PASSWORD, & SUBMIT -->
     <p class="field" style="margin-left: 85px; margin-top: 10px">
-      <input type="text" name="nama" placeholder="Nama" required/>
+      <input type="text" name="nama" placeholder="Nama" autofocus required/>
       <i class="fa fa-user"></i>
     </p>
     <p class="field" style="margin-left: 85px;">
