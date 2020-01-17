@@ -103,7 +103,7 @@
                                                 <select name="s_keyword" id="s_keyword" class="form-control-filter1" style="margin-left: 5px;">
                                                     <option value="">-- Pilih Cost Center --</option>
                                                     <?php while ($data = mysqli_fetch_assoc($result)) {?>
-                                                        <option value="<?php echo $data['kode_cc'];?>">
+                                                        <option value="<?php echo $data['cc'];?>">
                                                             <?php echo $data['cc'];?>
                                                         </option>
                                                     <?php } ?>
@@ -123,7 +123,6 @@
                                                     <th data-field="name" data-editable="false"><center>Nama</center></th>
                                                     <th data-field="email" data-editable="false"><center>Email</center></th>
                                                     <th data-field="phone" data-editable="false"><center>Jabatan</center></th>
-                                                    <th data-field="task" data-editable="false"><center>Subarea</center></th>
                                                     <th data-field="action" data-editable="false"><center>Opsi</center></th>
                                             </tr>
                                         </thead>
@@ -132,8 +131,8 @@
                                             <?php
                                                 $search_fungsi = '%'. $s_fungsi .'%';
                                                 $search_keyword = '%'. $s_keyword .'%';
-                                                $search_aktif = 'Aktif';
-                                                $query = "SELECT nopeg, nama, email, jabatan, subarea from data_karyawan INNER JOIN data_cc on data_karyawan.kode_cc = data_cc.kode_cc INNER JOIN data_kbo on data_karyawan.kbo = data_kbo.kbo WHERE data_karyawan.status1='Aktif' AND data_kbo.fungsi LIKE ? AND data_cc.cost_center LIKE ?";
+
+                                                $query = "SELECT DISTINCT nopeg, nama, email, position from data_karyawan, posisi, cost_center, fungsi WHERE status1='Aktif' and data_karyawan.id_position = posisi.id_position AND posisi.kbo = fungsi.kbo AND cost_center.kode_cc = posisi.kode_cc and fungsi.nama_fungsi LIKE ? and cost_center.cc LIKE ?";
                                                 $dewan1 = $conn->prepare($query);
                                                 $dewan1->bind_param('ss', $search_fungsi, $search_keyword);
                                                 $dewan1->execute();
@@ -144,17 +143,15 @@
                                                     $nopeg = $data['nopeg'];
                                                     $nama = $data['nama'];
                                                     $email = $data['email'];
-                                                    $jabatan = $data['jabatan'];
-                                                    $subarea = $data['subarea'];
+                                                    $jabatan = $data['position'];
                                             ?>
                                             <tr>
                                                 <td><?php echo $nopeg ?></td>
-                                                <td><?php echo $nama; ?></td>
-                                                <td><?php echo $email; ?></td>
-                                                <td><?php echo $jabatan; ?></td>
-                                                <td><?php echo $subarea; ?></td>
-                                                <?php echo "<td><center><a title='Edit Data Karyawan' href='#myModal' id='custId' data-toggle='modal' data-id=".$data['nopeg']."><i class='fas fa-user-edit'></i></a></center>"; ?><br>
-                                                <?php echo "<center><a title='Non Aktifkan Karyawan' href='#myModal1' id='custId' data-toggle='modal' data-id=".$data['nopeg']."><i style='color: red' class='fas fa-user-times'></i></a></center>"; ?>
+                                                <td><?php echo $nama ?></td>
+                                                <td><?php echo $email ?></td>
+                                                <td><?php echo $jabatan ?></td>
+                                                <?php echo "<td><center><a title='Edit Data Karyawan' href='#myModal' id='custId' data-toggle='modal' data-id=".$data['nopeg']."><i class='fas fa-user-edit'></i></a>
+                                                <a title='Non Aktifkan Karyawan' href='#myModal1' id='custId' data-toggle='modal' data-id=".$data['nopeg']."><i style='color: red' class='fas fa-user-times'></i></a></center>"; ?>
                                                 </td>                           
                                             </tr>
                                                     
