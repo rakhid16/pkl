@@ -1,6 +1,7 @@
 <body class="materialdesign">
     <style type="text/css">
-    tbody tr:nth-child(odd) {background-color: #f5f5f5;}</style>
+    tbody tr:nth-child(odd) {background-color: #f5f5f5;}
+    </style>
     <div class="wrapper-pro">
 
         <div class="left-sidebar-pro">
@@ -78,7 +79,7 @@
 
 
                                 <div class="datatable-dashv1-list custom-datatable-overright">
-                                    <table id="gayel-data" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="false" data-show-pagination-switch="false" data-show-refresh="false" data-key-events="true" data-show-toggle="false" data-resizable="true" data-cookie="true" data-cookie-id-table="saveId" data-show-export="false" data-click-to-select="true" data-toolbar="#toolbar" data-filter-control="true" class="table table-striped table-bordered">
+                                    <table id="gayel-data" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="false" data-show-pagination-switch="false" data-show-refresh="false" data-key-events="true" data-show-toggle="false" data-resizable="true" data-cookie="true" data-cookie-id-table="saveId" data-show-export="false" data-click-to-select="true" data-toolbar="#toolbar" data-filter-control="true" >
                                         <thead>
                                             <tr>
                                                     <!-- <th data-field="state" data-checkbox="true"></th> -->
@@ -170,7 +171,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Nonaktifkan Karyawan</h4>
+                    <h4 class="modal-title">Lihat Sertifikat</h4>
                 </div>
                 <div class="modal-body">
                     <div class="fetched-data"></div>
@@ -178,13 +179,3 @@
             </div>
         </div>
     </div>
-    <script>
-$(document).ready(function (){
-    var table = $('#gayel-data').DataTable( {
-  "columnDefs": [ {
-      "targets": [ 6 ],
-      "orderable": false
-    } ]
-});
-});
-</script>

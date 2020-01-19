@@ -6,11 +6,11 @@ if($_SESSION['status_login'] == ""){
 include '../../../config/dbconfig.php';
 ?>
 
-<!doctype html>
+<!DOCTYPE html>
 <html class="no-js" lang="en">
 
 <?php  
 	include '../../../views/v_home/v_master_data_kbo/head_master.php';
-	include '../../../views/v_home/v_master_data_kbo/body_master.php';
+	include '../../../views/v_home/v_master_data_kbo/body_master_kbo.php';
 	include '../../../views/v_home/v_master_data_kbo/footer_master.php'
 ?>

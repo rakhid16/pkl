@@ -1,5 +1,5 @@
 
-    <!-- <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
   
     <script type="text/javascript">
         $(document).ready(function(){
@@ -25,7 +25,7 @@
                 //menggunakan fungsi ajax untuk pengambilan data
                 $.ajax({
                     type : 'post',
-                    url : '../../pertamina/model/m_nonaktifkan.php',
+                    url : '../../pertamina/model/m_lihat_sertifikat.php',
                     data :  'no_sertifikat='+ no_sertifikat,
                     success : function(data){
                     $('.fetched-data').html(data);//menampilkan data ke dalam modal
@@ -40,7 +40,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
     
-    <!-- <script src="../static/js/homeJS/vendor/jquery-1.11.3.min.js"></script> -->
+    <script src="../static/js/homeJS/vendor/jquery-1.11.3.min.js"></script>
     
     <script src="../static/js/homeJS/bootstrap.min.js"></script>
     
@@ -73,7 +73,7 @@
     <script src="../static/js/homeJS/map/france_departments.js"></script>
     
     <script src="../static/js/homeJS/data-table/tableExport.js"></script>
-    <!-- <script src="../static/js/homeJS/data-table/bootstrap-table.js"></script> -->
+    <script src="../static/js/homeJS/data-table/bootstrap-table.js"></script>
     <script src="../static/js/homeJS/data-table/data-table-active.js"></script>
     
     <script src="../static/js/homeJS/data-table/bootstrap-editable.js"></script>

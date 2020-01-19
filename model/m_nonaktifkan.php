@@ -2,7 +2,7 @@
     $servername = "localhost";
     $username = "root";
     $password = "";
-    $dbname = "pekerja_mor_v";
+    $dbname = "krywn_mor_v";
 
     // MEMBUAT KONEKSI
     $koneksi = new mysqli($servername, $username, $password, $dbname);
@@ -23,11 +23,18 @@
             foreach ($result as $data){ ?>
 
             <form action="../../pertamina/model/q_nonaktifkan_karyawan.php" method="post">
-                <input type="hidden" name="nopeg" value="<?php echo $data['nopeg']; ?>">
+                <div class="form-group">
+                    <label>No Pegawai</label>
+                    <input type="text" class="form-control" name="nopeg" value="<?php echo $data['nopeg']; ?>" readonly="readonly">
+                </div>
+                <div class="form-group">
+                    <label>Nama Pegawai</label>
+                    <input type="text" class="form-control" name="nama" value="<?php echo $data['nama']; ?>" readonly="readonly">
+                </div>
                 <h4>Anda yakin mau melakukannya?</h4>
                 <div class="modal-footer">
-                  <button class="btn btn-success" type="submit">Iya</button>
-                  <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
+                    <button class="btn btn-success" type="submit">Iya</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
                 </div>
             </form>
         <?php }}

@@ -49,11 +49,8 @@
                 </div>
             </div>
             
- <!-- Mobile Menu END -->
- <?php include '../../../views/v_home/v_karyawan_aktif/view_mobile_aktif.php' ?>
-            <!-- Breadcome start-->
-            
-            <!-- Breadcome End-->
+            <?php include '../../../views/v_home/v_karyawan_aktif/view_mobile_aktif.php' ?>
+
             <!-- welcome Project, sale area start-->
             <div class="welcome-adminpro-area">
                 <div class="container-fluid">
@@ -79,8 +76,6 @@
                         <div class="col-lg-12">
                             <div class="sparkline8-list shadow-reset">
                                 <div class="sparkline8-hd" style="margin-top: 15px;">
-
-
                                 <?php
                                     $s_fungsi="";
                                     $kode_baru="";
@@ -89,7 +84,7 @@
                                         $kode_baru = $_POST['kode_baru'];
                                     }
                                 ?>
-                                <p align=center style="font-size:20px; font-color: black">Ubah KBO</p>
+                                <p align=center style="font-size:20px; font-color: black">Ubah Kode KBO</p>
                                 </div>
 
                                     <div class="sparkline8-graph">
@@ -110,75 +105,63 @@
                                          }
                                         }
                                 ?>
-
                                         <div class="toolbar">
-                                            <div>
+                                            <form action="" class="md-form" style="height: 300px">
                                             <?php
                                                     require_once '../../../config/dbconfig.php';
-                                                    $query = "SELECT distinct fungsi, kbo from data_kbo ORDER BY fungsi ASC";
+                                                    $query = "SELECT distinct nama_fungsi, kbo from fungsi ORDER BY nama_fungsi ASC";
                                                     $result = mysqli_query(connDB(), $query);
                                             ?>
-
-                                                <select name="s_fungsi" id="s_fungsi" class="form-control-filter2 chosen" style="margin-left: 0px; margin-right=1000px;">
-                                                    <option value="">Pilih Kode KBO -- Fungsi</option>
+                                                <div style="margin-left: -768px">
+                                                <select name="s_fungsi" id="s_fungsi" class="form-control-filter2 chosen" style="float: left; width: 330px !important; margin-left: 0px;" required>
+                                                    <option value="">Pilih Nama Fungsi -- Kode KBO</option>
                                                     <?php while ($data = mysqli_fetch_assoc($result)) {?>
-                                                        <option style="float: left;" value="<?php echo $data['kbo'];?>">
-                                                            <?php echo $data['kbo']."&nbsp;"."---"."&nbsp;".$data['fungsi']."<br>";?>
+                                                        <option style="font-size: 12px !important; text-align: left;" value="<?php echo $data['kbo'];?>">
+                                                            <?php echo $data['nama_fungsi']."&nbsp;"."---"."&nbsp;".$data['kbo']."<br>";?>
                                                             <?php if ($data['kbo'] == 1 ){ echo "selected"; } ?>
                                                         </option>
                                                     <?php } ?>
                                                 </select>
-
-                                                <input type="text" class="form-input-data" name="kode_baru">
-                                                <a title='Ubah Kode KBO' href='#myModal1' id='custId' data-toggle='modal' data-id=".$data['kbo']."><button type="submit" class="btn btn-danger btn-filter-search btn-ubah-kode" style="border-radius: 5px;">Ubah Kode KBO</button></a>
-                                                    <!-- <button type="submit" name="ubah_kode" class="btn btn-danger btn-ubah-kode">Ubah Kode</button> -->
-                                                    <br>
-                                                    <br>
-</div>
-
-
+                                                </div><br>
+                                                <input type="text" class="form-control" name="kode_baru" style="width: 150px" required>
+                                             
+                                                <a title='Ubah Kode KBO' href='#myModal' id='custId' data-toggle='modal' data-id=".$data['kbo']."><button type="submit" class="btn btn-danger btn-filter-search btn-ubah-kode" style="border-radius: 5px; margin-top: 15px">Ubah Kode KBO</button></a>
+                                            </form>
+                                            </div>
                                         </div> 
-                                        
-                                                                                                                   
+                                            
+
+
                                         <div class="datatable-dashv1-list custom-datatable-overright">
                                         <table>
                                             <thead>
                                                 <tbody>
-
                                                 </tbody>
                                             </thead>
                                         </table>
                                     </div>
-                                </div>
 
+                                </div>
                             </div>
                         </div>
-
                     </div>
-
-
-
+                </div>
             </div>
             <!-- Data table area End-->
-
         </div>
     </div>
 
-
-    <div class="modal fade" id="myModal1" role="dialog">
+<div class="modal fade" id="myModal" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Aktifkan Karyawan</h4>
+                    <h4 class="modal-title">Ubah Kode KBO</h4>
                 </div>
                 <div class="modal-body">
                     <div class="fetched-data"></div>
                 </div>
             </div>
         </div>
-    </div>
+</div>
 
-</body>
-
-</html>

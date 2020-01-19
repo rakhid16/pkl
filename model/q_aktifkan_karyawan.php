@@ -2,7 +2,7 @@
 
 include '../../pertamina/config/dbconfig.php';
 
-  $status = 'Aktif';
+  $status = 'aktif';
   $notif = '';
   //melakukan pengecekan apakah ada form yang dipost
   if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -15,10 +15,10 @@ include '../../pertamina/config/dbconfig.php';
           $result = mysqli_query(connDB(),$query);
 
           if ($result) {
-            $notif = 'ok';
+            $notif = 'sukses';
           }
           else{
-            $notif = 'err';
+            $notif = 'error';
           }
 
           //redirect ke halaman lain

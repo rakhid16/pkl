@@ -15,12 +15,12 @@
       $sql = "UPDATE pelatihan_sertifikasi SET no_sertifikat='$no_sertif', nopeg='$nopeg', start_date='$start_date', expired_date='$expired_date', kode='$kode', file_name='$file_name' WHERE nopeg='$nopeg'";
 
       //eksekusi query
-      $result = mysqli_query(connDB_versi1(),$sql);
+      $result = mysqli_query(connDB(),$sql);
       if ($result) {
-        $notif = 'ok';
+        $notif = 'sukses';
       }
       else{
-        $notif = 'err';
+        $notif = 'error';
       }
 
       //redirect ke halaman lain

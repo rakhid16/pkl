@@ -1,18 +1,4 @@
 <body class="materialdesign">
-<style type="text/css">
-    .container{width: 500px;}
-    .ui-widget-header{background: lightblue}
-    .lb{
-        height: 40px;
-    }
-    .nilai{
-        margin-left: 220px;
-        padding: 9px;
-        text-align: center;
-        position: absolute;
-    }
-
-</style>
     <div class="wrapper-pro">
 
         <div class="left-sidebar-pro">
@@ -90,16 +76,7 @@
                         <div class="col-lg-12">
                             <div class="sparkline8-list shadow-reset">
                                 <div class="sparkline8-hd" style="margin-top: 15px;">
-                                <?php  
-                                    $pilih_file = "";
-                                    if (isset($_POST['upload_file'])) {
-                                        $s_fungsi = $_POST['pilih_file'];
-                                        $pilih_file = $_POST['pilih_file'];
-                                        echo '<div class="container">
-                                                <div class="lb"><span class="nilai"></span></div>
-                                            </div>';
-                                    }
-                                ?>
+
                                 <p align=center style="font-size:20px; font-color: black">Unggah Berkas</p>
                                 </div>
 
@@ -117,51 +94,64 @@
                                             echo '<center style="color:#DA251C; font-weight: bold">Ukuran Terlalu Besar!</center>';
                                           }
                                           else{
-                                            echo '<center style="color:#DA251C; font-weight: bold">Berhasil Upload File!</center><div class="container">
-                                                <div class="lb"><span class="nilai"></span></div>
-                                            </div>';
+                                            echo '<img id="imageID" src="../static/assetUploadBerkas/img/img_upload_berkas.gif">';
                                          }
                                         }
                                 ?>
                                         <div class="toolbar">
-                                            <form  action="../../pertamina/model/m_upload_berkas.php" method="post" enctype="multipart/form-data" style="height: 300px" class="md-form">
+                                            <form  action="../../pertamina/model/m_upload_berkas.php" method="post" enctype="multipart/form-data" style="height: 450px" class="md-form">
                                             <?php
                                                 require_once '../../../config/dbconfig.php';
                                                 $query = "SELECT distinct kode, judul from master_pelatihan_sertifikasi ORDER BY judul ASC";
                                                 $result = mysqli_query(connDB(), $query);
                                             ?>
-                                            <div class="judul" style="margin-left: -770px">
+
+                                            <label style="float: left; margin-top: 5px">No Sertifikat&emsp;&emsp;&emsp; : &emsp;</label><input type="text" class="form-control" name="no_sertifikat" placeholder="No Sertifikat" style="height: 30px; padding: 4px; width: 300px; margin-top: 10px; margin-bottom: 25px;" required>
+
+                                            <label style="float: left; margin-top: 5px">Kategori/Judul&emsp;&emsp;&nbsp; : &emsp;</label>
+                                            <div class="judul" style="margin-left: 0px; float: left;">
                                             <select name="s_kode" id="s_kode" class="chosen" style="float: left; width: 330px !important;margin-left: 0px;" required>
                                                     <option value="">Pilih Kategori/Judul -- Kode</option>
                                                     <?php while ($data = mysqli_fetch_assoc($result)) {?>
-                                                        <option style="font-size: 12px !important; text-align: left;" value="<?php echo $data['kode'];?>">
+                                                        <option style="font-size: 12px !important; text-align: left;" value="<?php echo $data['kode'];?>" required>
                                                             <?php echo $data['judul']."&nbsp;"."---"."&nbsp;".$data['kode']."<br>";?>
                                                             <?php if ($data['kode'] == 1 ){ echo "selected"; } ?>
                                                         </option>
                                                     <?php } ?>
-                                            </select></div><br>
+                                            </select></div><br><br><br>
                                             <?php
                                                 require_once '../../../config/dbconfig.php';
-                                                $query = "SELECT distinct nopeg, nama from data_karyawan ORDER BY nopeg ASC";
+                                                $query = "SELECT distinct nopeg, nama from data_karyawan ORDER BY nama ASC";
                                                 $result = mysqli_query(connDB(), $query);
                                             ?>
-                                            <div class="judul" style="margin-left: -770px">
+
+                                            <label style="float: left; margin-top: 5px">Nama Pegawai&emsp;&emsp; : &emsp;</label>
+                                            <div class="judul" style="margin-left: 0px; float: left;">
                                             <select name="s_nopeg" id="s_nopeg" class="chosen" style="float: left; width: 330px !important;margin-left: 0px;" required>
                                                     <option value="">Pilih Nama Pegawai -- No Pegawai</option>
                                                     <?php while ($data = mysqli_fetch_assoc($result)) {?>
-                                                        <option style="font-size: 12px !important; text-align: left;" value="<?php echo $data['nopeg'];?>">
+                                                        <option style="font-size: 12px !important; text-align: left;" value="<?php echo $data['nopeg'];?>" required>
                                                             <?php echo $data['nama']."&nbsp;"."---"."&nbsp;".$data['nopeg']."<br>";?>
                                                             <?php if ($data['nopeg'] == 1 ){ echo "selected"; } ?>
                                                         </option>
                                                     <?php } ?>
-                                            </select></div>
+                                            </select></div><br><br><br>
 
-                                            <input id="tanggal_file" type="date" class="form-control" name="tanggal_file" placeholder="Start Date" style="margin-top: 20px; float: left; width: 250px;" value="2000-01-01" required><br><br><br>
-                                            
-                                            <input type="file" name="pilih_file" value="Pilih File" style="background-color: #f0ede9; border-radius: 5px; height: 30px; padding: 4px; width: 250px; margin-top: 10px" required>
+                                            <label style="float: left; margin-top: 5px">Start Date&emsp;&emsp;&emsp;&emsp;&nbsp; : &emsp;</label>
+                                            <input id="tanggal_file" type="date" class="form-control" name="tanggal_file" placeholder="Start Date" style="float: left; width: 250px;" value="2000-01-01" required><br><br><br>
+
+                                            <label style="float: left; margin-top: 5px">Expired Date&emsp;&emsp;&emsp; : &emsp;</label>
+                                            <input id="exp_date" type="date" class="form-control" name="exp_date" placeholder="Expired Date" style="float: left; width: 250px;" value="dd-mm-yy" ng-model="data.test" ng-disabled="data.check" ><br><br>                   
+
+                                            <p style="font-size: 12px; float: left; margin-left: 15%">Clear Exp Date ?&emsp;</p><input type="checkbox" 
+                                                ng-change="data.test = data.check ? '' : data.test"
+                                                ng-model="data.check" 
+                                                value="one" style="float: left;"><br><br>
+
+                                            <input type="file" name="pilih_file" value="Pilih File" style="background-color: #f0ede9; border-radius: 5px; height: 30px; padding: 4px; width: 250px; margin-top: 10px;" required>
                                             
                                             <input type="hidden" name="edit_file" value="<?php echo $s_kode.'_'.$s_nopeg.'_'.$tanggal_file; ?>">
-                                            <p align="left"><input id="btn" type="submit" name="upload_file" class="btn btn-primary" value="Upload" style="margin-top: 15px; float: left;"></p>  
+                                            <p align="left"><input id="btn" type="submit" name="upload_file" class="btn btn-primary" value="Upload" style="margin-top: 20px; float: left; margin-left: 5px"></p>  
                                         </form>           
 
                                             </div>
@@ -170,12 +160,7 @@
 
 
                                         <div class="datatable-dashv1-list custom-datatable-overright">
-                                        <table>
-                                            <thead>
-                                                <tbody>
-                                                </tbody>
-                                            </thead>
-                                        </table>
+
                                     </div>
 
                                 </div>

@@ -7,7 +7,7 @@ include '../../../config/dbconfig.php';
 ?>
 
 <!DOCTYPE html>
-<html class="no-js" lang="en">
+<html class="no-js" lang="en" ng-app="plunker">
 
 <?php  
 	include '../../../views/v_home/v_upload_berkas/head_upload_berkas.php';

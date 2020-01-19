@@ -2,7 +2,7 @@
     $servername = "localhost";
     $username = "root";
     $password = "";
-    $dbname = "pekerja_mor_v";
+    $dbname = "krywn_mor_v";
 
     // MEMBUAT KONEKSI
     $koneksi = new mysqli($servername, $username, $password, $dbname);
@@ -16,14 +16,17 @@
         $nopeg = $_POST['nopeg'];
 
         // AMBIL DATA BERDASARKAN ID DAN MENAMPILKANNYA KE DALAM FORM MODAL BOOTSTRAP
-        $sql = "SELECT * FROM data_karyawan WHERE nopeg = $nopeg";
+        $sql = "SELECT nopeg, nama, email, position FROM data_karyawan INNER JOIN posisi on data_karyawan.id_position = posisi.id_position WHERE nopeg = $nopeg";
         $result = $koneksi->query($sql);
 
         if (is_array($result) || is_object($result)){
             foreach ($result as $data){ ?>
 
             <form action="../../pertamina/model/u_karyawan_nonaktif.php" method="post">
-                <input type="hidden" name="nopeg" value="<?php echo $data['nopeg']; ?>">
+                <div class="form-group">
+                    <label>No Pegawai</label>
+                    <input type="text" class="form-control" name="nopeg" value="<?php echo $data['nopeg']; ?>" readonly="readonly">
+                </div>
                 <div class="form-group">
                     <label>Nama</label>
                     <input type="text" class="form-control" name="nama" value="<?php echo $data['nama']; ?>">
@@ -34,12 +37,9 @@
                 </div>
                 <div class="form-group">
                     <label>Jabatan</label>
-                    <input type="text" class="form-control" name="jabatan" value="<?php echo $data['jabatan']; ?>">
+                    <input type="text" class="form-control" name="position" value="<?php echo $data['position']; ?>">
                 </div>
-                <div class="form-group">
-                    <label>Sub Area</label>
-                    <input type="text" class="form-control" name="subarea" value="<?php echo $data['subarea']; ?>">
-                </div>
+                
                 <div class="modal-footer">
                   <button class="btn btn-success" type="submit">Simpan</button>
                   <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>

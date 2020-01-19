@@ -8,7 +8,3 @@ RewriteRule ^home/master_data_cc$ /pertamina/controllers/c_home/c_master_data_cc
 RewriteRule ^home/upload_berkas$ /pertamina/controllers/c_home/c_upload_berkas/upload_berkas.php
 RewriteRule ^home/sertifikat$ /pertamina/controllers/c_home/c_sertifikat/sertifikasi_dan_pelatihan.php
 
-# percobaan
-RewriteRule ^home/op$ /pertamina/views/v_home/v_upload_berkas/sembarang.php
-RewriteRule ^home/op$ /pertamina/views/v_home/v_upload_berkas/sembarang.php
-RewriteRule ^home/index1 /pertamina/views/v_home/v_sertifikat/index1.php

@@ -1,5 +1,9 @@
+<script type="text/javascript">
+    setTimeout(function() {
+  document.getElementById('imageID').style.display='none'
+}, 2.6*1000);
 
-
+</script>
     <script type="text/javascript">
         $(document).ready(function(){
             $('#myModal1').on('show.bs.modal', function (e) {

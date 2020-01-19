@@ -1,4 +1,7 @@
 <body class="materialdesign">
+        <style type="text/css">
+    tbody tr:nth-child(odd) {background-color: #f5f5f5;}
+    </style>
     <div class="wrapper-pro">
 
         <div class="left-sidebar-pro">
@@ -132,7 +135,7 @@
                                                 $search_fungsi = '%'. $s_fungsi .'%';
                                                 $search_keyword = '%'. $s_keyword .'%';
 
-                                                $query = "SELECT DISTINCT nopeg, nama, email, position from data_karyawan, posisi, cost_center, fungsi WHERE status1='Aktif' and data_karyawan.id_position = posisi.id_position AND posisi.kbo = fungsi.kbo AND cost_center.kode_cc = posisi.kode_cc and fungsi.nama_fungsi LIKE ? and cost_center.cc LIKE ?";
+                                                $query = "SELECT DISTINCT nopeg, nama, email, position from data_karyawan, posisi, cost_center, fungsi WHERE status1='Aktif' and data_karyawan.id_position = posisi.id_position AND posisi.kbo = fungsi.kbo AND cost_center.kode_cc = posisi.kode_cc and fungsi.nama_fungsi LIKE ? and cost_center.cc LIKE ? ORDER BY data_karyawan.nama ASC";
                                                 $dewan1 = $conn->prepare($query);
                                                 $dewan1->bind_param('ss', $search_fungsi, $search_keyword);
                                                 $dewan1->execute();
@@ -146,12 +149,12 @@
                                                     $jabatan = $data['position'];
                                             ?>
                                             <tr>
-                                                <td><?php echo $nopeg ?></td>
+                                                <td><?php echo "<center><p style='margin-left:-9.6px'>$nopeg</p></center>" ?></td>
                                                 <td><?php echo $nama ?></td>
                                                 <td><?php echo $email ?></td>
                                                 <td><?php echo $jabatan ?></td>
                                                 <?php echo "<td><center><a title='Edit Data Karyawan' href='#myModal' id='custId' data-toggle='modal' data-id=".$data['nopeg']."><i class='fas fa-user-edit'></i></a>
-                                                <a title='Non Aktifkan Karyawan' href='#myModal1' id='custId' data-toggle='modal' data-id=".$data['nopeg']."><i style='color: red' class='fas fa-user-times'></i></a></center>"; ?>
+                                                <a style='margin-left: 5.6px' title='Non Aktifkan Karyawan' href='#myModal1' id='custId' data-toggle='modal' data-id=".$data['nopeg']."><i style='color: red' class='fas fa-user-times'></i></a></center>"; ?>
                                                 </td>                           
                                             </tr>
                                                     
