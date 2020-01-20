@@ -7,4 +7,6 @@ RewriteRule ^home/master_data_kbo$ /pertamina/controllers/c_home/c_master_data_k
 RewriteRule ^home/master_data_cc$ /pertamina/controllers/c_home/c_master_data_cc/master_data_cc.php
 RewriteRule ^home/upload_berkas$ /pertamina/controllers/c_home/c_upload_berkas/upload_berkas.php
 RewriteRule ^home/sertifikat$ /pertamina/controllers/c_home/c_sertifikat/sertifikasi_dan_pelatihan.php
+RewriteRule ^home/report$ /pertamina/controllers/c_home/c_report/report.php
+RewriteRule ^home/master_pelatihan$ /pertamina/controllers/c_home/c_master_pelatihan/master_pelatihan.php
 

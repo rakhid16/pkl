@@ -77,14 +77,14 @@
                             <div class="sparkline8-list shadow-reset">
                                 <div class="sparkline8-hd" style="margin-top: 15px;">
                                 <?php
-                                    $s_fungsi="";
+                                    $s_judul="";
                                     $kode_baru="";
                                     if (isset($_POST['search'])) {
-                                        $s_fungsi = $_POST['s_fungsi'];
+                                        $s_judul = $_POST['s_judul'];
                                         $kode_baru = $_POST['kode_baru'];
                                     }
                                 ?>
-                                <p align=center style="font-size:20px; font-color: black">Ubah Kode KBO</p>
+                                <p align=center style="font-size:20px; font-color: black">Ubah Kode Judul/Kategori</p>
                                 </div>
 
                                     <div class="sparkline8-graph">
@@ -100,26 +100,26 @@
                                         
                                 ?>
                                         <div class="toolbar">
-                                            <form action="../model/u_dataMaster_kbo.php" method="POST" class="md-form" style="height: 300px">
+                                            <form action="../model/u_master_pelatihan.php" method="POST" class="md-form" style="height: 300px">
                                             <?php
                                                     require_once '../../../config/dbconfig.php';
-                                                    $query = "SELECT distinct nama_fungsi, kbo from fungsi ORDER BY nama_fungsi ASC";
+                                                    $query = "SELECT distinct kode, judul from master_pelatihan_sertifikasi ORDER BY judul ASC";
                                                     $result = mysqli_query(connDB(), $query);
                                             ?>
                                                 <div style="margin-left: -768px">
-                                                <select name="s_fungsi" id="s_fungsi" class="form-control-filter2 chosen" style="float: left; width: 330px !important; margin-left: 0px;" required>
-                                                    <option value="">Pilih Nama Fungsi -- Kode KBO</option>
+                                                <select name="s_judul" id="s_judul" class="form-control-filter2 chosen" style="float: left; width: 330px !important; margin-left: 0px;" required>
+                                                    <option value="">Pilih Judul/Kategori -- Kode</option>
                                                     <?php while ($data = mysqli_fetch_assoc($result)) {?>
-                                                        <option style="font-size: 12px !important; text-align: left;" value="<?php echo $data['kbo'];?>">
-                                                            <?php echo $data['nama_fungsi']."&nbsp;"."---"."&nbsp;".$data['kbo']."<br>";?>
-                                                            <?php if ($data['kbo'] == 1 ){ echo "selected"; } ?>
+                                                        <option style="font-size: 12px !important; text-align: left;" value="<?php echo $data['kode'];?>">
+                                                            <?php echo $data['judul']."&nbsp;"."---"."&nbsp;".$data['kode']."<br>";?>
+                                                            <?php if ($data['kode'] == 1 ){ echo "selected"; } ?>
                                                         </option>
                                                     <?php } ?>
                                                 </select>
                                                 </div><br>
                                                 <input type="text" class="form-control" name="kode_baru" style="width: 150px" placeholder="Ubah Kode" required>
                                              
-                                                <button name="ubah_kode" type="submit" class="btn btn-danger btn-filter-search btn-ubah-kode" style="border-radius: 5px; margin-top: 15px">Ubah Kode KBO</button>
+                                                <button name="ubah_kode" type="submit" class="btn btn-danger btn-filter-search btn-ubah-kode" style="border-radius: 5px; margin-top: 15px">Ubah Kode Judul</button>
                                             </form>
                                             </div>
                                         </div> 
@@ -142,18 +142,3 @@
             <!-- Data table area End-->
         </div>
     </div>
-
-<div class="modal fade" id="myModal" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Ubah Kode KBO</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="fetched-data"></div>
-                </div>
-            </div>
-        </div>
-</div>
-

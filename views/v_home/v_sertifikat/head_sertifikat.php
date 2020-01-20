@@ -1,5 +1,5 @@
 <head>
-    <title>Beranda - Karyawan Aktif</title>
+    <title>Beranda - Data Sertifikat</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge" charset="utf-8"> 

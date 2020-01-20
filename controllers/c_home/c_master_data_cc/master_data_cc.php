@@ -14,6 +14,3 @@ include '../../../config/dbconfig.php';
 	include '../../../views/v_home/v_master_data_cc/body_master_cc.php';
 	include '../../../views/v_home/v_master_data_cc/footer_master.php'
 ?>
-if(!isset($_SESSION['username'])){
-    header('location:login.php');
-}

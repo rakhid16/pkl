@@ -1,8 +1,8 @@
 </script>
     <script type="text/javascript">
     $(function() {
-    if (localStorage.getItem('s_fungsi')) {
-        $("#s_fungsi option").eq(localStorage.getItem('s_fungsi')).prop('selected', true);
+    if (localStorage.getItem('s_judul')) {
+        $("#s_judul option").eq(localStorage.getItem('s_judul')).prop('selected', true);
     }
 
     </script>

@@ -27,7 +27,7 @@
             <form action="../../pertamina/model/u_sertifikasi_pelatihan.php" method="post">
                 <div class="form-group">
                     <label>No Sertifikat</label>
-                    <input type="text" class="form-control" name="no_sertifikat" value="<?php echo $data['no_sertifikat']; ?>">
+                    <input type="text" class="form-control" name="no_sertifikat" value="<?php echo $data['no_sertifikat']; ?>" readonly="readonly">
                 </div>
                 <div class="form-group">
                     <label>No Pegawai</label>

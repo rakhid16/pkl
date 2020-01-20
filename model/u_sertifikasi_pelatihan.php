@@ -11,8 +11,9 @@
       $expired_date = $_POST['expired_date'];
       $kode = $_POST['kode'];
       $file_name = $_POST['file_name'];
+
       //query SQL
-      $sql = "UPDATE pelatihan_sertifikasi SET no_sertifikat='$no_sertif', nopeg='$nopeg', start_date='$start_date', expired_date='$expired_date', kode='$kode', file_name='$file_name' WHERE nopeg='$nopeg'";
+      $sql = "UPDATE pelatihan_sertifikasi SET no_sertifikat='$no_sertif', nopeg='$nopeg', start_date='$start_date', expired_date='$expired_date', kode='$kode', file_name='$file_name' WHERE no_sertifikat='$no_sertif'";
 
       //eksekusi query
       $result = mysqli_query(connDB(),$sql);
@@ -24,7 +25,7 @@
       }
 
       //redirect ke halaman lain
-      header('Location: ../home/sertifikat?notif='.$notif);
+      header('Location: ../home/sertifikat?notif='.$notif.$sql);
   }
   
 

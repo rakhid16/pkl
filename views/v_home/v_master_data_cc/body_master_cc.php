@@ -105,7 +105,7 @@
                                 ?>
 
                                         <div class="toolbar">
-                                            <form action="../model/update_dataMaster_cc.php" method="POST" class="md-form" style="height: 300px">
+                                            <form action="../model/u_dataMaster_cc.php" method="POST" class="md-form" style="height: 300px">
                                             <?php
                                                     require_once '../../../config/dbconfig.php';
                                                     $query = "SELECT distinct kode_cc, cc from cost_center ORDER BY cc ASC";
