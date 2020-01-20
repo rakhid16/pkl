@@ -79,7 +79,7 @@
 
 
                                 <div class="datatable-dashv1-list custom-datatable-overright">
-                                    <table id="gayel-data" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="false" data-show-pagination-switch="false" data-show-refresh="false" data-key-events="true" data-show-toggle="false" data-resizable="true" data-cookie="true" data-cookie-id-table="saveId" data-show-export="false" data-click-to-select="true" data-toolbar="#toolbar" data-filter-control="true" >
+                                    <table id="domainsTable" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="false" data-show-pagination-switch="false" data-show-refresh="false" data-key-events="true" data-show-toggle="false" data-resizable="true" data-cookie="true" data-cookie-id-table="saveId" data-show-export="false" data-click-to-select="true" data-toolbar="#toolbar" data-filter-control="true" >
                                         <thead>
                                             <tr>
                                                     <!-- <th data-field="state" data-checkbox="true"></th> -->
@@ -125,9 +125,9 @@
                                                 <td><?php echo "<center><p style='margin-left:-9.6px'>$file_name</p></center>"; ?></td>
                                                 <?php echo "<td><center>
 
-                                                <a style='margin-left: -9.6px' title='Edit Data Sertifikat' href='#myModal' id='custId' data-toggle='modal' data-id='".$data['no_sertifikat']."'><i class='fas fa-edit'></i></a>
+                                                <a style='margin-left: -9.6px' title='Edit Data Sertifikat' href='#myModal' id='custId' data-toggle='modal' data-id='".$data['no_sertifikat']."'><button class='btn btn-xs btn-primary' style='border-radius:3px; background-color:#ffb92b !important'><i class='fas fa-edit' style='color:black'></i></button></a>
 
-                                                <a style='margin-left: 5.6px' title='Lihat File Sertifikat' href='#myModal1' id='custId' data-toggle='modal' data-id=".$data['no_sertifikat']."><i class='fas fa-address-card'></i></a></center>"; ?>
+                                                <a style='margin-left: 5.6px' title='Lihat File Sertifikat' href='#myModal1' id='custId' data-toggle='modal' data-id='".$data['no_sertifikat']."'><button class='btn btn-xs btn-primary' style='border-radius:3px; background-color:#70a5fa !important'><i class='fas fa-address-card' style='color:black'></i></button></a></center>"; ?>
                                              
                                                 </td>                           
                                             </tr>

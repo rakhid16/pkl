@@ -1,10 +1,4 @@
-<script type="text/javascript">
-    setTimeout(function() {
-  document.getElementById('imageID').style.display='none'
-}, 2.6*1000);
-
-</script>
-    <script type="text/javascript">
+<!--     <script type="text/javascript">
         $(document).ready(function(){
             $('#myModal1').on('show.bs.modal', function (e) {
                 var nopeg = $(e.relatedTarget).data('id');
@@ -20,18 +14,13 @@
              });
         });
     </script>
-
+ -->
 </script>
     <script type="text/javascript">
     $(function() {
     if (localStorage.getItem('s_fungsi')) {
         $("#s_fungsi option").eq(localStorage.getItem('s_fungsi')).prop('selected', true);
     }
-
-    $("#s_fungsi").on('change', function() {
-        localStorage.setItem('s_fungsi', $('option:selected', this).index());
-        });
-    });
 
     </script>
 

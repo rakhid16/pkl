@@ -1,5 +1,10 @@
 <?php 
-  include '../../config/dbconfig.php';
+session_start();
+if(isset($_SESSION['status_login']) == "login"){
+	header("location:../pertamina/home");
+}
+include '../../config/dbconfig.php';
+
 ?>
 
 <!DOCTYPE html>

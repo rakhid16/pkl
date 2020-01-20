@@ -1,7 +1,7 @@
 <?php  
 session_start();
 if($_SESSION['status_login'] == ""){
-	header("location:../pertamina/login");
+	header("location:../login");
 }
 include '../../config/dbconfig.php';
 ?>

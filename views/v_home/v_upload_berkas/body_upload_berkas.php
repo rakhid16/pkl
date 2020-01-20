@@ -85,13 +85,13 @@
 
                                         if(isset($_GET['notif'])){
                                           if($_GET['notif']=="gagal"){
-                                            echo '<center style="color:#DA251C; font-weight: bold">Gagal Upload File, Dicek Kembali!</center>';
+                                            echo '<center style="color:#DA251C; font-weight: bold" class="alert alert-danger">Gagal Upload File, Dicek Kembali!</center>';
                                           }
                                           elseif($_GET['notif']=="ekstensi_tidak_diperbolehkan"){
                                             echo '<center style="color:#DA251C; font-weight: bold" class="alert alert-danger">Ekstensi File Tidak Diperbolehkan!</center>';
                                           }
                                           elseif($_GET['notif']=="ukuran_terlalu_besar"){
-                                            echo '<center style="color:#DA251C; font-weight: bold">Ukuran Terlalu Besar!</center>';
+                                            echo '<center style="color:#DA251C; font-weight: bold" class="alert alert-danger">Ukuran Terlalu Besar!</center>';
                                           }
                                           else{
                                             echo '<img id="imageID" src="../static/assetUploadBerkas/img/img_upload_berkas.gif">';

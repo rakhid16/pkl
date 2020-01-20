@@ -89,24 +89,18 @@
 
                                     <div class="sparkline8-graph">
                                 <?php 
-
                                         if(isset($_GET['notif'])){
-                                          if($_GET['notif']=="gagal"){
-                                            echo '<center style="color:#DA251C; font-weight: bold">Gagal Upload File, Dicek Kembali!</center>';
-                                          }
-                                          elseif($_GET['notif']=="ekstensi_tidak_diperbolehkan"){
-                                            echo '<center style="color:#DA251C; font-weight: bold" class="alert alert-danger">Ekstensi File Tidak Diperbolehkan!</center>';
-                                          }
-                                          elseif($_GET['notif']=="ukuran_terlalu_besar"){
-                                            echo '<center style="color:#DA251C; font-weight: bold">Ukuran Terlalu Besar!</center>';
+                                          if($_GET['notif']=="error"){
+                                            echo '<center style="color:#DA251C; font-weight: bold" class="alert alert-danger">Error, Dicek Kembali!</center>';
                                           }
                                           else{
-                                            echo '<center style="color:#DA251C; font-weight: bold">Berhasil Upload File!</center>';
-                                         }
+                                            echo '<center style="color:#519c05; font-weight: bold" class="alert alert-success" role="alert">Berhasil Diupdate!</center>';
+                                           }
                                         }
+                                        
                                 ?>
                                         <div class="toolbar">
-                                            <form action="" class="md-form" style="height: 300px">
+                                            <form action="../model/update_dataMaster_kbo.php" method="POST" class="md-form" style="height: 300px">
                                             <?php
                                                     require_once '../../../config/dbconfig.php';
                                                     $query = "SELECT distinct nama_fungsi, kbo from fungsi ORDER BY nama_fungsi ASC";
@@ -123,14 +117,12 @@
                                                     <?php } ?>
                                                 </select>
                                                 </div><br>
-                                                <input type="text" class="form-control" name="kode_baru" style="width: 150px" required>
+                                                <input type="text" class="form-control" name="kode_baru" style="width: 150px" placeholder="Ubah Kode" required>
                                              
-                                                <a title='Ubah Kode KBO' href='#myModal' id='custId' data-toggle='modal' data-id=".$data['kbo']."><button type="submit" class="btn btn-danger btn-filter-search btn-ubah-kode" style="border-radius: 5px; margin-top: 15px">Ubah Kode KBO</button></a>
+                                                <button name="ubah_kode" type="submit" class="btn btn-danger btn-filter-search btn-ubah-kode" style="border-radius: 5px; margin-top: 15px">Ubah Kode KBO</button>
                                             </form>
                                             </div>
                                         </div> 
-                                            
-
 
                                         <div class="datatable-dashv1-list custom-datatable-overright">
                                         <table>

@@ -94,53 +94,42 @@
 
                                     <div class="sparkline8-graph">
                                 <?php 
-
                                         if(isset($_GET['notif'])){
-                                          if($_GET['notif']=="gagal"){
-                                            echo '<center style="color:#DA251C; font-weight: bold">Gagal Upload File, Dicek Kembali!</center>';
-                                          }
-                                          elseif($_GET['notif']=="ekstensi_tidak_diperbolehkan"){
-                                            echo '<center style="color:#DA251C; font-weight: bold" class="alert alert-danger">Ekstensi File Tidak Diperbolehkan!</center>';
-                                          }
-                                          elseif($_GET['notif']=="ukuran_terlalu_besar"){
-                                            echo '<center style="color:#DA251C; font-weight: bold">Ukuran Terlalu Besar!</center>';
+                                          if($_GET['notif']=="error"){
+                                            echo '<center style="color:#DA251C; font-weight: bold" class="alert alert-danger">Error, Dicek Kembali!</center>';
                                           }
                                           else{
-                                            echo '<center style="color:#DA251C; font-weight: bold">Berhasil Upload File!</center>';
-                                         }
+                                            echo '<center style="color:#519c05; font-weight: bold" class="alert alert-success" role="alert">Berhasil Diupdate!</center>';
+                                           }
                                         }
+                                        
                                 ?>
 
                                         <div class="toolbar">
-                                            <div>
-                                        <?php
+                                            <form action="../model/update_dataMaster_cc.php" method="POST" class="md-form" style="height: 300px">
+                                            <?php
                                                     require_once '../../../config/dbconfig.php';
-                                                    $query = "SELECT distinct cost_center, kode_cc from data_cc ORDER BY cost_center ASC";
+                                                    $query = "SELECT distinct kode_cc, cc from cost_center ORDER BY cc ASC";
                                                     $result = mysqli_query(connDB(), $query);
                                             ?>
-
-                                                <select name="s_cc" id="s_cc" class="form-control-filter2 chosen" style="margin-left: 0px; margin-right=1000px;">
-                                                    <option value="">Pilih Kode CC -- Cost Center</option>
+                                                <div style="margin-left: -768px">
+                                                <select name="s_cc" id="s_cc" class="form-control-filter2 chosen" style="float: left; width: 330px !important; margin-left: 0px;" required>
+                                                    <option value="">Pilih Cost Center -- Kode CC</option>
                                                     <?php while ($data = mysqli_fetch_assoc($result)) {?>
-                                                        <option style="float: left;" value="<?php echo $data['kode_cc'];?>">
-                                                            <?php echo $data['kode_cc']."&nbsp;"."---"."&nbsp;".$data['cost_center']."<br>";?>
-                                                            <?php if ($data['kode_cc'] == 1 ){ echo "selected"; } ?>
+                                                        <option style="font-size: 12px !important; text-align: left;" value="<?php echo $data['kode_cc'];?>">
+                                                            <?php echo $data['cc']."&nbsp;"."---"."&nbsp;".$data['kode_cc']."<br>";?>
+                                                            <?php if ($data['cc'] == 1 ){ echo "selected"; } ?>
                                                         </option>
                                                     <?php } ?>
                                                 </select>
-
-                                                <input type="text" class="form-input-data" name="kode_baru">
-                                                <a title='Ubah Kode kode_cc' href='#myModal1' id='custId' data-toggle='modal' data-id=".$data['kode_cc
-                                                ']."><button type="submit" class="btn btn-danger btn-filter-search btn-ubah-kode" style="border-radius: 5px;">Ubah Kode CC</button></a>
-                                                    <!-- <button type="submit" name="ubah_kode" class="btn btn-danger btn-ubah-kode">Ubah Kode</button> -->
-                                                    <br>
-                                                    <br>
-</div>
-
-
+                                                </div><br>
+                                                <input type="text" class="form-control" name="kode_baru" style="width: 150px" placeholder="Ubah Kode" required>
+                                             
+                                                <button name="ubah_kode" type="submit" class="btn btn-danger btn-filter-search btn-ubah-kode" style="border-radius: 5px; margin-top: 15px">Ubah Kode CC</button>
+                                            </form>
+                                            </div>
                                         </div> 
-                                        
-                                                                                                                   
+
                                         <div class="datatable-dashv1-list custom-datatable-overright">
                                         <table>
                                             <thead>
