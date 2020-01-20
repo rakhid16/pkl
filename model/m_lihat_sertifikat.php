@@ -28,14 +28,14 @@
                     <input type="hidden" class="form-control" name="no_sertifikat" value="<?php echo $data['no_sertifikat']; ?>">
                 </div>
                 <div class="form-group">
-                    <center><iframe src="../views/v_home/v_upload_berkas/data_berkas/<?php echo $data['file_name'].'.pdf'; ?>" height="500px" width="450px"></iframe></center>
+                    <center><iframe src="../views/v_home/v_upload_berkas/data_berkas/<?php echo $data['file_name'].'.pdf'; ?>" height="500px" width="1000px"></iframe></center>
                 </div>
                 
                 <div class="modal-footer">
 
                   <button type="button" class="btn btn-danger" data-dismiss="modal">Tutup</button>
                 </div>
-            <!-- </form> -->
+
         <?php }}
     } $koneksi->close();
 ?>

@@ -80,7 +80,6 @@
                             <div class="sparkline8-list shadow-reset">
                                 <div class="sparkline8-hd" style="margin-top: 15px;">
 
-
                                 <?php
                                     $s_cc="";
                                     $kode_baru="";

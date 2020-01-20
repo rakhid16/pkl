@@ -137,18 +137,21 @@
                                                     <?php } ?>
                                             </select></div><br><br><br>
 
-                                            <label style="float: left; margin-top: 5px">Start Date&emsp;&emsp;&emsp;&emsp;&nbsp; : &emsp;</label>
-                                            <input id="tanggal_file" type="date" class="form-control" name="tanggal_file" placeholder="Start Date" style="float: left; width: 250px;" value="2000-01-01" required><br><br><br>
+                                            <label style="float: left; margin-top: 5px">Pelatihan&emsp;</label><input type="radio" name="radios" value="456" style="float: left; margin-top: 10px">
 
-                                            <label style="float: left; margin-top: 5px">Expired Date&emsp;&emsp;&emsp; : &emsp;</label>
-                                            <input id="exp_date" type="date" class="form-control" name="exp_date" placeholder="Expired Date" style="float: left; width: 250px;" value="dd-mm-yy" ng-model="data.test" ng-disabled="data.check" ><br><br>                   
+                                            <label style="float: left; margin-top: 5px">&emsp;&emsp;&emsp;&emsp;Sertifikasi&emsp;</label><input type="radio" name="radios" value="123" style="float: left; margin-top: 10px"><br><br><br>
+                                            
+                                            <div id="info_123" style="display:none;">
+                                                <label style="float: left; margin-top: 5px">Start Date&emsp;&emsp;&emsp;&emsp;&nbsp; : &emsp;</label>
+                                                <input id="tanggal_file" type="date" class="form-control" name="tanggal_file" placeholder="Start Date" style="float: left; width: 250px;" value="2000-01-01" required><br><br><br>
+                                            </div>
 
-                                            <p style="font-size: 12px; float: left; margin-left: 15%">Clear Exp Date ?&emsp;</p><input type="checkbox" 
-                                                ng-change="data.test = data.check ? '' : data.test"
-                                                ng-model="data.check" 
-                                                value="one" style="float: left;"><br><br>
+                                            <div id="info_abc" style="display:none;">
+                                                <label style="float: left; margin-top: 5px">Expired Date&emsp;&emsp;&emsp; : &emsp;</label>
+                                                <input id="exp_date" type="date" class="form-control" name="exp_date" placeholder="Expired Date" style="float: left; width: 250px;" value=""><br><br><br>  
+                                            </div>
 
-                                            <input type="file" name="pilih_file" value="Pilih File" style="background-color: #f0ede9; border-radius: 5px; height: 30px; padding: 4px; width: 250px; margin-top: 10px;" required>
+                                            <input type="file" name="pilih_file" value="Pilih File" style="background-color: #f0ede9; border-radius: 5px; height: 30px; padding: 4px; width: 250px; margin-top: 5px;" required>
                                             
                                             <input type="hidden" name="edit_file" value="<?php echo $s_kode.'_'.$s_nopeg.'_'.$tanggal_file; ?>">
                                             <p align="left"><input id="btn" type="submit" name="upload_file" class="btn btn-primary" value="Upload" style="margin-top: 20px; float: left; margin-left: 5px"></p>  
@@ -175,5 +178,17 @@
 
 
 </body>
+<script type="text/javascript">
+    $(":input[type='radio']").on("change", function () {
+    if ($(this).prop("checked") && $(this).val() == 123) $("#info_123").show();
+        else $("#info_abc").hide();
+});
+</script>
 
+<script type="text/javascript">
+    $(":input[type='radio']").on("change", function () {
+    if ($(this).prop("checked") && $(this).val() != 123) $("#info_123").show();
+       else $("#info_abc").show();
+});
+</script>
 </html>

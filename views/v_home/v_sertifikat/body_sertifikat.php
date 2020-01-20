@@ -167,7 +167,7 @@
     </div>
 
     <div class="modal fade" id="myModal1" role="dialog">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog modal-xl" style="width: 1100px" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>

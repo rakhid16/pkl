@@ -13,30 +13,6 @@
                             </div>
                         </li>
                         
-                        <li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa big-icon fa-edit"></i> <span class="mini-dn">MENU 7</span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
-                            <div role="menu" class="dropdown-menu left-menu-dropdown form-left-menu-std animated flipInX">
-                                <a href="#" class="dropdown-item">Sub Menu 7.1</a>
-                                <a href="#" class="dropdown-item">Sub Menu 7.2</a>
-                                <a href="#" class="dropdown-item">Sub Menu 7.3</a>
-                                <a href="#" class="dropdown-item">Sub Menu 7.4</a> 
-                            </div>
-                        </li>
-                        <li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa big-icon fa-desktop"></i> <span class="mini-dn">MENU 8</span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
-                            <div role="menu" class="dropdown-menu left-menu-dropdown apps-left-menu-std animated flipInX">
-                                <a href="#" class="dropdown-item">Sub Menu 8.1</a>
-                                <a href="#" class="dropdown-item">Sub Menu 8.2</a>
-                                <a href="#" class="dropdown-item">Sub Menu 8.3</a>
-                                <a href="#" class="dropdown-item">Sub Menu 8.4</a> 
-                            </div>
-                        </li>
-                        <li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa big-icon fa-table"></i> <span class="mini-dn">MENU 9</span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
-                            <div role="menu" class="dropdown-menu left-menu-dropdown pages-left-menu-std animated flipInX">
-                                <a href="#" class="dropdown-item">Sub Menu 9.1</a>
-                                <a href="#" class="dropdown-item">Sub Menu 9.2</a>
-                                <a href="#" class="dropdown-item">Sub Menu 9.3</a>
-                                <a href="#" class="dropdown-item">Sub Menu 9.4</a> 
-                            </div>
-                        </li>
                     </ul>
                 </div>
             </nav>
