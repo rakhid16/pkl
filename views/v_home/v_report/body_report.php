@@ -100,9 +100,9 @@
                                                 WHERE DATEDIFF(expired_date, CURRENT_DATE) > 90";
                                                 $result = mysqli_query(connDB(),$query);
                                                 
-                                                $satu = mysqli_query(connDB(),"SELECT COUNT(no_sertifikat) FROM pelatihan_sertifikasi WHERE expired_date is not null and DATEDIFF(expired_date, CURRENT_DATE) <= 90 and DATEDIFF(expired_date, CURRENT_DATE) >60");
-                                                $dua = mysqli_query(connDB(),"SELECT COUNT(no_sertifikat) FROM pelatihan_sertifikasi WHERE expired_date is not null and DATEDIFF(expired_date, CURRENT_DATE) <= 60 and DATEDIFF(expired_date, CURRENT_DATE) >30");
-                                                $tiga = mysqli_query(connDB(),"SELECT COUNT(no_sertifikat) FROM pelatihan_sertifikasi WHERE expired_date is not null and DATEDIFF(expired_date, CURRENT_DATE) <= 30");
+                                                $satu = mysqli_query(connDB(),"SELECT COUNT(no_sertifikat) FROM pelatihan_sertifikasi WHERE expired_date is not null and DATEDIFF(expired_date, CURRENT_DATE) <= 90 and DATEDIFF(expired_date, CURRENT_DATE) >60 and kode LIKE ?");
+                                                $dua = mysqli_query(connDB(),"SELECT COUNT(no_sertifikat) FROM pelatihan_sertifikasi WHERE expired_date is not null and DATEDIFF(expired_date, CURRENT_DATE) <= 60 and DATEDIFF(expired_date, CURRENT_DATE) >30 and kode LIKE ?");
+                                                $tiga = mysqli_query(connDB(),"SELECT COUNT(no_sertifikat) FROM pelatihan_sertifikasi WHERE expired_date is not null and DATEDIFF(expired_date, CURRENT_DATE) <= 30 and kode LIKE ?");
                                                 
                                                 if ($result->num_rows > 0) {
                                                     while ($data = $result->fetch_assoc()) {
