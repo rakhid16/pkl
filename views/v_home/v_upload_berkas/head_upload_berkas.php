@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">    
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.5/chosen.jquery.min.js"></script>
-    <link rel="stylesheet" href="    https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.5/chosen.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.5/chosen.min.css">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge" charset="utf-8">
@@ -32,11 +32,6 @@
     <link rel="stylesheet" href="../static/css/homeCSS/style.css">
     <link rel="stylesheet" href="../static/css/homeCSS/responsive.css">
     <script src="../static/js/homeJS/vendor/modernizr-2.8.3.min.js"></script>
-
-    <!-- bagian check box -->
-    
-    <script data-require="angular.js@1.3.x" src="https://code.angularjs.org/1.3.15/angular.js" data-semver="1.3.15"></script>
-    <script src="../static/assetUploadBerkas/js/app.js"></script>
 
 
 </head>

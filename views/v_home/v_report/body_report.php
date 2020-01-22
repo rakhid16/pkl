@@ -66,7 +66,7 @@
                             <div class="sparkline8-list shadow-reset">
                                 
                                 <div class="sparkline8-hd" style="margin-top: 15px;">
-                                    <p align=center style="font-size:20px; font-color: black">Data Sertifikat MOR V</p>
+                                    <p align=center style="font-size:20px; font-color: black">Data Report Sertifikat</p>
                                 </div>
 
                                 
@@ -79,76 +79,47 @@
 
 
                                 <div class="datatable-dashv1-list custom-datatable-overright">
-                                    <table id="domainsTable" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="false" data-show-pagination-switch="false" data-show-refresh="false" data-key-events="true" data-show-toggle="false" data-resizable="true" data-cookie="true" data-cookie-id-table="saveId" data-show-export="false" data-click-to-select="true" data-toolbar="#toolbar" data-filter-control="true" >
-                                        <thead>
-                                            <tr>
-                                                    <!-- <th data-field="state" data-checkbox="true"></th> -->
-                                                    <th data-field="id"><center>No Sertifikat</center></th>
-                                                    <th data-field="nopeg" data-editable="false"><center>NoPeg</center></th>
-                                                    <th data-field="start_date" data-editable="false"><center>Start Date</center></th>
-                                                    <th data-field="expired_date" data-editable="false"><center>Expired Date</center></th>
-                                                    <th data-field="kode" data-editable="false"><center>Kode</center></th>
-                                                    <th data-field="file" data-editable="false"><center>File</center></th>
-                                                    <th data-field="action" data-editable="false"><center>Opsi</center></th>
-                                            </tr>
-                                        </thead>
-                                    
-                                        <tbody>
-                                            <?php
+                                
 
-                                                $query = "SELECT * from pelatihan_sertifikasi
-                                                WHERE DATEDIFF(expired_date, CURRENT_DATE) > 90";
-                                                $result = mysqli_query(connDB(),$query);
-                                                
-                                                $satu = mysqli_query(connDB(),"SELECT COUNT(no_sertifikat) FROM pelatihan_sertifikasi WHERE expired_date is not null and DATEDIFF(expired_date, CURRENT_DATE) <= 90 and DATEDIFF(expired_date, CURRENT_DATE) >60 and kode LIKE ?");
-                                                $dua = mysqli_query(connDB(),"SELECT COUNT(no_sertifikat) FROM pelatihan_sertifikasi WHERE expired_date is not null and DATEDIFF(expired_date, CURRENT_DATE) <= 60 and DATEDIFF(expired_date, CURRENT_DATE) >30 and kode LIKE ?");
-                                                $tiga = mysqli_query(connDB(),"SELECT COUNT(no_sertifikat) FROM pelatihan_sertifikasi WHERE expired_date is not null and DATEDIFF(expired_date, CURRENT_DATE) <= 30 and kode LIKE ?");
-                                                
-                                                if ($result->num_rows > 0) {
-                                                    while ($data = $result->fetch_assoc()) {
-                                                    
-                                                    $no_sertif = $data['no_sertifikat'];
-                                                    $nopeg = $data['nopeg'];
-                                                    $start_date = $data['start_date'];
-                                                    $expired_date = $data['expired_date'];
-                                                    $kode = $data['kode'];
-                                                    $file_name = $data['file_name'];                                                    
-                                            ?>
-<?php
-                                            echo ($satu);
-                                            echo ($dua);
-                                            echo ($tiga); ?>
-                                            <tr>
-                                            
-                                                <td><?php echo "<center><p style='margin-left:-9.6px'>$no_sertif</p></center>";?></td>
-                                                <td><?php echo "<center><p style='margin-left:-9.6px'>$nopeg</p></center>"; ?></td>
-                                                <td><?php echo "<center><p style='margin-left:-9.6px'>$start_date</p></center>";?></td>
-                                                <td><?php
-                                                if ($expired_date == '0000-00-00' OR $expired_date == '') {
-                                                    echo "<center><p style='margin-left:-9.6px'>-</p></center>";;
-                                                }else{
-                                                    echo "<center><p style='margin-left:-9.6px'>$expired_date</p></center>";     
-                                                }
+                                    <form method="POST" action="">
+                                    <div class="sparkline8-graph">
+                                        <div class="datatable-dashv1-list custom-datatable-overright">
+                                            <div class="toolbar">
+                                                <?php
+                                                    require_once '../../../config/dbconfig.php';
+                                                    $query = "SELECT distinct kode, judul from master_pelatihan_sertifikasi ORDER BY judul ASC";
+                                                    $result = mysqli_query(connDB(), $query);
                                                 ?>
-                                                </td>
-                                                <td><?php echo "<center><p style='margin-left:-9.6px'>$kode</p></center>"; ?></td>
-                                                <td><?php echo "<center><p style='margin-left:-9.6px'>$file_name</p></center>"; ?></td>
-                                                <?php echo "<td><center>
+                                                
+                                              
+                                                <select name="s_kode" id="s_kode" class="form-control-filter1 chosen" style="margin-left: 5px; width: 450px !important">
+                                                    <option value="" style="width: 500px !important">-- Pilih Kateogri/Judul --</option>
+                                                    <?php while ($data = mysqli_fetch_assoc($result)) {?>
+                                                        <option value="<?php echo $data['kode'];?>">
+                                                            <?php echo $data['judul'].' --- '.$data['kode'];?>
+                                                            <?php if ($data['kode'] == 1 ){ echo "selected"; } ?>
+                                                        </option>
+                                                    <?php } ?>
+                                                </select>
+                                                                        
+                                                <button id="search" name="search" class="btn btn-danger btn-filter-search" style="border-radius: 5px;">Filter</button>
+                                                                        
+                                            </div>                            
+                                    </form>
 
-                                                <a style='margin-left: -9.6px' title='Edit Data Sertifikat' href='#myModal' id='custId' data-toggle='modal' data-id='".$data['no_sertifikat']."'><button class='btn btn-xs btn-primary' style='border-radius:3px; background-color:#ffb92b !important'><i class='fas fa-edit' style='color:black'></i></button></a>
+            <div style="width: 800px; margin: 0px auto;">
+                <canvas id="myChart"></canvas>
+            </div>
 
-                                                <a style='margin-left: 5.6px' title='Lihat File Sertifikat' href='#myModal1' id='custId' data-toggle='modal' data-id='".$data['no_sertifikat']."'><button class='btn btn-xs btn-primary' style='border-radius:3px; background-color:#70a5fa !important'><i class='fas fa-address-card' style='color:black'></i></button></a></center>"; ?>
-                                             
-                                                </td>                           
-                                            </tr>
-                                                    
-                                            <?php } } else { ?> 
-                                                <tr>
-                                                    <td colspan='9'>Tidak Terdapat Data Yang Ditemukan</td>
-                                                </tr>
-                                            <?php } ?>
-                                        </tbody>
-                                    </table>
+            <?php    
+            $kode="";
+            // elseif (!isset($_POST['s_kode'])) {             
+            //         $query4 = "SELECT * FROM pelatihan_sertifikasi";    
+            //         $res4 = mysqli_query(connDB(),"$query4");
+   
+            // }
+                
+            ?>
 
                                 </div>
 
@@ -162,30 +133,79 @@
 
     </div> <!-- WRAPPER PRO END -->
 
-    <div class="modal fade" id="myModal" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Edit Data Sertifikat</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="fetched-data"></div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <script>
+        var ctx = document.getElementById("myChart").getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'horizontalBar',
+            data: {
+                labels: ["30", "60", "90"],
+                datasets: [{
+                    label: '',
+                    data: [
+                    <?php
+                    if (isset($_POST['s_kode'])) { // Query Spesifik Judul/Kategori
+                        $kode=trim($_POST['s_kode']);
+                        $query1 = "SELECT * FROM pelatihan_sertifikasi WHERE expired_date is not null and datediff(expired_date, CURRENT_DATE) <= 1095 and datediff(expired_date, CURRENT_DATE) > 730 AND kode='$kode'";
+                        $res1 = mysqli_query(connDB(),"$query1");
+                        echo mysqli_num_rows($res1);
+                    }
+                    elseif (!isset($_POST['s_kode'])) { // Query ALL 30
+                        $query4 = "SELECT * FROM pelatihan_sertifikasi";
+                        $res4 = mysqli_query(connDB(),"$query4");
+                        echo mysqli_num_rows($res4);
+                    }
+                    ?>,
 
-    <div class="modal fade" id="myModal1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Lihat Sertifikat</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="fetched-data"></div>
-                </div>
-            </div>
-        </div>
-    </div>
+                    <?php
+                    if (isset($_POST['s_kode'])) {
+                        $query2 = "SELECT * FROM pelatihan_sertifikasi Where kode='$kode'";
+                        $res2 = mysqli_query(connDB(),"$query2");
+                        echo mysqli_num_rows($res2);
+                    }
+                    ?>,
+                    <?php
+                    if (isset($_POST['s_kode'])) {
+                        $query3 = "SELECT * FROM pelatihan_sertifikasi Where kode='$kode'";
+                        $res3 = mysqli_query(connDB(),"$query3");
+                        echo mysqli_num_rows($res3);
+                    }
+                    ?>
+            
+                    ],
+                    backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)'
+                    ],
+                    borderColor: [
+                    'rgba(255,99,132,1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero:true
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
+    <script type="text/javascript">
+    $(function() {
+    if (localStorage.getItem('s_kode')) {
+        $("#s_kode option").eq(localStorage.getItem('s_kode')).prop('selected', true);
+    }
+
+    $("#s_kode").on('change', function() {
+        localStorage.setItem('s_kode', $('option:selected', this).index());
+        });
+    });
+    </script>

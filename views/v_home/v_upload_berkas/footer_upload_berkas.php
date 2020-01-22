@@ -4,22 +4,6 @@
 }, 4*1000);
 
 </script>
-    <script type="text/javascript">
-        $(document).ready(function(){
-            $('#myModal1').on('show.bs.modal', function (e) {
-                var nopeg = $(e.relatedTarget).data('id');
-                //menggunakan fungsi ajax untuk pengambilan data
-                $.ajax({
-                    type : 'post',
-                    url : 'detail_master.php',
-                    data :  'nopeg='+ nopeg,
-                    success : function(data){
-                    $('.fetched-data').html(data);//menampilkan data ke dalam modal
-                    }
-                });
-             });
-        });
-    </script>
 
 </script>
     <script type="text/javascript">

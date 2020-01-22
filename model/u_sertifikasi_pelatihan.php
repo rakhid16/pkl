@@ -25,7 +25,7 @@
       }
 
       //redirect ke halaman lain
-      header('Location: ../home/sertifikat?notif='.$notif.$sql);
+      header('Location: ../home/sertifikat?notif='.$notif);
   }
   
 
