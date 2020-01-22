@@ -8,9 +8,9 @@
 
                         <li class="nav-item"> <a href="upload_berkas" role="button" aria-expanded="false" class="nav-link dropdown-toggle">&nbsp;<i class="fas big-icon fa-file-upload fa-lg"></i>&nbsp;&nbsp;&nbsp;&nbsp;<span class="mini-dn">Unggah Berkas</span></a></li>
 
-                        <li class="nav-item"> <a href="sertifikat" role="button" aria-expanded="false" class="nav-link dropdown-toggle">&nbsp;<i class="fas fa-file-alt fa-lg"></i>&nbsp;&nbsp;&nbsp;&nbsp;<span class="mini-dn">Sertifikat</span></a></li>
+                        <li class="nav-item"> <a href="sertifikat" role="button" aria-expanded="false" class="nav-link dropdown-toggle">&nbsp; <i class="fas fa-file-alt fa-lg"></i>&nbsp;&nbsp;&nbsp;&nbsp;<span class="mini-dn">Sertifikat</span></a></li>
                         
-                        <li class="nav-item"> <a href="sertifikat" role="button" aria-expanded="false" class="nav-link dropdown-toggle">&nbsp;<i class="far fa-calendar-check fa-lg" style="font-size: 17px"></i>&nbsp;&nbsp;&nbsp;&nbsp;<span class="mini-dn">Report</span></a></li>
+                        <li class="nav-item"> <a href="report" role="button" aria-expanded="false" class="nav-link dropdown-toggle">&nbsp;<i class="far fa-calendar-check fa-lg" style="font-size: 17px"></i>&nbsp;&nbsp;&nbsp;&nbsp;<span class="mini-dn">Report</span></a></li>
 
                         <li class="nav-item"> <a href="master_pelatihan" role="button" aria-expanded="false" class="nav-link dropdown-toggle">&nbsp;<i class="fas fa-chalkboard" style="font-size: 14px"></i>&nbsp;&nbsp;&nbsp;<span class="mini-dn">Master Pelatihan</span></a></li>
                         
