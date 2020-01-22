@@ -11,9 +11,9 @@
 
                         <li class="nav-item"> <a href="home/sertifikat" role="button" aria-expanded="false" class="nav-link dropdown-toggle">&nbsp;<i class="fas fa-file-alt fa-lg"></i>&nbsp;&nbsp;&nbsp;&nbsp;<span class="mini-dn">Sertifikat</span></a></li>
                         
-                        <li class="nav-item"> <a href="home/sertifikat" role="button" aria-expanded="false" class="nav-link dropdown-toggle">&nbsp;<i class="far fa-calendar-check fa-lg" style="font-size: 17px"></i>&nbsp;&nbsp;&nbsp;&nbsp;<span class="mini-dn">Report</span></a></li>
+                        <li class="nav-item"> <a href="home/report" role="button" aria-expanded="false" class="nav-link dropdown-toggle">&nbsp;<i class="far fa-calendar-check fa-lg" style="font-size: 17px"></i>&nbsp;&nbsp;&nbsp;&nbsp;<span class="mini-dn">Report</span></a></li>
 
-                        <li class="nav-item"> <a href="home/sertifikat" role="button" aria-expanded="false" class="nav-link dropdown-toggle">&nbsp;<i class="fas fa-chalkboard" style="font-size: 14px"></i>&nbsp;&nbsp;&nbsp;<span class="mini-dn">Master Pelatihan</span></a></li>
+                        <li class="nav-item"> <a href="home/master_pelatihan" role="button" aria-expanded="false" class="nav-link dropdown-toggle">&nbsp;<i class="fas fa-chalkboard" style="font-size: 14px"></i>&nbsp;&nbsp;&nbsp;<span class="mini-dn">Master Pelatihan</span></a></li>
                         
                         <li class="nav-item"> <a href="" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fas big-icon fa-chalkboard-teacher"></i>&nbsp;&nbsp;&nbsp;&nbsp;<span class="mini-dn">Master Pekerja</span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
                             <div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
