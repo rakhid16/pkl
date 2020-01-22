@@ -94,7 +94,7 @@
                                             echo '<center style="color:#DA251C; font-weight: bold" class="alert alert-danger">Ukuran Terlalu Besar!</center>';
                                           }
                                           else{
-                                            echo '<img id="imageID" src="../static/assetUploadBerkas/img/img_upload_berkas.gif">';
+                                            echo '<img id="imageID" src="../static/assetUploadBerkas/img/load_bar_berkas.gif">';
                                          }
                                         }
                                 ?>

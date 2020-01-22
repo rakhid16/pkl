@@ -121,7 +121,6 @@
                                     <table id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="false" data-show-pagination-switch="false" data-show-refresh="false" data-key-events="true" data-show-toggle="false" data-resizable="true" data-cookie="true" data-cookie-id-table="saveId" data-show-export="false" data-click-to-select="true" data-toolbar="#toolbar" class="tabel-karyawan">
                                         <thead>
                                             <tr>
-                                                    <!-- <th data-field="state" data-checkbox="true"></th> -->
                                                     <th data-field="id"><center>NoPeg</center></th>
                                                     <th data-field="name" data-editable="false"><center>Nama</center></th>
                                                     <th data-field="email" data-editable="false"><center>Email</center></th>

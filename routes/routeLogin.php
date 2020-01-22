@@ -9,9 +9,6 @@
 	$data1 = "admin";
 	$data2 = "admin";
 
-	// $query_data = mysqli_query(connDB(), "SELECT * FROM coba WHERE nama='$nama' and sandi='$sandi'");
-	// $cek = mysqli_num_rows($query_data);
-
 	// SQL INJECT STEP 2
 	if (!preg_match("/^[a-zA-Z ]*$/",$nama)) {
 		header("location:../login?status=error");

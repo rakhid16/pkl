@@ -1,7 +1,7 @@
 <script type="text/javascript">
     setTimeout(function() {
   document.getElementById('imageID').style.display='none'
-}, 2.6*1000);
+}, 4*1000);
 
 </script>
     <script type="text/javascript">

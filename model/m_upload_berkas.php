@@ -16,7 +16,7 @@ include '../config/dbconfig.php';
 	$ukuran	= $_FILES['pilih_file']['size'];
 	$file_tmp = $_FILES['pilih_file']['tmp_name'];	
 		if(in_array($ekstensi, $ekstensi_diperbolehkan) === true){
-		    if($ukuran < 14857600 ){ //			
+		    if($ukuran < 8000000 ){ //	100.000.000 [100mb]		
 		    		
 			$query = "INSERT INTO pelatihan_sertifikasi (no_sertifikat, nopeg, start_date, expired_date, kode, file_name) VALUES ('$no_sertif','$s_nopeg','$tanggal_file','$exp_date','$s_kode','$edit_file')";			
 			$result = mysqli_query(connDB(),$query);
