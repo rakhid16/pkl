@@ -72,15 +72,10 @@
                                 
                                     <div class="sparkline8-graph">
                                         <div class="datatable-dashv1-list custom-datatable-overright" >
-                                            <div class="toolbar">
-                                                
-                                                                        
-                                            </div>                            
-
+                                            <div class="toolbar"></div>                            
 
                                 <div class="datatable-dashv1-list custom-datatable-overright">
                                 
-
                                     <form method="POST" action="">
                                     <div class="sparkline8-graph">
                                         <div class="datatable-dashv1-list custom-datatable-overright">
@@ -90,8 +85,7 @@
                                                     $query = "SELECT distinct kode, judul from master_pelatihan_sertifikasi ORDER BY judul ASC";
                                                     $result = mysqli_query(connDB(), $query);
                                                 ?>
-                                                
-                                              
+                                        
                                                 <select name="s_kode" id="s_kode" class="form-control-filter1 chosen" style="margin-left: 5px; width: 450px !important">
                                                     <option value="" style="width: 500px !important">-- Pilih Kateogri/Judul --</option>
                                                     <?php while ($data = mysqli_fetch_assoc($result)) {?>
@@ -107,20 +101,13 @@
                                             </div>                            
                                     </form>
 
-            <div style="width: 800px; margin: 0px auto;">
+            <br><div style="width: 900px; margin: 0px auto;"><br><br>
                 <canvas id="myChart"></canvas>
             </div>
 
             <?php    
-            $kode="";
-            // elseif (!isset($_POST['s_kode'])) {             
-            //         $query4 = "SELECT * FROM pelatihan_sertifikasi";    
-            //         $res4 = mysqli_query(connDB(),"$query4");
-   
-            // }
-                
+                $kode="";
             ?>
-
                                 </div>
 
                             </div>
@@ -135,22 +122,24 @@
 
     <script>
         var ctx = document.getElementById("myChart").getContext('2d');
+        ctx.canvas.width = 800;
+        ctx.canvas.height = 320;
         var myChart = new Chart(ctx, {
             type: 'horizontalBar',
             data: {
-                labels: ["30", "60", "90"],
+                labels: ["Expired 3 bulan lagi", "Expired 2 bulan lagi", "Expired 1 bulan lagi"],
                 datasets: [{
-                    label: '',
+                    label : 'Jumlah',
                     data: [
                     <?php
                     if (isset($_POST['s_kode'])) { // Query Spesifik Judul/Kategori
                         $kode=trim($_POST['s_kode']);
-                        $query1 = "SELECT * FROM pelatihan_sertifikasi WHERE expired_date is not null and datediff(expired_date, CURRENT_DATE) <= 1095 and datediff(expired_date, CURRENT_DATE) > 730 AND kode='$kode'";
+                        $query1 = "SELECT * FROM pelatihan_sertifikasi WHERE expired_date is not null and DATEDIFF(expired_date, CURRENT_DATE) <= 90 and DATEDIFF(expired_date, CURRENT_DATE) >60 AND kode='$kode'";
                         $res1 = mysqli_query(connDB(),"$query1");
                         echo mysqli_num_rows($res1);
                     }
-                    elseif (!isset($_POST['s_kode'])) { // Query ALL 30
-                        $query4 = "SELECT * FROM pelatihan_sertifikasi";
+                    elseif (!isset($_POST['s_kode'])) { // Query ALL
+                        $query4 = "SELECT * FROM pelatihan_sertifikasi WHERE expired_date is not null and DATEDIFF(expired_date, CURRENT_DATE) <= 90 and DATEDIFF(expired_date, CURRENT_DATE) >60";
                         $res4 = mysqli_query(connDB(),"$query4");
                         echo mysqli_num_rows($res4);
                     }
@@ -158,16 +147,26 @@
 
                     <?php
                     if (isset($_POST['s_kode'])) {
-                        $query2 = "SELECT * FROM pelatihan_sertifikasi Where kode='$kode'";
+                        $query2 = "SELECT * FROM pelatihan_sertifikasi WHERE expired_date is not null and DATEDIFF(expired_date, CURRENT_DATE) <= 60 and DATEDIFF(expired_date, CURRENT_DATE) >30 AND kode='$kode'";
                         $res2 = mysqli_query(connDB(),"$query2");
                         echo mysqli_num_rows($res2);
+                    }
+                    elseif (!isset($_POST['s_kode'])) {
+                        $query5 = "SELECT * FROM pelatihan_sertifikasi WHERE expired_date is not null and DATEDIFF(expired_date, CURRENT_DATE) <= 60 and DATEDIFF(expired_date, CURRENT_DATE) >30";
+                        $res5 = mysqli_query(connDB(),"$query5");
+                        echo mysqli_num_rows($res5);
                     }
                     ?>,
                     <?php
                     if (isset($_POST['s_kode'])) {
-                        $query3 = "SELECT * FROM pelatihan_sertifikasi Where kode='$kode'";
+                        $query3 = "SELECT * FROM pelatihan_sertifikasi WHERE expired_date is not null and DATEDIFF(expired_date, CURRENT_DATE) <= 30 AND kode='$kode'";
                         $res3 = mysqli_query(connDB(),"$query3");
                         echo mysqli_num_rows($res3);
+                    }
+                    elseif (!isset($_POST['s_kode'])) {
+                        $query6 = "SELECT * FROM pelatihan_sertifikasi WHERE expired_date is not null and DATEDIFF(expired_date, CURRENT_DATE) <= 30";
+                        $res6 = mysqli_query(connDB(),"$query6");
+                        echo mysqli_num_rows($res6);
                     }
                     ?>
             
@@ -188,6 +187,9 @@
                 }]
             },
             options: {
+                legend: {
+                    display: false
+                },
                 scales: {
                     yAxes: [{
                         ticks: {
