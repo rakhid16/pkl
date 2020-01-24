@@ -1,4 +1,3 @@
-</script>
     <script type="text/javascript">
     $(function() {
     if (localStorage.getItem('s_fungsi')) {
