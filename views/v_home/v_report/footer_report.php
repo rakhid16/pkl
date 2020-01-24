@@ -1,4 +1,17 @@
+    <script type="text/javascript">
+    $(function() {
+    if (localStorage.getItem('s_kode')) {
+        $("#s_kode option").eq(localStorage.getItem('s_kode')).prop('selected', true);
+    }
 
+    $("#s_kode").on('change', function() {
+        localStorage.setItem('s_kode', $('option:selected', this).index());
+        });
+    });
+    </script>
+
+    <script type="text/javascript">$(".chosen").chosen()</script>
+    
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     
 

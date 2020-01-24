@@ -85,29 +85,78 @@
                                                     $query = "SELECT distinct kode, judul from master_pelatihan_sertifikasi ORDER BY judul ASC";
                                                     $result = mysqli_query(connDB(), $query);
                                                 ?>
-                                        
-                                                <select name="s_kode" id="s_kode" class="form-control-filter1 chosen" style="margin-left: 5px; width: 450px !important">
-                                                    <option value="" style="width: 500px !important">-- Pilih Kateogri/Judul --</option>
+                                                
+                                                <div style="margin-left: -550px">
+                                                    <!-- <button>aaa</button> -->
+                                                <select name="s_kode" id="s_kode" class="form-control-filter1 chosen" style="float: left; width: 330px !important; margin-left: 300px; width: 400px !important; margin-top: -50px" required>
+                                                    <option value="" style="text-align: left;">-- Pilih Kode Sertifikat --</option>
+                                                    <option value="all" style="text-align: left;">Semua Data Sertifikat</option>
                                                     <?php while ($data = mysqli_fetch_assoc($result)) {?>
-                                                        <option value="<?php echo $data['kode'];?>">
+                                                        <option style="text-align: left; font-size: 11px" value="<?php echo $data['kode'];?>">
                                                             <?php echo $data['judul'].' --- '.$data['kode'];?>
                                                             <?php if ($data['kode'] == 1 ){ echo "selected"; } ?>
                                                         </option>
                                                     <?php } ?>
                                                 </select>
-                                                                        
-                                                <button id="search" name="search" class="btn btn-danger btn-filter-search" style="border-radius: 5px;">Filter</button>
+                                                
+                                            &emsp;<button id="search" name="search" class="btn btn-danger" style="border-radius: 5px; padding: 5px; font-size: 12px">Filter</button>
+                                                </div>
                                                                         
                                             </div>                            
-                                    </form>
+                                    </form><br><br>
+                        
+                                    
+                                    <?php
+                                        $s_kode="";
 
-            <br><div style="width: 900px; margin: 0px auto;"><br><br>
+                                        if (isset($_POST['s_kode'])) {
+                                            
+                                            $s_kode = $_POST['s_kode'];
+                                            
+                                            if ($s_kode == 'all') {
+                                                 echo "Semua Data Sertifikat";
+                                            }
+                                            else {
+                                            
+                                            $s_kode = '%'. $s_kode .'%';
+
+                                            $query = "SELECT * FROM master_pelatihan_sertifikasi where kode LIKE ?";
+                                            $dewan1 = $conn->prepare($query);
+                                            $dewan1->bind_param('s', $s_kode);
+                                                $dewan1->execute();
+                                                $res1 = $dewan1->get_result();
+                                                if ($res1->num_rows > 0) {
+                                                    while ($data = $res1->fetch_assoc()) {
+                                                    
+                                                    $kode = $data['kode'];
+                                                    $judul = $data['judul'];
+                                            ?>
+                                            <tr>
+                                                &emsp;&emsp;&emsp;<?php echo $kode ?>
+                                                <?php echo '- '.$judul ?>
+                                            </tr>
+                                                    
+                                            <?php } } else { ?> 
+                                                <tr>
+
+                                                </tr>
+                                        <?php }
+                                            }
+                                        }
+                                        elseif (!isset($_POST['s_kode'])) {
+                                            echo "Semua Data Sertifikat";
+                                        }
+                                   
+                                ?>
+
+            <div style="width: 780px; margin: 0px auto; margin-left: 100px; margin-top: 10px"><br><br>
                 <canvas id="myChart"></canvas>
             </div>
 
             <?php    
                 $kode="";
             ?>
+
                                 </div>
 
                             </div>
@@ -133,41 +182,75 @@
                     data: [
                     <?php
                     if (isset($_POST['s_kode'])) { // Query Spesifik Judul/Kategori
-                        $kode=trim($_POST['s_kode']);
-                        $query1 = "SELECT * FROM pelatihan_sertifikasi WHERE expired_date is not null and DATEDIFF(expired_date, CURRENT_DATE) <= 90 and DATEDIFF(expired_date, CURRENT_DATE) >60 AND kode='$kode'";
-                        $res1 = mysqli_query(connDB(),"$query1");
-                        echo mysqli_num_rows($res1);
+                        $s_kode = $_POST['s_kode'];
+
+                        if ($s_kode == 'all') {
+                            $query1 = "SELECT * FROM pelatihan_sertifikasi WHERE expired_date is not null and DATEDIFF(expired_date, CURRENT_DATE) <= 90 and DATEDIFF(expired_date, CURRENT_DATE) >60";
+                            $res1 = mysqli_query(connDB(),"$query1");    
+                            echo mysqli_num_rows($res1);
+                        }
+                        elseif ($s_kode != 'all'){
+
+                        $query2 = "SELECT * FROM pelatihan_sertifikasi WHERE expired_date is not null and DATEDIFF(expired_date, CURRENT_DATE) <= 90 and DATEDIFF(expired_date, CURRENT_DATE) >60 AND kode='$s_kode'";
+                        $res2 = mysqli_query(connDB(),"$query2");
+                        echo mysqli_num_rows($res2);
+                        }
+                        
                     }
                     elseif (!isset($_POST['s_kode'])) { // Query ALL
-                        $query4 = "SELECT * FROM pelatihan_sertifikasi WHERE expired_date is not null and DATEDIFF(expired_date, CURRENT_DATE) <= 90 and DATEDIFF(expired_date, CURRENT_DATE) >60";
-                        $res4 = mysqli_query(connDB(),"$query4");
-                        echo mysqli_num_rows($res4);
+                        $query3 = "SELECT * FROM pelatihan_sertifikasi WHERE expired_date is not null and DATEDIFF(expired_date, CURRENT_DATE) <= 90 and DATEDIFF(expired_date, CURRENT_DATE) >60";
+                        $res3 = mysqli_query(connDB(),"$query3");
+                        echo mysqli_num_rows($res3);
                     }
                     ?>,
 
                     <?php
-                    if (isset($_POST['s_kode'])) {
-                        $query2 = "SELECT * FROM pelatihan_sertifikasi WHERE expired_date is not null and DATEDIFF(expired_date, CURRENT_DATE) <= 60 and DATEDIFF(expired_date, CURRENT_DATE) >30 AND kode='$kode'";
-                        $res2 = mysqli_query(connDB(),"$query2");
-                        echo mysqli_num_rows($res2);
-                    }
-                    elseif (!isset($_POST['s_kode'])) {
-                        $query5 = "SELECT * FROM pelatihan_sertifikasi WHERE expired_date is not null and DATEDIFF(expired_date, CURRENT_DATE) <= 60 and DATEDIFF(expired_date, CURRENT_DATE) >30";
+                    if (isset($_POST['s_kode'])) { // Query Spesifik Judul/Kategori
+                        $s_kode = $_POST['s_kode'];
+
+                        if ($s_kode == 'all') {
+                            $query4 = "SELECT * FROM pelatihan_sertifikasi WHERE expired_date is not null and DATEDIFF(expired_date, CURRENT_DATE) <= 60 and DATEDIFF(expired_date, CURRENT_DATE) >30";
+                            $res4 = mysqli_query(connDB(),"$query4");    
+                            echo mysqli_num_rows($res4);
+                        }
+                        elseif ($s_kode != 'all'){
+
+                        $query5 = "SELECT * FROM pelatihan_sertifikasi WHERE expired_date is not null and DATEDIFF(expired_date, CURRENT_DATE) <= 60 and DATEDIFF(expired_date, CURRENT_DATE) >30 AND kode='$s_kode'";
                         $res5 = mysqli_query(connDB(),"$query5");
                         echo mysqli_num_rows($res5);
+                        }
+                        
                     }
-                    ?>,
-                    <?php
-                    if (isset($_POST['s_kode'])) {
-                        $query3 = "SELECT * FROM pelatihan_sertifikasi WHERE expired_date is not null and DATEDIFF(expired_date, CURRENT_DATE) <= 30 AND kode='$kode'";
-                        $res3 = mysqli_query(connDB(),"$query3");
-                        echo mysqli_num_rows($res3);
-                    }
-                    elseif (!isset($_POST['s_kode'])) {
-                        $query6 = "SELECT * FROM pelatihan_sertifikasi WHERE expired_date is not null and DATEDIFF(expired_date, CURRENT_DATE) <= 30";
+                    elseif (!isset($_POST['s_kode'])) { // Query ALL
+                        $query6 = "SELECT * FROM pelatihan_sertifikasi WHERE expired_date is not null and DATEDIFF(expired_date, CURRENT_DATE) <= 60 and DATEDIFF(expired_date, CURRENT_DATE) >30";
                         $res6 = mysqli_query(connDB(),"$query6");
                         echo mysqli_num_rows($res6);
                     }
+                    ?>,
+
+                    <?php
+                    if (isset($_POST['s_kode'])) { // Query Spesifik Judul/Kategori
+                        $s_kode = $_POST['s_kode'];
+
+                        if ($s_kode == 'all') {
+                            $query7 = "SELECT * FROM pelatihan_sertifikasi WHERE expired_date is not null and DATEDIFF(expired_date, CURRENT_DATE) <= 30";
+                            $res7 = mysqli_query(connDB(),"$query7");    
+                            echo mysqli_num_rows($res7);
+                        }
+                        elseif ($s_kode != 'all'){
+
+                        $query8 = "SELECT * FROM pelatihan_sertifikasi WHERE expired_date is not null and DATEDIFF(expired_date, CURRENT_DATE) <= 30 AND kode='$s_kode'";
+                        $res8 = mysqli_query(connDB(),"$query8");
+                        echo mysqli_num_rows($res8);
+                        }
+                        
+                    }
+                    elseif (!isset($_POST['s_kode'])) { // Query ALL
+                        $query9 = "SELECT * FROM pelatihan_sertifikasi WHERE expired_date is not null and DATEDIFF(expired_date, CURRENT_DATE) <= 30";
+                        $res9 = mysqli_query(connDB(),"$query9");
+                        echo mysqli_num_rows($res9);
+                    }
+
                     ?>
             
                     ],
@@ -187,6 +270,7 @@
                 }]
             },
             options: {
+                showAllTooltips: true,
                 legend: {
                     display: false
                 },
@@ -196,18 +280,8 @@
                             beginAtZero:true
                         }
                     }]
-                }
+                },
             }
         });
     </script>
-    <script type="text/javascript">
-    $(function() {
-    if (localStorage.getItem('s_kode')) {
-        $("#s_kode option").eq(localStorage.getItem('s_kode')).prop('selected', true);
-    }
 
-    $("#s_kode").on('change', function() {
-        localStorage.setItem('s_kode', $('option:selected', this).index());
-        });
-    });
-    </script>
