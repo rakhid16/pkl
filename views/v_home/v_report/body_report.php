@@ -176,10 +176,15 @@
         var myChart = new Chart(ctx, {
             type: 'horizontalBar',
             data: {
-                labels: ["Expired 3 bulan lagi", "Expired 2 bulan lagi", "Expired 1 bulan lagi"],
+                labels: ["Jumlah Data Sertifikat","Expired 3 bulan lagi", "Expired 2 bulan lagi", "Expired 1 bulan lagi"],
                 datasets: [{
                     label : 'Jumlah',
                     data: [
+                    <?php
+                        $queryAll = mysqli_query(connDB(), "SELECT * FROM pelatihan_sertifikasi"); 
+                        echo mysqli_num_rows($queryAll);
+                    ?>,
+
                     <?php
                     if (isset($_POST['s_kode'])) { // Query Spesifik Judul/Kategori
                         $s_kode = $_POST['s_kode'];
@@ -255,16 +260,16 @@
             
                     ],
                     backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)'
+                    'rgba(255, 187, 0, 0.5)',
+                    'rgba(60, 255, 0, 0.5)',
+                    'rgba(225, 255, 0, 0.5)',
+                    'rgba(255, 0, 0, 0.5)'
                     ],
                     borderColor: [
-                    'rgba(255,99,132,1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)'
+                    '#444a3f',
+                    '#444a3f',
+                    '#444a3f',
+                    '#444a3f'
                     ],
                     borderWidth: 1
                 }]
@@ -273,6 +278,9 @@
                 showAllTooltips: true,
                 legend: {
                     display: false
+                },
+                tooltips: {
+                    enabled: true
                 },
                 scales: {
                     yAxes: [{
