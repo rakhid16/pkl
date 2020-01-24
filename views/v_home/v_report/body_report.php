@@ -103,10 +103,13 @@
                                                 </div>
                                                                         
                                             </div>                            
-                                    </form><br><br>
+                                    </form>
                         
                                     
-                                    <?php
+                                    
+
+            <div style="width: 780px; margin: 0px auto; margin-left: 100px; margin-top: 10px"><br><br>
+                <?php
                                         $s_kode="";
 
                                         if (isset($_POST['s_kode'])) {
@@ -114,7 +117,7 @@
                                             $s_kode = $_POST['s_kode'];
                                             
                                             if ($s_kode == 'all') {
-                                                 echo "Semua Data Sertifikat";
+                                                 echo "&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Semua Data Sertifikat";
                                             }
                                             else {
                                             
@@ -132,7 +135,7 @@
                                                     $judul = $data['judul'];
                                             ?>
                                             <tr>
-                                                &emsp;&emsp;&emsp;<?php echo $kode ?>
+                                                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<?php echo $kode ?>
                                                 <?php echo '- '.$judul ?>
                                             </tr>
                                                     
@@ -144,13 +147,11 @@
                                             }
                                         }
                                         elseif (!isset($_POST['s_kode'])) {
-                                            echo "Semua Data Sertifikat";
+                                            echo "&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Semua Data Sertifikat";
                                         }
                                    
                                 ?>
-
-            <div style="width: 780px; margin: 0px auto; margin-left: 100px; margin-top: 10px"><br><br>
-                <canvas id="myChart"></canvas>
+                <br><br><canvas id="myChart"></canvas>
             </div>
 
             <?php    
@@ -260,7 +261,7 @@
             
                     ],
                     backgroundColor: [
-                    'rgba(255, 187, 0, 0.5)',
+                    'rgba(24, 0, 245, 0.5)',
                     'rgba(60, 255, 0, 0.5)',
                     'rgba(225, 255, 0, 0.5)',
                     'rgba(255, 0, 0, 0.5)'
@@ -275,12 +276,8 @@
                 }]
             },
             options: {
-                showAllTooltips: true,
                 legend: {
                     display: false
-                },
-                tooltips: {
-                    enabled: true
                 },
                 scales: {
                     yAxes: [{
@@ -289,7 +286,27 @@
                         }
                     }]
                 },
-            }
+                tooltips: {
+                    enabled: true
+                },
+                animation: {
+                  duration: 500,
+                  onComplete: function () {
+                  console.log('zhopa');
+                  var ctx = this.chart.ctx;
+                      ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontFamily, 'normal', Chart.defaults.global.defaultFontFamily);
+                      ctx.fillStyle = this.chart.config.options.defaultFontColor;
+                      ctx.textAlign = 'left';
+                      ctx.textBaseline = 'top';
+                      this.data.datasets.forEach(function (dataset) {
+                          for (var i = 0; i < dataset.data.length; i++) {
+                              var model = dataset._meta[Object.keys(dataset._meta)[0]].data[i]._model;
+                              ctx.fillText(dataset.data[i], model.x, model.y - 5);
+                          }
+                      });
+                    }
+                }
+            },
         });
     </script>
 
