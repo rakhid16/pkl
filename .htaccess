@@ -15,23 +15,5 @@ RewriteRule ^home/report$ /pertamina/controllers/c_home/c_report/report.php
 RewriteRule ^home/master_pelatihan$ /pertamina/controllers/c_home/c_master_pelatihan/master_pelatihan.php
 RewriteRule ^home/report$ /pertamina/controllers/c_home/c_report/report.php
 
-# error di client
-# bad syntax
-ErrorDocument 400 /path/to/400.php
-# unautorized
-ErrorDocument 401 /path/to/401.php
-# not used
-ErrorDocument 402 /path/to/402.php
-# forbiden
-ErrorDocument 403 /path/to/403.php
-# not found
-ErrorDocument 404 /pertamina/routes/routesError/404.php
-# error di server
-# internal server error
-ErrorDocument 500 /path/to/500.php
-# not implemented
-ErrorDocument 501 /path/to/501.php
-# overload
-ErrorDocument 502 /path/to/502.php
-# gateway timeout
-ErrorDocument 503 /path/to/503.php
+# error di client not found
+ErrorDocument 404 /pertamina/404.php
