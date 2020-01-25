@@ -18,24 +18,24 @@
     <meta name="msapplication-TileImage" content="assets/img/metis-tile.png" />
     
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="../pertamina/static/assetRoute/bootstrap.css">
+    <link rel="stylesheet" href="http://localhost/pertamina/static/assetRoute/bootstrap.css">
     
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="../pertamina/static/assetRoute/font-awesome.css">
+    <link rel="stylesheet" href="http://localhost/pertamina/static/assetRoute/font-awesome.css">
     
     <!-- Metis core stylesheet -->
-    <link rel="stylesheet" href="../pertamina/static/assetRoute/main.css">
+    <link rel="stylesheet" href="http://localhost/pertamina/static/assetRoute/main.css">
     
     <!-- metisMenu stylesheet -->
-    <link rel="stylesheet" href="../pertamina/static/assetRoute/metisMenu.css">
+    <link rel="stylesheet" href="http://localhost/pertamina/static/assetRoute/metisMenu.css">
     
     <!-- onoffcanvas stylesheet -->
-    <link rel="stylesheet" href="../pertamina/static/assetRoute/onoffcanvas/onoffcanvas.css">
+    <link rel="stylesheet" href="http://localhost/pertamina/static/assetRoute/onoffcanvas/onoffcanvas.css">
     
     <!-- animate.css stylesheet -->
-    <link rel="stylesheet" href="../pertamina/static/assetRoute/animate.css/animate.css">
+    <link rel="stylesheet" href="http://localhost/pertamina/static/assetRoute/animate.css/animate.css">
     <!-- Ikon Fav -->
-    <link rel="shortcut icon" type="image/x-icon" href="../pertamina/static/img/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="http://localhost/pertamina/static/img/favicon.png">
 </head>
 
 <body class="error" style="background-color: #d1cbcb !important">
@@ -44,7 +44,7 @@
             <div class="logo">
                 <h1>404</h1>
             </div>
-            <img src="../pertamina/static/assetRoute/gif/kocheng.gif">
+            <img src="http://localhost/pertamina/static/assetRoute/gif/kocheng.gif">
             <p style="font-weight: bold;" class="lead text-muted">URL Not Found, Please Back to the World.</p>
             <div class="clearfix"></div>
             

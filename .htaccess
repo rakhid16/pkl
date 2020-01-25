@@ -15,5 +15,8 @@ RewriteRule ^home/report$ /pertamina/controllers/c_home/c_report/report.php
 RewriteRule ^home/master_pelatihan$ /pertamina/controllers/c_home/c_master_pelatihan/master_pelatihan.php
 RewriteRule ^home/report$ /pertamina/controllers/c_home/c_report/report.php
 
-# error di client not found
-ErrorDocument 404 /pertamina/404.php
+# Rewrite URL Root to Sub Folder
+# RewriteRule ^$ /pertamina/login
+
+# Error 404 not found
+ErrorDocument 404 /pertamina/routes/errorPage/404.php
