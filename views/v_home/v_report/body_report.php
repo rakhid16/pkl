@@ -86,7 +86,7 @@
                                                     $result = mysqli_query(connDB(), $query);
                                                 ?>
                                                 
-                                                <div style="margin-left: -550px">
+                                                <div style="margin-left: -500px">
                                                     <!-- <button>aaa</button> -->
                                                 <select name="s_kode" id="s_kode" class="form-control-filter1 chosen" style="float: left; width: 330px !important; margin-left: 300px; width: 400px !important; margin-top: -50px" required>
                                                     <option value="" style="text-align: left;">-- Pilih Kode Sertifikat --</option>
@@ -99,7 +99,9 @@
                                                     <?php } ?>
                                                 </select>
                                                 
-                                            &emsp;<button id="search" name="search" class="btn btn-danger" style="border-radius: 5px; padding: 5px; font-size: 12px">Filter</button>
+                                            &emsp;<button id="search" name="search" class="btn btn-danger" style="border-radius: 4px; padding: 5px; font-size: 11px">Filter</button>
+
+                                                <button class="btn btn-success" style="float: right; font-size: 11px; border-radius: 4px">Ubah Ke Tabel</button>
                                                 </div>
                                                                         
                                             </div>                            

@@ -24,9 +24,4 @@
     <link rel="stylesheet" href="../../../pertamina/static/css/homeCSS/responsive.css">
     <script src="../../../pertamina/static/js/homeJS/vendor/modernizr-2.8.3.min.js"></script>
 
-    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
-    <script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />
-    <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
 </head>

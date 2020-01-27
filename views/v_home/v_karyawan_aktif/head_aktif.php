@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="../../../pertamina/static/assetHome/css/all.css">
     <link rel="shortcut icon" type="image/x-icon" href="../../../pertamina/static/img/favicon.png">
     <link href="../../../pertamina/static/assetHome/css/css.css" rel="stylesheet">
-
     <link rel="stylesheet" href="../../../pertamina/static/assetHome/css/adminpro-custon-icon.css">
     <link rel="stylesheet" href="../../../pertamina/static/assetHome/css/meanmenu.min.css">
     <link rel="stylesheet" href="../../../pertamina/static/assetHome/css/jquery.mCustomScrollbar.min.css">
@@ -22,6 +21,5 @@
     <link rel="stylesheet" href="../../../pertamina/static/assetHome/css/form/all-type-forms.css">
     <link rel="stylesheet" href="../../../pertamina/static/assetHome/css/style.css">
     <link rel="stylesheet" href="../../../pertamina/static/assetHome/css/responsive.css">
-    
     <script src="../../../pertamina/static/assetHome/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
