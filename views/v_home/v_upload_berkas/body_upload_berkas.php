@@ -108,7 +108,7 @@
 
                                             <label style="float: left; margin-top: 5px">No Sertifikat&emsp;&emsp;&emsp; : &emsp;</label><input type="text" class="form-control" name="no_sertifikat" placeholder="No Sertifikat" style="height: 30px; padding: 4px; width: 300px; margin-top: 10px; margin-bottom: 25px;" required>
 
-                                            <label style="float: left; margin-top: 5px">Kategori/Judul&emsp;&emsp;&nbsp; : &emsp;</label>
+                                            <label style="float: left; margin-top: 5px">Kategori/Judul&emsp;&emsp; : &emsp;</label>
                                             <div class="judul" style="margin-left: 0px; float: left;">
                                             <select name="s_kode" id="s_kode" class="chosen" style="float: left; width: 330px !important;margin-left: 0px;" required>
                                                     <option value="">Pilih Kategori/Judul -- Kode</option>

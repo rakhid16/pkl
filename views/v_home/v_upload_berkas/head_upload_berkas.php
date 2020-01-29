@@ -7,10 +7,8 @@
     <script src="../../../pertamina/static/assetMasterPekerja/js/jquery.min.js"></script>
     <link rel="stylesheet" href="../../../pertamina/static/assetMasterPekerja/css/jquery-ui.css">    
     <script src="../../../pertamina/static/assetMasterPekerja/js/jquery-ui.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.5/chosen.jquery.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.5/chosen.min.css">
     <script src="../../../pertamina/static/assetMasterPekerja/js/chosen.jquery.min.js"></script>
-    <link rel="stylesheet" href="../../../pertamina/static/assetMasterPekerja/js/chosen.min.css">
+    <link rel="stylesheet" href="../../../pertamina/static/assetMasterPekerja/css/chosen.min.css">
 
     <link rel="stylesheet" href="../../../pertamina/static/assetHome/css/bootstrap.min.css" />  
     <link rel="stylesheet" href="../../../pertamina/static/assetHome/css/all.css">
