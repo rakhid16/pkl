@@ -262,10 +262,10 @@
             
                     ],
                     backgroundColor: [
-                    'rgba(24, 0, 245, 0.3)',
-                    'rgba(60, 255, 0, 0.3)',
-                    'rgba(225, 255, 0, 0.3)',
-                    'rgba(255, 0, 0, 0.3)'
+                    'rgba(24, 0, 245, 0.7)',
+                    'rgba(60, 255, 0, 0.7)',
+                    'rgba(225, 255, 0, 0.7)',
+                    'rgba(255, 0, 0, 0.7)'
                     ],
                     borderColor: [
                     '#444a3f',
@@ -284,6 +284,9 @@
                     yAxes: [{
                         ticks: {
                             beginAtZero:true
+                        },
+                        gridLines: {
+                            color: "rgba(0,0,0,0)",
                         }
                     }]
                 },
