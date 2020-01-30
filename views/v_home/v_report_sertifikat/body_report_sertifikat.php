@@ -290,14 +290,6 @@
                         }
                     }]
                 },
-                tooltips: [
-                    'Link 1: <a href="http://www.google.com" target="_blank" >Google</a>',
-                    'Link 2: <a href="http://www.yahoo.com" target="_blank" >Yahoo</a>',
-                    'Link 3: <a href="http://www.bing.com" target="_blank" >Bing</a>'
-                ],
-                xaxisLabels: [
-                    'Google','Yahoo','Bing'
-                ],
                 animation: {
                   duration: 500,
                   onComplete: function () {

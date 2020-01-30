@@ -66,7 +66,7 @@
                             <div class="sparkline8-list shadow-reset">
                                 
                                 <div class="sparkline8-hd" style="margin-top: 15px;">
-                                    <p align=center style="font-size:20px; font-color: black">Data Karyawan MOR V</p>
+                                    <p align=center style="font-size:20px; font-color: black">Data Karyawan Aktif MOR V</p>
                                 </div>
 
                                 <?php
