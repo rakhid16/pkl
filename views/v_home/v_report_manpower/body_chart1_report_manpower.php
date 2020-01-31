@@ -2,9 +2,9 @@
     <style type="text/css">
     tbody tr:nth-child(odd) {background-color: #f5f5f5;}
 
-	#block1, #block2{
-		display: inline;
-	}   
+    #block1, #block2{
+        display: inline;
+    }   
 
     </style>
     <div class="wrapper-pro">
@@ -73,24 +73,25 @@
                                 <div class="sparkline8-hd" style="margin-top: 15px;">
                                     <p align=center style="font-size:20px; font-color: black">Data Grafik Report Manpower</p>
                                 </div>
-									
+                                    
                                     <div class="sparkline8-graph">
                                         <div class="datatable-dashv1-list custom-datatable-overright" >
                                             <div class="toolbar"></div>                                                              
                                
-						            <canvas id="myChart1"></canvas>
-                            
-										-- Halaman --<br>
-										<div id="block1" style="background-color: grey;">
-											<a href="report_manpower_page=1" style="color: white; margin-right: 5px">&nbsp; 1 </a>
-											
-										</div>
-										<div id="block2" style="background-color: grey; margin-left: 5px;">
-											<a href="report_manpower_page=2" style="color: white; margin-right: 9px">&nbsp; 2 </a>
-										</div>
-									
-						            </div>
-                        
+                                    <canvas id="myChart2"></canvas>
+
+
+                                        -- Halaman --<br>
+                                        <div id="block1" style="background-color: grey;">
+                                            <a href="report_manpower_page=1" style="color: white; margin-right: 5px">&nbsp; 1 </a>
+                                            
+                                        </div>
+                                        <div id="block2" style="background-color: grey; margin-left: 5px;">
+                                            <a href="report_manpower_page=2" style="color: white; margin-right: 9px">&nbsp; 2 </a>
+                                        </div>
+                                    
+                                    </div>
+
                         <hr style="border: 3px solid red; border-radius: 5px;">
                     
                         <p align=center style="font-size:20px; font-color: black; margin-top: 4%">Data Tabel Report Manpower</p>
@@ -111,10 +112,10 @@
                                         <tbody>
                                             <?php
 
-                                                $query = "SELECT nama_fungsi, count(fungsi.kbo) as total FROM posisi, fungsi WHERE fungsi.kbo = posisi.kbo GROUP by nama_fungsi Limit 13;";
+                                                $query = "SELECT nama_fungsi, count(fungsi.kbo) as total FROM posisi, fungsi WHERE fungsi.kbo = posisi.kbo GROUP by nama_fungsi Limit 13, 100;";
                                                 $result = mysqli_query(connDB(),$query);
 
-                                                $query1 = "SELECT count(fungsi.kbo) as terisi FROM posisi, fungsi, data_karyawan WHERE fungsi.kbo = posisi.kbo and posisi.id_position = data_karyawan.id_position GROUP by nama_fungsi LIMIT 13;";
+                                                $query1 = "SELECT count(fungsi.kbo) as terisi FROM posisi, fungsi, data_karyawan WHERE fungsi.kbo = posisi.kbo and posisi.id_position = data_karyawan.id_position GROUP by nama_fungsi LIMIT 13, 100;";
                                                 $result1 = mysqli_query(connDB(),$query1);
                                                 
                                                 $no = 1;
@@ -132,7 +133,18 @@
                                                     $no++;
                                                     ?>
                                                 </td>
-                                                <td><?php echo "<center><p style='margin-left:-9.6px'>$nama_fungsi</p></center>"; ?></td>
+                                                <td>
+                                                <?php 
+                                                if ($nama_fungsi == null) {
+                                                    echo "<td><center><p style='margin-left:-9.6px'>".$nama_fungsi."</p></center></td>";
+                                                }
+                                                else{
+                                                echo "<center><p style='margin-left:-9.6px'>$nama_fungsi</p></center>"; 
+                                                }
+
+                                                ?>
+                                                    
+                                                </td>
                                                 <td><?php echo "<center><p style='margin-left:-9.6px'>$total</p></center>";?></td>
                                                 <td><?php echo "<center><p style='margin-left:-9.6px'>$terisi</p></center>";?></td>
                                                 <?php echo
@@ -153,9 +165,9 @@
 
 
                                 </div>
-                    
 
-                   
+
+                                </div>
 
                             </div>
                         </div>
@@ -168,10 +180,113 @@
     </div> <!-- WRAPPER PRO END -->
 
 
-    <?php  
-    	include 'body_chart_report_manpower.php';
-    ?>
+<script>
+        var ctx = document.getElementById("myChart2").getContext('2d');
+        ctx.canvas.width = 800;
+        ctx.canvas.height = 320;
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ["MOR V (NON FORMASI PWT)","MOR V (NON FORMASI REGION)","MOR V (NON FORMASI Tugas Belajar)","Procurement MOR V","Quality Management","Rel. & Project Dev. Region V","Retail Sales Region V","S&D Region V","S&D Region V (NON FORMASI PWT TNI POLRI)","Unit HC MOR V"],
+                datasets: [
+                {
+                  label: "Formation",
+                  backgroundColor: "lightblue",
+                  borderColor: "blue",
+                  borderWidth: 1,
+                  data: [
+                    1, 
+                    0, 
+                    3, 
+                    6,
+                    2,
+                    23,
+                    86,
+                    316,
+                    1,
+                    9
+                  ]
+                  
+                },
+                {
+                  label: "Filled",
+                  backgroundColor: "lightgreen",
+                  borderColor: "green",
+                  borderWidth: 1,
+                  data: [
+                    1,
+                    0, 
+                    3, 
+                    6, 
+                    1,
+                    17,
+                    66,
+                    267,
+                    1,
+                    8
+                  ]
+                },
+                {
+                  label: "Vacant",
+                  backgroundColor: "pink",
+                  borderColor: "red",
+                  borderWidth: 1,
+                  data: [
+                    0, 
+                    0,
+                    0, 
+                    0, 
+                    1,
+                    6,
+                    20,
+                    49,
+                    0,
+                    1
+                    
+                  ]
+                }]
+            },
+            options: {
+                legend: {
+                    display: true
+                },
+                scales: {
+                    xAxes:[{
+                        gridLines: {
+                            color: "rgba(0,0,0,0)", 
+                        },
+                        ticks:{
+                            display: true,
+                            maxTicksLimit: 10,
+                            autoSkip: false
+                        }
+                    }],
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        },
+                    }]
+                },
+                animation: {
+                  duration: 500,
+                  onComplete: function () {
+                  console.log('zhopa');
+                  var ctx = this.chart.ctx;
+                      ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontFamily, 'normal', Chart.defaults.global.defaultFontFamily);
+                      ctx.fillStyle = this.chart.config.options.defaultFontColor;
+                      ctx.textAlign = 'center';
+                      ctx.textBaseline = 'bottom';
+                      this.data.datasets.forEach(function (dataset) {
+                          for (var i = 0; i < dataset.data.length; i++) {
+                              var model = dataset._meta[Object.keys(dataset._meta)[0]].data[i]._model;
+                              ctx.fillText(dataset.data[i], model.x, model.y - 5);
+                          }
+                      });
+                    }
+                }
+            },
+        });
+</script>
 
-                                   
 
                                 
