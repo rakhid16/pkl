@@ -17,7 +17,9 @@
                     <h3>Spongebob</h3>
                     <p>Squarepants</p>
                 </div>
+                
 <?php include '../../../views/v_home/v_karyawan_aktif/sidebar_aktif.php' ?>
+
         <div class="content-inner-all">
             <div class="header-top-area">
                 <div class="fixed-header-top">
@@ -79,6 +81,25 @@
                                             <div class="toolbar"></div>                                                              
                                
 						            <canvas id="myChart1"></canvas>
+
+                                   
+                                   <?php 
+                                      $halaman = 12;
+
+                                      $page = isset($_GET["halaman"]) ? (int)$_GET["halaman"] : 1;
+                                      $mulai = ($page>1) ? ($page * $halaman) - $halaman : 0;
+
+                                      $result = mysqli_query(connDB(),"SELECT * FROM fungsi GROUP BY nama_fungsi ASC");
+                                      $total = mysqli_num_rows($result);
+
+                                      $pages = ceil($total/$halaman);
+                                                
+                                      $query = mysqli_query(connDB(),"select * from fungsi GROUP BY nama_fungsi ASC LIMIT $mulai, $halaman");
+                                      $no =$mulai+1;
+
+                                      
+                                    ?>
+
                             
 										-- Halaman --<br>
 										<div id="block1" style="background-color: grey;">
@@ -88,6 +109,14 @@
 										<div id="block2" style="background-color: grey; margin-left: 5px;">
 											<a href="report_manpower_page=2" style="color: white; margin-right: 9px">&nbsp; 2 </a>
 										</div>
+                                        <!-- halaman auto -->
+                                        <div class="">
+                                          <?php for ($i=1; $i<=$pages ; $i++){ ?>
+                                          <a href="?halaman=<?php echo $i; ?>"><?php echo $i; ?></a>
+
+                                          <?php } ?>
+
+                                        </div>
 									
 						            </div>
                         
@@ -148,6 +177,8 @@
                                             <?php } ?>
                                         </tbody>
                                     </table>
+
+
 
                                 </div>
 
