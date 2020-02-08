@@ -15,8 +15,6 @@ RewriteRule ^home/report$ /pertamina/controllers/c_home/c_report/report.php
 RewriteRule ^home/master_pelatihan$ /pertamina/controllers/c_home/c_master_pelatihan/master_pelatihan.php
 RewriteRule ^home/report_sertifikat$ /pertamina/controllers/c_home/c_report_sertifikat/report_sertifikat.php
 RewriteRule ^home/report_manpower$ /pertamina/controllers/c_home/c_report_manpower/report_manpower.php
-RewriteRule ^home/report_manpower_page=1$ /pertamina/controllers/c_home/c_report_manpower/report_manpower.php
-RewriteRule ^home/report_manpower_page=2$ /pertamina/controllers/c_home/c_report_manpower/report_manpower2.php
 
 # Rewrite URL Root to Sub Folder
 # RewriteRule ^$ /pertamina/login

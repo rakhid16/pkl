@@ -1,3 +1,6 @@
+<?php  
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -44,6 +47,7 @@
             <div class="logo">
                 <h1>404</h1>
             </div>
+
             <img src="http://localhost/pertamina/static/assetRoute/gif/kocheng.gif">
             <p style="font-weight: bold;" class="lead text-muted">URL Not Found, Please Back to the World.</p>
             <div class="clearfix"></div>
@@ -55,8 +59,17 @@
             <br>
             <div class="col-lg-6 col-lg-offset-3">
                 <div class="btn-group btn-group-justified">
-                    <a href="/pertamina/home" class="btn btn-info">Return Dashboard</a>
-                    <a href="https://www.pertamina.com" class="btn btn-warning">Return Website</a>
+                    <?php
+                        if (isset($_SESSION['status_login']) == 'login') {
+                            echo '<a href="/pertamina/home" class="btn btn-info" target="_blank">Return to Home</a>';
+                            echo '<a href="https://www.pertamina.com" class="btn btn-warning">Return to Website</a>';
+                        }
+                        else{
+                            echo '<a href="/pertamina/login" class="btn btn-info">Return to Login</a>';
+                            echo '<a href="https://www.pertamina.com" class="btn btn-warning">Return to Website</a>';   
+                        }
+                    ?>
+                    
                 </div>
             </div>
         </div>
