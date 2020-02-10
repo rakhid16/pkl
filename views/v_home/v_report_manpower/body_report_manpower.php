@@ -100,19 +100,13 @@
                                       
                                     ?>
 
-                            
-										-- Halaman --<br>
-										<div id="block1" style="background-color: grey;">
-											<a href="report_manpower_page=1" style="color: white; margin-right: 5px">&nbsp; 1 </a>
-											
-										</div>
-										<div id="block2" style="background-color: grey; margin-left: 5px;">
-											<a href="report_manpower_page=2" style="color: white; margin-right: 9px">&nbsp; 2 </a>
-										</div>
+										
                                         <!-- halaman auto -->
-                                        <div class="">
+                                        -- Halaman --
+                                        
+                                        <div style="margin-top: 5px">
                                           <?php for ($i=1; $i<=$pages ; $i++){ ?>
-                                          <a href="?halaman=<?php echo $i; ?>"><?php echo $i; ?></a>
+                                          <a style="background-color: grey; font-size: 14px; color: white; padding: 3px" href="?halaman=<?php echo $i; ?>"><?php echo $i; ?></a>
 
                                           <?php } ?>
 
@@ -139,16 +133,25 @@
                                     
                                         <tbody>
                                             <?php
+                                                $halaman = 12;
 
-                                                $query = "SELECT nama_fungsi, count(fungsi.kbo) as total FROM posisi, fungsi WHERE fungsi.kbo = posisi.kbo GROUP by nama_fungsi Limit 13;";
-                                                $result = mysqli_query(connDB(),$query);
+                                                $page = isset($_GET["halaman"]) ? (int)$_GET["halaman"] : 1;
+                                                $mulai = ($page>1) ? ($page * $halaman) - $halaman : 0;
 
-                                                $query1 = "SELECT count(fungsi.kbo) as terisi FROM posisi, fungsi, data_karyawan WHERE fungsi.kbo = posisi.kbo and posisi.id_position = data_karyawan.id_position GROUP by nama_fungsi LIMIT 13;";
-                                                $result1 = mysqli_query(connDB(),$query1);
+                                                $result = mysqli_query(connDB(),"SELECT * FROM fungsi GROUP BY nama_fungsi ASC");
+                                                $total = mysqli_num_rows($result);
+
+                                                $pages = ceil($total/$halaman);
+                                                        
+                                                $query = "SELECT nama_fungsi, count(fungsi.kbo) as total FROM posisi, fungsi WHERE fungsi.kbo = posisi.kbo GROUP by nama_fungsi Limit $mulai, $halaman";
+                                                $hasil = mysqli_query(connDB(),$query);
+
+                                                $query1 = "SELECT count(fungsi.kbo) as terisi FROM posisi, fungsi, data_karyawan WHERE fungsi.kbo = posisi.kbo and posisi.id_position = data_karyawan.id_position GROUP by nama_fungsi LIMIT $mulai, $halaman";
+                                                $hasil1 = mysqli_query(connDB(),$query1);
                                                 
                                                 $no = 1;
-                                                if (($result->num_rows > 0) && ($result1->num_rows > 0)) {
-                                                    while ((($data = $result->fetch_assoc()) && ($data1 = $result1->fetch_assoc()))) {
+                                                if (($hasil->num_rows > 0) && ($hasil1->num_rows > 0)) {
+                                                    while ((($data = $hasil->fetch_assoc()) && ($data1 = $hasil1->fetch_assoc()))) {
                                                     
 
                                                     $nama_fungsi = $data['nama_fungsi'];
