@@ -153,6 +153,7 @@
                                         }
                                    
                                 ?>
+
                 <br><br><canvas id="myChart"></canvas></div>
 
             <?php    
@@ -183,8 +184,24 @@
                     label : 'Jumlah',
                     data: [
                     <?php
-                        $queryAll = mysqli_query(connDB(), "SELECT * FROM pelatihan_sertifikasi"); 
-                        echo mysqli_num_rows($queryAll);
+                    if (isset($_POST['s_kode'])) {
+                        $s_kode = $_POST['s_kode'];
+
+                        if ($s_kode == 'all') {
+                            $queryAll = mysqli_query(connDB(), "SELECT * FROM pelatihan_sertifikasi"); 
+                            echo mysqli_num_rows($queryAll);
+                        } 
+                        elseif ($s_kode != 'all') {
+                            $queryAll = mysqli_query(connDB(), "SELECT * FROM pelatihan_sertifikasi where kode='$s_kode'"); 
+                            echo mysqli_num_rows($queryAll);
+                        }   
+                    } 
+                    
+                    elseif(!isset($_POST['s_kode'])) {
+                            $queryAll = mysqli_query(connDB(), "SELECT * FROM pelatihan_sertifikasi"); 
+                            echo mysqli_num_rows($queryAll);
+                    }
+                        
                     ?>,
 
                     <?php

@@ -164,7 +164,18 @@
                                                     $no++;
                                                     ?>
                                                 </td>
-                                                <td><?php echo "<center><p style='margin-left:-9.6px'>$nama_fungsi</p></center>"; ?></td>
+
+                                                <td><?php 
+                                                // echo $nama_fungsi;
+                                                if ($data['total'] ?? null) {
+                                                    echo "<center><p style='margin-left:-9.6px'>$nama_fungsi</p></center>";
+                                                }
+                                                else {
+                                                    echo "<center><p style='margin-left:-9.6px'>ANJAY</p></center>"; 
+                                                    
+                                                }?>
+                                                </td>
+
                                                 <td><?php echo "<center><p style='margin-left:-9.6px'>$total</p></center>";?></td>
                                                 <td><?php echo "<center><p style='margin-left:-9.6px'>$terisi</p></center>";?></td>
                                                 <?php echo
